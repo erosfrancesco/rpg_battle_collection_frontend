@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { SpriteService } from './services/sprite.service';
+
+let spriteService = new SpriteService()
+spriteService.getTest()
 
 @Component({
   selector: 'app-root',
