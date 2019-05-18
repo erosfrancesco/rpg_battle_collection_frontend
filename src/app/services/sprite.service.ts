@@ -13,7 +13,7 @@ export class SpriteService extends FetchHelper {
 
   getTest() {
   	//const req = FetchHelper.getTest("sprites")
-  	FetchHelper.getTest("sprites").then(console.log).catch(console.error);
+  	//FetchHelper.getTest("sprites").then(console.log).catch(console.error);
   }
 
 }
