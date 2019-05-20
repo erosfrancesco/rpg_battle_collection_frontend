@@ -2,9 +2,11 @@
 	
 	<h2>{{label}}</h2>
 	
-	<div *ngIf="image">
+	<div *ngIf="image" [style]="compute">
+		<!--
 		This box has an image: {{image}}
 		<img src="{{image}}" />
+		<!---->
 	</div>
 
 </mat-card>

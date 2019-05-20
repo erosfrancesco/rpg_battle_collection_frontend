@@ -9,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class SpriteListComponent implements OnInit {
 
 	items = [{
-		label: "Hello", 
-		properties: {
-			src: "blob:https://mega.nz/5f5e2508-8f7e-4f20-a987-05b0a5ab52ce"//"./src/ffviCast copia.png"
-			//"Hello world"
+		"label": "Terra", 
+		"properties": {
+			"src": "https://previews.dropbox.com/p/thumb/AAYWFkVjnobpvGVA2JFvH8tHr-TkkTcnK9p64_w8MQa6SMc9bjd_b4TEuLl1CqM1ZowIGkjpPWUBRUiW45cT3fCdmJxXmsCexACXLBM4AOSvlVn3giV70Pcxdu9Y7gSm8iQ5vaUKqWFF6PdaprTlh8Qrh6cLMjZcsxwNO_9sj5do8umpcrn6WornHMU2y2KHEK4TljTbpVjUKibSCICs086-A7SSukl3dIU4AmjRfEF95zb84bDA6sBKStsXkxkinpNgooKWIVPj9B4ucOxIWHixmpObquJDOTfPQpc6Z1P3l5nwQOq7UppWPJwOYKWOkIVv-z0GVft4fQrf-nKBCHpj/p.png?fv_content=true&size_mode=5",
+			"frameWidth": 170,
+            "frameHeight": 189,
+            "frameX": 0,
+            "frameY": 0,
+            "scaleX": 100,
+            "scaleY": 100
 		}
 	}]
 
