@@ -1,17 +1,4 @@
-:host mat-card {
-	max-width: 400px;
-	max-height: 300px;
-	width: 400px; 
-	height: 300px;
-	text-align: center;
-	background-color: #00227a;
-	color: white;
-	display: inline-block;
-	margin: 2px;
-};
+/*Stub*/
+:host app-item-display {
 
-
-:host mat-card h2 {
-	line-height: 300px;
-	font-size-adjust: 100%;
-};
+}

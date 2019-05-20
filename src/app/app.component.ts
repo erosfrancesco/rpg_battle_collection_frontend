@@ -10,5 +10,5 @@ spriteService.getTest()
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'demo-deploy';
+  title = 'RPG_Battle_Framework';
 }

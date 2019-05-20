@@ -8,33 +8,28 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ItemDisplayComponent implements OnInit {
 
 	@Input() label: string;
-	@Input() image: string;
-	@Input() spriteProperties: {src: string, frameHeight: number, frameWidth: number, frameX: number, frameY: number}
+	@Input() itemProperties: {src: string, frameHeight: number, frameWidth: number, frameX: number, frameY: number}
 
   constructor() { }
 
   ngOnInit() {
+  	this.computeSpriteStyle()
   }
 
 
+  backgroundExp : string;
+  widthExp : string;
+  heightExp : string;
+  leftExp : string;
 
-  computeSpriteStyle({src, frameHeight, frameWidth, frameX, frameY}, flip) {
-	const pathToAssetFolder = "./resources/assets/sprites/";
+  computeSpriteStyle() {
 
-	const dX = frameWidth * frameX;
-	const dY = frameHeight * frameY;
-	const zoom = 150 / frameHeight;
-	const str =// "zoom: " + zoom +
-	          "width:" + frameWidth + "px;" +
-	          "height:" + frameHeight + "px;" +
-	          "background: url(" +  src + ")" + 
-	          " -" + dX + "px" +
-	          " -" + dY + "px" +
-	          ";";;// + ((flip) ? "transform: rotateY(180deg);" : "") +
-	          //";";
+  	const {src, frameHeight, frameWidth, frameX, frameY} = this.itemProperties
 
-	//this.computedStyling = str;
-	return str;
+  	this.backgroundExp = "url(" +  src + ")" + " -" + (frameWidth * frameX) + "px -" + (frameHeight * frameY) + "px";
+  	this.widthExp = String(frameWidth)
+  	this.heightExp = String(frameHeight)
+    this.leftExp = "calc(50% - " + frameWidth + "px / 2)";
   }
 
 }

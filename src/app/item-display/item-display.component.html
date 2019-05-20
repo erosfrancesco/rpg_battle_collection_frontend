@@ -2,11 +2,8 @@
 	
 	<h2>{{label}}</h2>
 	
-	<div *ngIf="image" [style]="compute">
-		<!--
-		This box has an image: {{image}}
-		<img src="{{image}}" />
-		<!---->
+	<div 	*ngIf="itemProperties.src" 
+			[ngStyle]="{'background': backgroundExp, 'width.px': widthExp, 'height.px': heightExp, 'margin-left': leftExp}">
 	</div>
 
 </mat-card>

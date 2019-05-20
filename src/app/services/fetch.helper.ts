@@ -16,4 +16,9 @@ export class FetchHelper {
 		return fetch(url).then(res => res.json());
 	}
 
+	static getCategory(category) {
+		const url = FetchHelper.baseUrl + category;
+		return fetch(url).then(res => res.json());
+	}
+
 }

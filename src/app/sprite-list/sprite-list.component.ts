@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpriteService } from '../services/sprite.service';
 
 
 @Component({
@@ -21,7 +22,14 @@ export class SpriteListComponent implements OnInit {
 		}
 	}]
 
-	constructor() { }
+	constructor() { 
+		const spriteService = new SpriteService()
+		const res = spriteService.getItems();
+		res.then(items => {
+			console.log("got", items)
+			this.items = items
+		}).catch(console.error)
+	}
 
 	ngOnInit() {
 	}

@@ -16,4 +16,8 @@ export class SpriteService extends FetchHelper {
   	//FetchHelper.getTest("sprites").then(console.log).catch(console.error);
   }
 
+  getItems() :Promise<any> {
+  	return FetchHelper.getCategory("sprites"); //.then(console.log).catch(console.error);
+  }
+
 }
