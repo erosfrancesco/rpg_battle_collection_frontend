@@ -9,7 +9,7 @@ import { SpriteDetailComponent } from './sprite-detail/sprite-detail.component';
 
 import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, MatSidenavModule, MatInputModule, MatFormFieldModule} from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ItemDisplayComponent } from './item-display/item-display.component';
+//import { ItemDisplayComponent } from './item-display/item-display.component';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { SpriteItemComponent } from './sprite-item/sprite-item.component';
@@ -21,7 +21,7 @@ import { BackButtonComponent } from './navigation/back-button/back-button.compon
     AppComponent,
     SpriteListComponent,
     SpriteDetailComponent,
-    ItemDisplayComponent,
+    //ItemDisplayComponent,
     HomePageComponent,
     SpriteItemComponent,
     HeaderComponent,

@@ -11,7 +11,7 @@ import { SpriteService } from './services/sprite.service';
 export class AppComponent {
 	navTitle :string
 	fabButtonIcon :string = "add"
-	fabButtonAction = e => { console.log("ok", e); }
+	fabButtonAction() { console.log("ok"); }
 
 	spriteService = new SpriteService()
 }

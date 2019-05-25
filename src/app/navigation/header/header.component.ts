@@ -9,7 +9,7 @@ import { AppComponent } from '../../app.component'
 })
 export class HeaderComponent implements OnInit {
 
-	constructor(private appComponent :AppComponent) { 
+	constructor(appComponent :AppComponent) { 
 	}
 
 	ngOnInit() {

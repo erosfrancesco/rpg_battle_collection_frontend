@@ -19,8 +19,8 @@ export class SpriteDetailComponent implements OnInit {
 	}
 
 	private sub: any;
-	private sprite: Sprite
-	private originalSprite: Sprite
+	sprite: Sprite
+	originalSprite: Sprite
 	service = this.appComponent.spriteService
 
 	fetchItemById(id, onFetched: Function) {
