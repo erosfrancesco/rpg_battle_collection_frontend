@@ -7,11 +7,7 @@
 	background-color: background;
 	color: accent;
 	display: inline-block;
-	margin: 2px;
-};
-
-
-:host mat-card h2 {
+	margin: 4px;
 };
 
 :host mat-card div {

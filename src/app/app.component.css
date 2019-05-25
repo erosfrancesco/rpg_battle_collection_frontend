@@ -1,4 +1,29 @@
-.collection-card {
-	max-width: 400px;
-	background-color: blue;
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+    background-color: background;
+	color: foreground;
+}
+ 
+mat-sidenav {
+    width: 250px;
+}
+ 
+main {
+    padding: 10px;
+    text-align: center;
+	background-color: darkgrey;
+	color: white;
+	height: 100%;
+	border: solid 1px black;
+}
+
+app-header {
+}
+
+#fabButton {
+	position: absolute;
+	background-color: background;
+	color: white;
+	right: 2%;
+	bottom: 2%;
 }

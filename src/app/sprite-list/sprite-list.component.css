@@ -2,3 +2,9 @@
 :host app-item-display {
 
 }
+
+:host button {
+	position: absolute;
+	right: 1%;
+	bottom: 1%;
+}

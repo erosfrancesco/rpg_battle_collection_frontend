@@ -1,1 +1,11 @@
-/*Stub*/
+#spriteFrame {
+	position: absolute;
+	border: solid 1px black;
+	background-color: lightgrey;
+	opacity: 0.5;
+}
+
+mat-form-field {
+	width: 23%;
+	margin: 1%;
+}

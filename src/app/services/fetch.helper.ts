@@ -21,4 +21,9 @@ export class FetchHelper {
 		return fetch(url).then(res => res.json());
 	}
 
+	static getItemCategory(category, id) {
+		const url = FetchHelper.baseUrl + category + "/" + id;
+		return fetch(url).then(res => res.json());
+	}
+
 }

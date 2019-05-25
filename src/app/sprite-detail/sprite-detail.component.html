@@ -1,3 +1,38 @@
-<p>
-  sprite-detail works!
-</p>
+<div (window:resize)="syncFrameSizeAndPosition(sprite)">
+	<mat-form-field *ngIf="sprite">
+		<input 	placeholder="Frame Width" 
+			type="number" 
+			[value]="sprite.properties.frameWidth" 
+			(input)="sprite.properties.frameWidth = $event.target.value; syncFrameSizeAndPosition(sprite)"
+			matInput>
+	</mat-form-field>
+
+	<mat-form-field *ngIf="sprite">
+		<input 	placeholder="Frame Height" 
+			type="number" 
+			[value]="sprite.properties.frameHeight" 
+			(input)="sprite.properties.frameHeight = $event.target.value; syncFrameSizeAndPosition(sprite)"
+			matInput>
+	</mat-form-field>
+
+	<mat-form-field *ngIf="sprite">
+		<input 	placeholder="Frame X" 
+			type="number" 
+			[value]="sprite.properties.frameX" 
+			(input)="sprite.properties.frameX = $event.target.value; syncFrameSizeAndPosition(sprite)"
+			matInput>
+	</mat-form-field>
+
+	<mat-form-field *ngIf="sprite">
+		<input 	placeholder="Frame Y" 
+			type="number" 
+			[value]="sprite.properties.frameY" 
+			(input)="sprite.properties.frameY = $event.target.value; syncFrameSizeAndPosition(sprite)"
+			matInput>
+	</mat-form-field>
+</div>
+
+<div>
+	<img #spriteDisplay id="spriteDisplay" src="{{fetchSource(sprite)}}" /> 
+	<div #spriteFrame id="spriteFrame" *ngIf="sprite" [ngStyle]="{'width.px': frameWidth, 'height.px': frameHeight, 'left.px': frameLeft, 'top.px': frameTop}"></div>
+</div>
