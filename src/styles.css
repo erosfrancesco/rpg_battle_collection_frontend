@@ -1,4 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";/**/
+
+/*@import "./custom-theme.css";*/
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+	margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+	background-color: background;
+	color: accent;
+}
+/**/
+
+/*
+A primary palette: colors most widely used across all screens and components.
+An accent palette: colors used for the floating action button and interactive elements.
+A warn palette: colors used to convey error state.
+A foreground palette: colors for text and icons.
+A background palette: colors used for element backgrounds.
+*/

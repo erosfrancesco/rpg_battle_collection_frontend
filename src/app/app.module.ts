@@ -7,9 +7,12 @@ import { SpriteListComponent } from './sprite-list/sprite-list.component';
 import { SpriteDetailComponent } from './sprite-detail/sprite-detail.component';
 
 
-import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, MatSidenavModule, MatInputModule, MatFormFieldModule} from '@angular/material';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-//import { ItemDisplayComponent } from './item-display/item-display.component';
+import {  
+          MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
+          MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule
+} from '@angular/material';
+
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { SpriteItemComponent } from './sprite-item/sprite-item.component';
@@ -21,18 +24,17 @@ import { BackButtonComponent } from './navigation/back-button/back-button.compon
     AppComponent,
     SpriteListComponent,
     SpriteDetailComponent,
-    //ItemDisplayComponent,
     HomePageComponent,
     SpriteItemComponent,
     HeaderComponent,
     BackButtonComponent
   ],
   imports: [
-    MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, MatFormFieldModule,
+    MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
+    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule,
     BrowserModule,
     AppRoutingModule,
-    MatCardModule,
-    NoopAnimationsModule
+    NoopAnimationsModule, BrowserAnimationsModule
   ],
   providers: [ HeaderComponent ],
   bootstrap: [AppComponent]

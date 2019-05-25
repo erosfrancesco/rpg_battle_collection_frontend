@@ -16,6 +16,7 @@ export class SpriteDetailComponent implements OnInit {
 		appComponent.fabButtonAction = () => {
 			console.log("ok done")
 		}
+		appComponent.showSpinner = true
 	}
 
 	private sub: any;
@@ -40,7 +41,10 @@ export class SpriteDetailComponent implements OnInit {
 			this.originalSprite = sprite
 			this.appComponent.navTitle = sprite.label
 			
-			setTimeout(() => this.syncFrameSizeAndPosition(this.sprite), 200);
+			setTimeout(() => {
+				this.syncFrameSizeAndPosition(this.sprite)
+				this.appComponent.showSpinner = false
+			}, 200);
 		}) );
 	}
 

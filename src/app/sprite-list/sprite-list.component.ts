@@ -16,13 +16,16 @@ export class SpriteListComponent implements OnInit {
 
 	constructor(private appComponent: AppComponent) { 
 		appComponent.navTitle = "Sprites"
-		appComponent.fabButtonIcon = "add"
+		appComponent.fabButtonIcon = ""
+		appComponent.showSpinner = true
 		this.service.getItems((err, items) => {
 			if (err) {
 				console.error(err)
 				return
 			}
 			this.items = items
+			appComponent.showSpinner = false
+			appComponent.fabButtonIcon = "add"
 		});
 	}
 

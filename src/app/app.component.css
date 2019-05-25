@@ -27,3 +27,9 @@ app-header {
 	right: 2%;
 	bottom: 2%;
 }
+
+mat-spinner {
+	position: absolute;
+	right: calc( 50% - 100px );
+	width: 200px;
+}

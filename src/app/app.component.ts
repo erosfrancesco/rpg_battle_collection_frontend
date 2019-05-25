@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { SpriteService } from './services/sprite.service';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,8 +11,11 @@ import { SpriteService } from './services/sprite.service';
 
 export class AppComponent {
 	navTitle :string
+
 	fabButtonIcon :string = "add"
 	fabButtonAction() { console.log("ok"); }
+
+	showSpinner :boolean = false
 
 	spriteService = new SpriteService()
 }
