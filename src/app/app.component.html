@@ -8,7 +8,7 @@
 	  <main>
 	    <router-outlet></router-outlet>
 
-		<button id="fabButton" mat-fab *ngIf="fabButtonIcon" (click)="fabButtonAction()"> 
+		<button id="fabButton" mat-fab *ngIf="fabButtonIcon != ''" (click)="fabButtonAction()"> 
 			<mat-icon>{{fabButtonIcon}}</mat-icon>
 		</button>
 	  </main>
