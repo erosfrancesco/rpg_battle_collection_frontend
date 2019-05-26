@@ -1,6 +1,11 @@
-mat-toolbar {
-	margin: 4px;
-	text-align: center;
-	background-color: background;
-	color: foreground;
+:host mat-toolbar {
+}
+
+:host div {
+	position: absolute; 
+	right: 4px;
+}
+
+
+:host button {
 }

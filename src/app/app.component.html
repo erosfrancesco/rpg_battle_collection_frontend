@@ -1,19 +1,18 @@
 <mat-sidenav-container>
-	<mat-sidenav #sidenav role="navigation">
-	</mat-sidenav>
+	
 	<mat-sidenav-content color="primary">
-	  
-	  <app-header></app-header>
 
-	  <main>
-	  	<mat-spinner *ngIf="showSpinner"></mat-spinner>
+		<app-header></app-header>
 
-	    <router-outlet></router-outlet>
+		<main>
+			<mat-spinner *ngIf="showSpinner"></mat-spinner>
 
-		<button id="fabButton" mat-fab *ngIf="fabButtonIcon != ''" (click)="fabButtonAction()"> 
-			<mat-icon>{{fabButtonIcon}}</mat-icon>
-		</button>
-	  </main>
+			<router-outlet></router-outlet>
+
+			<button id="fabButton" color="primary" mat-fab *ngIf="fabButtonIcon != ''" (click)="fabButtonAction()"> 
+				<mat-icon>{{fabButtonIcon}}</mat-icon>
+			</button>
+		</main>
 
 	</mat-sidenav-content>
 </mat-sidenav-container>

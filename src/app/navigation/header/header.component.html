@@ -1,25 +1,30 @@
-<mat-toolbar class="mat-elevation-z4">
+<mat-toolbar color="primary" class="mat-elevation-z4">
 	
 	<app-back-button></app-back-button>
 
 	<span>{{app.navTitle}}</span>
 	
-	<div style="position: absolute; right: 4px">
+	<div>
+		
+
+		<button mat-button [matMenuTriggerFor]="menu" color="background">
+			Topics
+		    <mat-icon>expand_more</mat-icon>
+		</button>
+
+		<mat-menu #menu="matMenu">
+
+			<button *ngFor="let topic of app.topicMapList" mat-menu-item [routerLink]="[topic.path]">{{topic.name}}</button>
+
+			<!--
+			<button mat-menu-item [routerLink]="['/sprites']">Sprites</button>
+			<!---->
+		</mat-menu>
 
 		<button mat-icon-button routerLink="/">
 			<mat-icon>home</mat-icon>
 		</button>
 
-		<!--
-		<button mat-icon-button [matMenuTriggerFor]="menu" href="/">
-		    <mat-icon>menu</mat-icon>
-		</button>
-
-		<mat-menu #menu="matMenu">
-			<button mat-menu-item>Item 1</button>
-			<button mat-menu-item>Item 2</button>
-		</mat-menu>
-		<!---->
 	</div>
 
 </mat-toolbar>

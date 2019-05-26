@@ -12,6 +12,12 @@ export class HomePageComponent implements OnInit {
   constructor(private appComponent: AppComponent) {
     appComponent.navTitle = "RPG Battle Framework"
 	appComponent.fabButtonIcon = ""
+
+	console.log(appComponent.topicMapList)
+
+	appComponent.topicMapList.forEach(topic => {
+		console.log(topic.path)
+	})
   }
 
   ngOnInit() {

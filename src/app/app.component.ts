@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SpriteService } from './services/sprite.service';
+import { Topic } from './topic.model'
 
 
 
@@ -10,12 +11,22 @@ import { SpriteService } from './services/sprite.service';
 })
 
 export class AppComponent {
+	/**/
 	navTitle :string
 
 	fabButtonIcon :string = "add"
-	fabButtonAction() { console.log("ok"); }
+	fabButtonAction() {}
 
 	showSpinner :boolean = false
+	/**/
 
+	/**/
 	spriteService = new SpriteService()
+	/**/
+
+	/**/
+	topicMapList :[Topic] = [
+		new Topic("Sprite", "/sprites")
+	]
+	/**/
 }

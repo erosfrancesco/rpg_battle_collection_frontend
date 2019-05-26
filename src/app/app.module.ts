@@ -12,7 +12,7 @@ import {
           MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule
 } from '@angular/material';
 
-import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { SpriteItemComponent } from './sprite-item/sprite-item.component';
@@ -34,7 +34,7 @@ import { BackButtonComponent } from './navigation/back-button/back-button.compon
     MatFormFieldModule, MatProgressSpinnerModule, MatCardModule,
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule, BrowserAnimationsModule
+    BrowserAnimationsModule
   ],
   providers: [ HeaderComponent ],
   bootstrap: [AppComponent]
