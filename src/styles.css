@@ -1,12 +1,17 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";/**/
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-/*@import "./custom-theme.css";*/
 
 html, body { height: 100%; }
 body { 
-	margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+	margin: 0; 
+	font-family: Roboto, "Helvetica Neue", sans-serif; 
 	background-color: background;
-	color: accent;
+	color: primary;
+}
+
+app-root {
+	background-color: inherit;
+	color: inherit;
 }
 /**/
 

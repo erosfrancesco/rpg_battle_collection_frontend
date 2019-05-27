@@ -1,15 +1,56 @@
 :host mat-card {
-	max-width: 400px;
+	max-width: 300px;
 	max-height: 300px;
-	width: 400px; 
+	width: 300px; 
 	height: 300px;
-	text-align: center;
-	background-color: #673ab7;
-	color: white;
 	margin: 4px;
-};
+	text-align: center;
+	background-color: inherit;
+	color: inherit;
+}
 
-:host mat-card div {
+:host mat-card-content {
 	align-self: center;
 	background-size: 100px 100px;
-};
+	background: inherit;
+	color: inherit;
+}
+
+:host mat-card-title {
+	background-color: inherit;
+	color: inherit;
+	width: 300px;
+}
+
+:host mat-card-header {
+	width: 300px; 
+	background-color: inherit;
+	color: inherit;
+}
+
+:host div {
+	background-size: contain;
+	background-color: inherit;
+	color: inherit;
+}
+
+:host #frameWrapper {
+	width: 200px; 
+	height: 200px; 
+	background-color: inherit; 
+	margin-left: 50px;
+}
+
+:host mat-card-header mat-card-title button {
+	float: right;
+	margin-right: 10px;
+	margin-top: -5px;
+	background-color: inherit;
+	color: inherit;
+}
+
+:host mat-card-actions {
+	position: absolute; 
+	bottom: 20px; 
+	width: 100%;
+}

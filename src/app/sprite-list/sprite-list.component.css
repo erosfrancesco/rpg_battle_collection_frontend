@@ -1,7 +1,10 @@
-:host div {
-	display: inline-flex;
+:host app-sprite-item {
+	display: inline-block;
+	background-color: inherit;
+	color: inherit;
 }
 
-:host app-item-display {
-	display: inline-block;
+:host {
+    background-color: inherit;
+	color: inherit;
 }

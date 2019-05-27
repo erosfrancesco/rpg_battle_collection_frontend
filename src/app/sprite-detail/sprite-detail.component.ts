@@ -9,13 +9,12 @@ import { ActivatedRoute } from '@angular/router'
   styleUrls: ['./sprite-detail.component.css']
 })
 export class SpriteDetailComponent implements OnInit {
+	Number = Number;
 
 	constructor(private route: ActivatedRoute, private elementRef: ElementRef, private appComponent: AppComponent) { 
 
 		appComponent.fabButtonIcon = "save"
-		appComponent.fabButtonAction = () => {
-			console.log("ok done")
-		}
+		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
 	}
 
@@ -24,6 +23,8 @@ export class SpriteDetailComponent implements OnInit {
 	originalSprite: Sprite
 	service = this.appComponent.spriteService
 
+	/*
+	*/
 	fetchItemById(id, onFetched: Function) {
 		this.service.getItemById(id, (err, sprite) => {
 			if (err) {
@@ -35,6 +36,13 @@ export class SpriteDetailComponent implements OnInit {
 		})
 	}
 
+	updateItemChanges() {
+		const updates = {}
+		this.service.updateItemById(this.sprite.id, this.sprite, console.log)
+	}
+
+	/*
+	*/
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], sprite => {
 			this.sprite = sprite

@@ -11,6 +11,9 @@ import {
           MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
           MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule
 } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,6 +21,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SpriteItemComponent } from './sprite-item/sprite-item.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { BackButtonComponent } from './navigation/back-button/back-button.component';
+import { DialogLabelComponent } from './dialogs/dialog-label/dialog-label.component';
 
 @NgModule({
   declarations: [
@@ -27,16 +31,19 @@ import { BackButtonComponent } from './navigation/back-button/back-button.compon
     HomePageComponent,
     SpriteItemComponent,
     HeaderComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    DialogLabelComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
     MatFormFieldModule, MatProgressSpinnerModule, MatCardModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
   providers: [ HeaderComponent ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ],
+  entryComponents: [ DialogLabelComponent ]
 })
 export class AppModule { }
