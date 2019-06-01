@@ -1,8 +1,0 @@
-<div id="paramEditor">
-	<span> Parameters </span>
-	<mat-form-field style="width: 100%;">
-		<input matInput [value]="params" (input)="params = $event.target.value"/>
-	</mat-form-field>
-</div>
-
-<div class="code-editor" (change)="item.body = $event.target.value" #codeEditor></div>

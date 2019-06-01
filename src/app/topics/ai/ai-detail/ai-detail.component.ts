@@ -4,7 +4,7 @@ import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 
 import 'brace';
-import 'brace/mode/text';
+import 'brace/mode/javascript';
 import 'brace/theme/ambiance';
 
 @Component({
@@ -66,12 +66,6 @@ export class AiDetailComponent implements OnInit {
 	*/
 	checkItemProperties() :boolean {
 		return Boolean(this.ai && this.ai.properties && this.ai.properties.waterfall)
-	}
-	addWaterfallFunction() {
-		this.ai.properties.waterfall.push({params: null, body: null});
-	}
-	removeWaterfallFunction(index) {
-		this.ai.properties.waterfall.splice(index, 1)
 	}
 
 }

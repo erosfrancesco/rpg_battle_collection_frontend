@@ -27,7 +27,6 @@ import { AiDetailComponent } from './topics/ai/ai-detail/ai-detail.component';
 import { SpriteItemComponent } from './topics/sprites/sprite-item/sprite-item.component';
 import { SpriteListComponent } from './topics/sprites/sprite-list/sprite-list.component';
 import { SpriteDetailComponent } from './topics/sprites/sprite-detail/sprite-detail.component';
-import { AceEditorWrapperComponent } from './ace-editor-wrapper/ace-editor-wrapper.component';
 
 import { AceModule, AceConfigInterface, ACE_CONFIG } from 'ngx-ace-wrapper';
 import { ActionsListComponent } from './topics/actions/actions-list/actions-list.component';
@@ -50,7 +49,6 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     AiListComponent,
     AiItemComponent,
     AiDetailComponent,
-    AceEditorWrapperComponent,
     ActionsListComponent,
     ActionDetailComponent,
     ActionItemComponent
