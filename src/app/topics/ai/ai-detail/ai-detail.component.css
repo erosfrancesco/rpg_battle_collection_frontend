@@ -1,0 +1,31 @@
+/* Stub */
+
+:host mat-vertical-stepper {
+	background-color: inherit;
+	color: inherit;
+	width: 100%;
+}
+
+:host mat-step {
+	width: 100%;
+}
+
+:host ace {
+	height: 500px;
+	width: 100%;
+}
+
+:host .action {
+	position: absolute; 
+	right: 1%;
+}
+
+:host .wrapper {
+	width: 100%;
+}
+
+:host mat-expansion-panel {
+	background-color: inherit;
+	color: inherit;
+	width: 100%;
+}

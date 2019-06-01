@@ -1,0 +1,18 @@
+<div *ngIf="checkItemProperties()">
+  <div>
+    <!--
+    <mat-form-field style="width: 100%;">
+      <input matInput 
+        [value]="ai.properties.waterfall[0].params" 
+        (input)="ai.properties.waterfall[0].params = $event.target.value"/>
+    </mat-form-field>
+    <!---->
+
+    <span>Parameters: </span> <br>
+    <span>{{ai.properties.waterfall[0].params}}</span>
+
+    <ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+      [(value)]="ai.properties.waterfall[0].body">
+    </ace>
+  </div>
+</div>

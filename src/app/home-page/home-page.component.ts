@@ -11,16 +11,56 @@ export class HomePageComponent implements OnInit {
 
   constructor(private appComponent: AppComponent) {
     appComponent.navTitle = "RPG Battle Framework"
-	appComponent.fabButtonIcon = ""
-
-	console.log(appComponent.topicMapList)
-
-	appComponent.topicMapList.forEach(topic => {
-		console.log(topic.path)
-	})
+    appComponent.fabButtonIcon = ""
   }
 
   ngOnInit() {
   }
+
+  saveSprites() {
+    this.appComponent.spriteService.getItems((err, items) => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      this.saveData(items, "sprites");
+    })
+  }
+
+  /*
+  toBeImported: [any]
+  importSprites() {
+
+  }
+  /**/
+
+  // Function to download data to a file
+  saveData(data, filename) :void {
+
+    filename = filename + ".json";
+    data = JSON.stringify(data)
+
+    const file = new Blob([data], {type: "json"});
+
+    // IE10+
+    if (window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveOrOpenBlob(file, filename);
+      return;
+    }
+
+    // Others
+    const a = document.createElement("a");
+    const url = URL.createObjectURL(file);
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+
+    setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);  
+    }, 0); 
+  }
+  
 
 }

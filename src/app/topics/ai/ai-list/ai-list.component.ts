@@ -1,33 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Sprite } from '../services/sprite.model'
-import { AppComponent } from '../app.component'
-import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../dialogs/dialog-label/dialog-label.component'
 
+import { Ai } from '../../../services/ai.model'
+import { AppComponent } from '../../../app.component'
+import { MatDialog, MatDialogRef } from '@angular/material'
+import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
 
 @Component({
-  selector: 'app-sprite-list',
-  templateUrl: './sprite-list.component.html',
-  styleUrls: ['./sprite-list.component.css']
+  selector: 'app-ai-list',
+  templateUrl: './ai-list.component.html',
+  styleUrls: ['./ai-list.component.css']
 })
-export class SpriteListComponent implements OnInit {
+export class AiListComponent implements OnInit {
 
-	items :[Sprite]
-
-	service = this.appComponent.spriteService
+	service = this.appComponent.aiService
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
-		appComponent.navTitle = "Sprites"
+		appComponent.navTitle = "AI"
 		appComponent.fabButtonIcon = ""
 		appComponent.showSpinner = true
+
 		this.fetchItems(() => {
 			appComponent.showSpinner = false
 			appComponent.fabButtonIcon = "add"
 			appComponent.fabButtonAction = () => this.addNewItem()
 		})
-	}
-
-	ngOnInit() {
 	}
 
 	fetchItems(callback = function() {}) {
@@ -36,7 +32,7 @@ export class SpriteListComponent implements OnInit {
 				console.error(err)
 				return
 			}
-			this.items = items
+			
 			callback();
 		});
 	}
@@ -47,7 +43,7 @@ export class SpriteListComponent implements OnInit {
 				return
 			}
 
-			const newSprite = new Sprite()
+			const newSprite = new Ai()
 			newSprite.label = label
 			this.service.addNewItem(newSprite, (err, res) => {
 				if (err) {
@@ -61,7 +57,11 @@ export class SpriteListComponent implements OnInit {
 
 	openDialog(): MatDialogRef<DialogLabelComponent> {
 	    return this.dialog.open(DialogLabelComponent, {
-	      data: {label: "new_sprite_label"}
+	      data: {label: "new_ai_label"}
 	    });
+	}
+
+	  ngOnInit() {
 	  }
+
 }

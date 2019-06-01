@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Sprite } from '../services/sprite.model'
-import { AppComponent } from '../app.component'
+
+import { Sprite } from '../../../services/sprite.model'
+import { AppComponent } from '../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../dialogs/dialog-label/dialog-label.component'
+import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
 
 
 @Component({
@@ -62,10 +63,7 @@ export class SpriteItemComponent implements OnInit {
   }
 
   openDialog() :MatDialogRef<DialogLabelComponent> {
-    return this.dialog.open(DialogLabelComponent, {
-      //width: '250px',
-      data: {label: this.sprite.label}
-    });
+    return this.dialog.open(DialogLabelComponent, { data: {label: this.sprite.label} });
   }
 
   deleteItem() :void {

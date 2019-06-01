@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { AiService } from './services/ai.service';
 import { SpriteService } from './services/sprite.service';
+import { ActionsService } from './services/actions.service';
 import { Topic } from './topic.model'
 
 
@@ -22,11 +24,15 @@ export class AppComponent {
 
 	/**/
 	spriteService = new SpriteService()
+	aiService = new AiService()
+	actionsService = new ActionsService()
 	/**/
 
 	/**/
-	topicMapList :[Topic] = [
-		new Topic("Sprite", "/sprites")
+	topicMapList :Topic[] = [
+		new Topic("Sprite", "/sprites"),
+		new Topic("Ai", "/ai"),
+		new Topic("Actions", "/actions")
 	]
 	/**/
 }

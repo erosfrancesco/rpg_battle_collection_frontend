@@ -1,18 +1,15 @@
+:host {
+	margin: 4px;
+}
+
 :host mat-card {
 	max-width: 300px;
-	max-height: 300px;
+	max-height: 200px;
 	width: 300px; 
-	height: 300px;
+	height: 200px;
 	margin: 4px;
 	text-align: center;
 	background-color: inherit;
-	color: inherit;
-}
-
-:host mat-card-content {
-	align-self: center;
-	background-size: 100px 100px;
-	background: inherit;
 	color: inherit;
 }
 
@@ -32,13 +29,6 @@
 	background-size: contain;
 	background-color: inherit;
 	color: inherit;
-}
-
-:host #frameWrapper {
-	width: 200px; 
-	height: 200px; 
-	background-color: inherit; 
-	margin-left: 50px;
 }
 
 :host mat-card-header mat-card-title button {

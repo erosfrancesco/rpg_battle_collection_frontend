@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
-import { Sprite } from '../services/sprite.model'
-import { AppComponent } from '../app.component'
+import { Sprite } from '../../../services/sprite.model'
+import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
