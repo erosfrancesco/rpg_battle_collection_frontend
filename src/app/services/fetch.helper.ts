@@ -21,6 +21,15 @@ export class FetchHelper {
 		return fetch(url).then(res => res.json());
 	}
 
+	getCategoryItemsWithId(category, ids) {
+		let url = this.baseUrl + category + "/findById?";
+
+		ids.forEach(id => {url += ("id=" + id + "&")})
+		url.trim();
+
+		return fetch(url).then(res => res.json());
+	}
+
 	addNewItemCategory(category, newItem) {
 		//delete itemChanges.id;
 		//delete itemChanges.__v;

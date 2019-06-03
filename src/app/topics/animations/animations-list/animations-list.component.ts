@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Action } from '../../../services/action.model'
+import { Animation } from '../../../services/animation.model'
 import { AppComponent } from '../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
 import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
 
 
 @Component({
-  selector: 'app-actions-list',
-  templateUrl: './actions-list.component.html',
-  styleUrls: ['./actions-list.component.css']
+  selector: 'app-animations-list',
+  templateUrl: './animations-list.component.html',
+  styleUrls: ['./animations-list.component.css']
 })
-export class ActionsListComponent implements OnInit {
+export class AnimationsListComponent implements OnInit {
 
-  	service = this.appComponent.actionsService
+  
+  	service = this.appComponent.animationsService
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
-		appComponent.navTitle = "Actions"
+		appComponent.navTitle = "Animations"
 		appComponent.fabButtonIcon = ""
 		appComponent.showSpinner = true
 
@@ -44,7 +45,7 @@ export class ActionsListComponent implements OnInit {
 				return
 			}
 
-			const newSprite = new Action()
+			const newSprite = new Animation()
 			newSprite.label = label
 			this.service.addNewItem(newSprite, (err, res) => {
 				if (err) {
@@ -59,7 +60,7 @@ export class ActionsListComponent implements OnInit {
 
 	openDialog(): MatDialogRef<DialogLabelComponent> {
 	    return this.dialog.open(DialogLabelComponent, {
-	      data: {label: "new_action_label"}
+	      data: {label: "new_animation_label"}
 	    });
 	}
 

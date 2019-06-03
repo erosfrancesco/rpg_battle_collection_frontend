@@ -3,7 +3,7 @@
 		
 		<mat-card-header>
 			<mat-card-title>
-				<span> {{action.label}} </span> 
+				<span> {{battleobject.label}} </span> 
 				
 				<button mat-icon-button (click)="editLabel()">
 					<mat-icon color="background">edit</mat-icon>
@@ -14,7 +14,7 @@
 
 		<mat-card-actions>
 
-			<button mat-button [routerLink]="['/actions/', action.id]">
+			<button mat-button [routerLink]="['/objects/', battleobject.id]">
 				DETAIL
 			</button>
 			

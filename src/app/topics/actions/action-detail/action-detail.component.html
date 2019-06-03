@@ -1,3 +1,32 @@
-<p>
-  action-detail works!
-</p>
+<mat-tab-group>
+  <mat-tab label="Setup" color="primary"> 
+	<div *ngIf="checkItemProperty('setup')">
+		<span>Parameters: </span> <br>
+		<span>{{action.properties.setup.params}}</span>
+		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+		  	 [(value)]="action.properties.setup.body">
+		</ace>
+	</div>
+  </mat-tab>
+
+  <mat-tab label="Create"> 
+  	<div *ngIf="checkItemProperty('create')">
+		<span>Parameters: </span> <br>
+		<span>{{action.properties.create.params}}</span>
+		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+		  	 [(value)]="action.properties.create.body">
+		</ace>
+	</div>
+  </mat-tab>
+
+  <mat-tab label="Resolve">
+  	<div *ngIf="checkItemProperty('resolve')">
+		<span>Parameters: </span> <br>
+		<span>{{action.properties.resolve.params}}</span>
+		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+		  	 [(value)]="action.properties.resolve.body">
+		</ace>
+	</div>
+  </mat-tab>
+
+</mat-tab-group>

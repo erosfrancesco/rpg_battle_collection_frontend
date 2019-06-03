@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 import {  
           MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
-          MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatExpansionModule
+          MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -32,6 +32,13 @@ import { AceModule, AceConfigInterface, ACE_CONFIG } from 'ngx-ace-wrapper';
 import { ActionsListComponent } from './topics/actions/actions-list/actions-list.component';
 import { ActionDetailComponent } from './topics/actions/action-detail/action-detail.component';
 import { ActionItemComponent } from './topics/actions/action-item/action-item.component';
+import { BattleobjectsListComponent } from './topics/battleobject/battleobjects-list/battleobjects-list.component';
+import { BattleobjectsItemComponent } from './topics/battleobject/battleobjects-item/battleobjects-item.component';
+import { BattleobjectsDetailComponent } from './topics/battleobject/battleobjects-detail/battleobjects-detail.component';
+import { AnimationsListComponent } from './topics/animations/animations-list/animations-list.component';
+import { AnimationsItemComponent } from './topics/animations/animations-item/animations-item.component';
+import { AnimationsDetailComponent } from './topics/animations/animations-detail/animations-detail.component';
+import { BattleobjectsAnimationsListComponent } from './topics/battleobject/battleobjects-animations-list/battleobjects-animations-list.component';
  
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {
 };
@@ -51,11 +58,18 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     AiDetailComponent,
     ActionsListComponent,
     ActionDetailComponent,
-    ActionItemComponent
+    ActionItemComponent,
+    BattleobjectsListComponent,
+    BattleobjectsItemComponent,
+    BattleobjectsDetailComponent,
+    AnimationsListComponent,
+    AnimationsItemComponent,
+    AnimationsDetailComponent,
+    BattleobjectsAnimationsListComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
-    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatExpansionModule,
+    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule,
     MatDialogModule,
     AceModule,
     BrowserModule,

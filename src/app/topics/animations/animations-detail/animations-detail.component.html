@@ -1,0 +1,7 @@
+<div *ngIf="checkItemProperties()">
+	<span>Parameters: </span> <br>
+	<span>{{animation.properties.params}}</span>
+	<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+	  	 [(value)]="animation.properties.body">
+	</ace>
+</div>

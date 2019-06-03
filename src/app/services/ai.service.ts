@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
-import { Ai } from '../services/ai.model';
+import { Ai } from './ai.model';
 
 @Injectable({
   providedIn: 'root'

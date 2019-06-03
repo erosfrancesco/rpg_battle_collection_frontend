@@ -19,6 +19,7 @@ app-header {
 	position : fixed;
 	right: 2%;
 	bottom: 2%;
+	z-index: 1;
 }
 
 mat-spinner {

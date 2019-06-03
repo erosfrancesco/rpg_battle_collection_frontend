@@ -9,6 +9,10 @@ import { AiListComponent } from './topics/ai/ai-list/ai-list.component'
 import { AiDetailComponent } from './topics/ai/ai-detail/ai-detail.component'
 import { ActionsListComponent } from './topics/actions/actions-list/actions-list.component'
 import { ActionDetailComponent } from './topics/actions/action-detail/action-detail.component'
+import { BattleobjectsListComponent } from './topics/battleobject/battleobjects-list/battleobjects-list.component'
+import { BattleobjectsDetailComponent } from './topics/battleobject/battleobjects-detail/battleobjects-detail.component'
+import { AnimationsListComponent } from './topics/animations/animations-list/animations-list.component'
+import { AnimationsDetailComponent } from './topics/animations/animations-detail/animations-detail.component'
 
 const routes: Routes = [
 	{ path: '', component: HomePageComponent },
@@ -20,7 +24,13 @@ const routes: Routes = [
 	{ path: 'ai/:id', component: AiDetailComponent },
 
 	{ path: 'actions', component: ActionsListComponent },
-	{ path: 'actions/:id', component: ActionDetailComponent }
+	{ path: 'actions/:id', component: ActionDetailComponent },
+
+	{ path: 'objects', component: BattleobjectsListComponent },
+	{ path: 'objects/:id', component: BattleobjectsDetailComponent },
+
+	{ path: 'animations', component: AnimationsListComponent },
+	{ path: 'animations/:id', component: AnimationsDetailComponent }
 ];
 
 @NgModule({

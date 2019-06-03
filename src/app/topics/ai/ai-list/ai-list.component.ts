@@ -61,7 +61,7 @@ export class AiListComponent implements OnInit {
 	    });
 	}
 
-	  ngOnInit() {
-	  }
+	ngOnInit() {
+	}
 
 }
