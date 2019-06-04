@@ -13,6 +13,8 @@ import { BattleobjectsListComponent } from './topics/battleobject/battleobjects-
 import { BattleobjectsDetailComponent } from './topics/battleobject/battleobjects-detail/battleobjects-detail.component'
 import { AnimationsListComponent } from './topics/animations/animations-list/animations-list.component'
 import { AnimationsDetailComponent } from './topics/animations/animations-detail/animations-detail.component'
+import { CommandListComponent } from './topics/battlecommands/command-list/command-list.component'
+import { CommandDetailComponent } from './topics/battlecommands/command-detail/command-detail.component'
 
 const routes: Routes = [
 	{ path: '', component: HomePageComponent },
@@ -30,7 +32,10 @@ const routes: Routes = [
 	{ path: 'objects/:id', component: BattleobjectsDetailComponent },
 
 	{ path: 'animations', component: AnimationsListComponent },
-	{ path: 'animations/:id', component: AnimationsDetailComponent }
+	{ path: 'animations/:id', component: AnimationsDetailComponent },
+
+	{ path: 'commands', component: CommandListComponent },
+	{ path: 'commands/:id', component: CommandDetailComponent }
 ];
 
 @NgModule({

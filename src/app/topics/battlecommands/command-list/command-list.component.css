@@ -1,0 +1,10 @@
+:host app-command-item {
+	display: inline-block;
+	background-color: inherit;
+	color: inherit;
+}
+
+:host {
+    background-color: inherit;
+	color: inherit;
+}

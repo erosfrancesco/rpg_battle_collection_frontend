@@ -39,6 +39,9 @@ import { AnimationsListComponent } from './topics/animations/animations-list/ani
 import { AnimationsItemComponent } from './topics/animations/animations-item/animations-item.component';
 import { AnimationsDetailComponent } from './topics/animations/animations-detail/animations-detail.component';
 import { BattleobjectsAnimationsListComponent } from './topics/battleobject/battleobjects-animations-list/battleobjects-animations-list.component';
+import { CommandListComponent } from './topics/battlecommands/command-list/command-list.component';
+import { CommandItemComponent } from './topics/battlecommands/command-item/command-item.component';
+import { CommandDetailComponent } from './topics/battlecommands/command-detail/command-detail.component';
  
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {
 };
@@ -65,7 +68,10 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     AnimationsListComponent,
     AnimationsItemComponent,
     AnimationsDetailComponent,
-    BattleobjectsAnimationsListComponent
+    BattleobjectsAnimationsListComponent,
+    CommandListComponent,
+    CommandItemComponent,
+    CommandDetailComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

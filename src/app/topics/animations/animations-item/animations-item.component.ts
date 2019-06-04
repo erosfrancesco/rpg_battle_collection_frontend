@@ -13,7 +13,7 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 })
 export class AnimationsItemComponent implements OnInit {
 
-constructor(public dialog: MatDialog, private appComponent: AppComponent) { }
+  constructor(public dialog: MatDialog, private appComponent: AppComponent) { }
 
   ngOnInit() {
   }

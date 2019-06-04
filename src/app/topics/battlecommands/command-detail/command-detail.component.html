@@ -1,0 +1,14 @@
+<mat-form-field *ngIf="checkItemProperties()">
+	<input placeholder="Command Name" 
+		[value]="commandobject.properties.label" 
+		(input)="commandobject.properties.label = $event.target.value;"
+		matInput>
+</mat-form-field>
+
+<div *ngIf="checkItemProperty('action')">
+	<span>Parameters: </span> <br>
+	<span>{{commandobject.properties.action.params}}</span>
+	<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+	  	 [(value)]="commandobject.properties.action.body">
+	</ace>
+</div>
