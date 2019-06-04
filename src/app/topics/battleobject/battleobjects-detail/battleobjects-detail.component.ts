@@ -24,10 +24,6 @@ export class BattleobjectsDetailComponent implements OnInit {
 	originalBattleObject: BattleObjects
 	service = this.appComponent.objectsService
 
-	//animationService = this.appComponent.animationsService
-
-	//newAnimation: EncodedAnimationFunction = new EncodedAnimationFunction()
-
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
@@ -37,14 +33,6 @@ export class BattleobjectsDetailComponent implements OnInit {
 				return
 			}
 
-			/*
-			console.log( battleObject.properties.animations, this.animationService.getItemById(battleObject.properties.animations) )
-
-			this.animationService.getItemById(battleObject.properties.animations).then(animations => {
-				onFetched(battleObject);
-			}).catch(err => console.error(err))
-			*/
-			console.log(item.deserialize(item))
 			this.battleobject = item.deserialize(item)
 			onFetched(this.battleobject);
 		})
@@ -60,7 +48,6 @@ export class BattleobjectsDetailComponent implements OnInit {
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], battleobject => {
 
-			//this.originalBattleObject = battleobject
 			this.appComponent.navTitle = battleobject.label
 			
 			setTimeout(() => {

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 import {  
           MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
-          MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule
+          MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule, MatSelectModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -69,7 +69,7 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
-    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule,
+    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule, MatSelectModule,
     MatDialogModule,
     AceModule,
     BrowserModule,

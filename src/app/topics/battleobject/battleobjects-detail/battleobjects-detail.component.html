@@ -1,5 +1,5 @@
 <mat-tab-group>
-	<!---->
+
   <mat-tab label="Setup" color="primary"> 
 	<div *ngIf="checkItemProperty('setup')">
 		<span>Parameters: </span> <br>
@@ -9,9 +9,6 @@
 		</ace>
 	</div>
   </mat-tab>
-
-
-  <!---->
 
   <mat-tab label="Create"> 
   	<div *ngIf="checkItemProperty('create')">
@@ -33,42 +30,12 @@
 	</div>
   </mat-tab>
 
-
-  <!---->
   <mat-tab label="Animations">
   	<div *ngIf="checkItemProperty('animations')">
-  		<!---->
-  		<app-battleobjects-animations-list [idlist]="battleobject.properties.animations"></app-battleobjects-animations-list>
-  		<!--
-		<mat-tab-group>
-			
-			<mat-tab label="">
-				<div *ngIf="newAnimation">
-					<mat-form-field>
-						<input 	placeholder="Name" 
-								[value]="newAnimation.label" 
-								(input)="newAnimation.label = $event.target.value;"
-								matInput>
-					</mat-form-field>
-					<button mat-button color="primary" (click)="addNewAnimation();">Add</button>
-				</div>
-
-				<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
-				  	 [(value)]="newAnimation.body">
-				</ace>
-			</mat-tab>
-
-			<mat-tab *ngFor="let animation of battleobject.properties.animations" label="{{animation.label}}">
-				<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
-				  	 [(value)]="animation.body">
-				</ace>
-			</mat-tab>
-
-		</mat-tab-group>
-		<!---->
+  		<app-battleobjects-animations-list [idlist]="battleobject.properties.animations" [parentobject]="battleobject">
+  		</app-battleobjects-animations-list>
 	</div>
   </mat-tab>
-  <!---->
 
 
 

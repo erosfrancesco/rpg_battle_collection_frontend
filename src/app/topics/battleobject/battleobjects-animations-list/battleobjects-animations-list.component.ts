@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Animation } from '../../../services/animation.model'
+import { BattleObjects } from '../../../services/battleobjects.model'
 import { AppComponent } from '../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
 import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
@@ -16,15 +17,16 @@ export class BattleobjectsAnimationsListComponent implements OnInit {
 
   	service = this.appComponent.animationsService
   	@Input() idlist :[string]
-  	items: Animation
+  	@Input() parentobject :BattleObjects
+  	items: [Animation]
+  	allItems: [Animation]
+  	itemToBeAdded: Animation
+
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
-		
-		/*
-		this.fetchItems(() => {
-
+		this.service.getItems((err, all) => {
+			this.allItems = all
 		})
-		/**/
 	}
 
 	fetchItems(callback = function() {}) {
@@ -35,13 +37,33 @@ export class BattleobjectsAnimationsListComponent implements OnInit {
 			}
 			
 			this.items = items
-			callback();
 		});
+	}
+
+	deleteAnimationItem(item: Animation, parent: BattleObjects) {
+		const index = parent.properties.animations.indexOf(item.id)
+		parent.properties.animations.splice(index, 1)
+		this.idlist = parent.properties.animations
+		this.fetchItems()
+	}
+
+	addSelectedItem(item: Animation, parent: BattleObjects) {
+		const index = parent.properties.animations.indexOf(item.id)
+		if (index > -1) {
+			return
+		}
+		parent.properties.animations.push(item.id)
+		this.fetchItems()
+	}
+
+	computeItemDisabled(item: Animation, parent: BattleObjects) :boolean {
+		const index = parent.properties.animations.indexOf(item.id)
+		return (index > -1)
 	}
 
 	ngOnInit() {
 		this.fetchItems(() => {
-			console.log(this.items)
+			
 		})
 	}
 

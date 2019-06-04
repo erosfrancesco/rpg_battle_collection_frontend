@@ -1,9 +1,49 @@
-:host app-animations-item {
+:host {
+	margin: 4px;
+}
+
+:host button {
+	margin: 4px;
+}
+
+:host mat-card {
+	max-width: 300px;
+	max-height: 100px;
+	width: 300px; 
+	height: 200px;
+	text-align: center;
 	background-color: inherit;
 	color: inherit;
 }
 
-:host {
-    background-color: inherit;
+:host mat-card-title {
+	background-color: inherit;
 	color: inherit;
+	width: 300px;
+}
+
+:host mat-card-header {
+	width: 300px; 
+	background-color: inherit;
+	color: inherit;
+}
+
+:host div {
+	background-size: contain;
+	background-color: inherit;
+	color: inherit;
+}
+
+:host mat-card-header mat-card-title button {
+	float: right;
+	margin-right: 10px;
+	margin-top: -5px;
+	background-color: inherit;
+	color: inherit;
+}
+
+:host mat-card-actions {
+	position: absolute; 
+	bottom: 20px; 
+	width: 100%;
 }
