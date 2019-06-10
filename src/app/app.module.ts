@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 
 import {  
           MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
-          MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule, MatSelectModule
+          MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule, 
+          MatSelectModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -42,6 +43,10 @@ import { BattleobjectsAnimationsListComponent } from './topics/battleobject/batt
 import { CommandListComponent } from './topics/battlecommands/command-list/command-list.component';
 import { CommandItemComponent } from './topics/battlecommands/command-item/command-item.component';
 import { CommandDetailComponent } from './topics/battlecommands/command-detail/command-detail.component';
+import { ActorsListComponent } from './topics/actors/actors-list/actors-list.component';
+import { ActorItemComponent } from './topics/actors/actor-item/actor-item.component';
+import { ActorDetailComponent } from './topics/actors/actor-detail/actor-detail.component';
+import { ActorSpriteComponent } from './topics/actors/actor-detail/sections/actor-sprite/actor-sprite.component';
  
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {
 };
@@ -71,7 +76,11 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     BattleobjectsAnimationsListComponent,
     CommandListComponent,
     CommandItemComponent,
-    CommandDetailComponent
+    CommandDetailComponent,
+    ActorsListComponent,
+    ActorItemComponent,
+    ActorDetailComponent,
+    ActorSpriteComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

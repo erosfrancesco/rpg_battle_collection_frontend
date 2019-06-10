@@ -13,7 +13,6 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 })
 export class AnimationsListComponent implements OnInit {
 
-  
   	service = this.appComponent.animationsService
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 

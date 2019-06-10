@@ -1,0 +1,20 @@
+
+<div *ngIf="checkItemProperties()">
+	<mat-form-field>
+		<input placeholder="Actor Name" 
+			[value]="actor.properties.name" 
+			(input)="actor.properties.name = $event.target.value;"
+			matInput>
+	</mat-form-field>
+
+	<mat-checkbox 	[checked]="actor.properties.canBeAlly" 
+  					(change)="actor.properties.canBeAlly=$event.checked"> Can be ally 
+  	</mat-checkbox>
+	<mat-checkbox 	[checked]="actor.properties.canBeEnemy" 
+  					(change)="actor.properties.canBeEnemy=$event.checked"> Can be enemy 
+  	</mat-checkbox>
+</div>
+
+<div>
+	<app-actor-sprite [actor]="actor"></app-actor-sprite>
+</div>

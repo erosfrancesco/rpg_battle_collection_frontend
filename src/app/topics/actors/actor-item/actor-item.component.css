@@ -2,15 +2,12 @@
 	margin: 4px;
 }
 
-:host button {
-	margin: 4px;
-}
-
 :host mat-card {
 	max-width: 300px;
-	max-height: 100px;
+	max-height: 200px;
 	width: 300px; 
 	height: 200px;
+	margin: 4px;
 	text-align: center;
 	background-color: inherit;
 	color: inherit;
@@ -46,14 +43,4 @@
 	position: absolute; 
 	bottom: 20px; 
 	width: 100%;
-}
-
-:host mat-form-field {
-	background-color: inherit;
-	color: inherit;
-}
-
-:host mat-select {
-	background-color: inherit;
-	color: inherit;
 }

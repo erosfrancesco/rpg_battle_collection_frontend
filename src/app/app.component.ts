@@ -5,6 +5,7 @@ import { ActionsService } from './services/actions.service';
 import { BattleobjectsService } from './services/battleobjects.service';
 import { AnimationsService } from './services/animations.service';
 import { CommandService } from './services/command.service';
+import { ActorService } from './services/actor.service';
 import { Topic } from './topic.model'
 
 
@@ -27,6 +28,7 @@ export class AppComponent {
 
 	/**/
 	actionsService = new ActionsService()
+	actorService = new ActorService()
 	aiService = new AiService()
 	animationsService = new AnimationsService()
 	commandService = new CommandService()
@@ -41,7 +43,8 @@ export class AppComponent {
 		new Topic("Actions", "/actions"),
 		new Topic("Objects", "/objects"),
 		new Topic("Animations", "/animations"),
-		new Topic("Commands", "/commands")
+		new Topic("Commands", "/commands"),
+		new Topic("Actor", "/actors")
 	]
 	/**/
 }

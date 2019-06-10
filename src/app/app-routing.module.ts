@@ -15,6 +15,8 @@ import { AnimationsListComponent } from './topics/animations/animations-list/ani
 import { AnimationsDetailComponent } from './topics/animations/animations-detail/animations-detail.component'
 import { CommandListComponent } from './topics/battlecommands/command-list/command-list.component'
 import { CommandDetailComponent } from './topics/battlecommands/command-detail/command-detail.component'
+import { ActorsListComponent } from './topics/actors/actors-list/actors-list.component'
+import { ActorDetailComponent } from './topics/actors/actor-detail/actor-detail.component'
 
 const routes: Routes = [
 	{ path: '', component: HomePageComponent },
@@ -35,7 +37,10 @@ const routes: Routes = [
 	{ path: 'animations/:id', component: AnimationsDetailComponent },
 
 	{ path: 'commands', component: CommandListComponent },
-	{ path: 'commands/:id', component: CommandDetailComponent }
+	{ path: 'commands/:id', component: CommandDetailComponent },
+
+	{ path: 'actors', component: ActorsListComponent },
+	{ path: 'actors/:id', component: ActorDetailComponent }
 ];
 
 @NgModule({
