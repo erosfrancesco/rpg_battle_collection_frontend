@@ -8,13 +8,13 @@
 	</mat-form-field>
 
 	<mat-checkbox 	[checked]="actor.properties.canBeAlly" 
-  					(change)="actor.properties.canBeAlly=$event.checked"> Can be ally 
-  	</mat-checkbox>
+					(change)="actor.properties.canBeAlly=$event.checked"> Can be ally 
+	</mat-checkbox>
 	<mat-checkbox 	[checked]="actor.properties.canBeEnemy" 
-  					(change)="actor.properties.canBeEnemy=$event.checked"> Can be enemy 
-  	</mat-checkbox>
-</div>
+					(change)="actor.properties.canBeEnemy=$event.checked"> Can be enemy 
+	</mat-checkbox>
 
-<div>
+	<app-actor-ai [actor]="actor"></app-actor-ai>
+
 	<app-actor-sprite [actor]="actor"></app-actor-sprite>
 </div>

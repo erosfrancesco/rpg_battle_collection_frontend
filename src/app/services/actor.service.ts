@@ -60,7 +60,8 @@ export class ActorService extends FetchHelper {
   updateItemById(id: String, body:any, callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = updated => {
-      callback(null, updated)
+      //console.log("got", updated)
+      callback(null, new Actor().deserialize(updated))
     }
 
     return super.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);

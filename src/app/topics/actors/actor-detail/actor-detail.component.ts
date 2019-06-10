@@ -54,7 +54,7 @@ export class ActorDetailComponent implements OnInit {
 
 	updateItemChanges() {
 		const updates = {}
-		this.service.updateItemById(this.actor.id, this.actor, actor => console.log())
+		this.service.updateItemById(this.actor.id, this.actor, (err, actor) => { this.actor = actor })
 	}
 
 	/*

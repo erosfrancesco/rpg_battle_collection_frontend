@@ -1,5 +1,5 @@
-<p>Actor sprite</p>
 <mat-form-field *ngIf="checkIfParentHasProperties()">
+	<mat-label> Actor Sprite </mat-label>
 	<mat-select [(value)]="actor.properties.sprite">
 		<mat-option *ngFor="let item of service.items" [value]="item.id">{{item.label}}</mat-option>
 	</mat-select>
