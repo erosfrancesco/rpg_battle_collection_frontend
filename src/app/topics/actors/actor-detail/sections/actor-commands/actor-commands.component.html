@@ -1,8 +1,3 @@
-
-<hr>
-<h3>Actor commands</h3>
-
-
 <div>
 	<mat-form-field>
 		<span>Add new command</span>
@@ -20,7 +15,7 @@
 
 <div *ngIf="checkIfParentHasProperties()">
 
-	<div *ngFor="let id of actor.properties.actorCommands">
+	<div class="commandlist" *ngFor="let id of actor.properties.actorCommands">
 		<span> {{computeCommandLabel(id, service.items)}} </span>
 		<button mat-raised-button [routerLink]="['/commands/', id]">
 			DETAIL
@@ -31,5 +26,3 @@
 	</div>
 	
 </div>
-
-<hr>

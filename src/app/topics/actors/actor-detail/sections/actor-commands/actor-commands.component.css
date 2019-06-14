@@ -1,9 +1,9 @@
 /* Stub */
-:host div {
-	width: 400px;
-	/*border: solid 1px black;*/
+:host .commandlist {
+	height: 50px;
+	margin: 1%;
 }
 
-:host div button {
-	float: right;
+:host div span {
+	margin-left: 1%;
 }

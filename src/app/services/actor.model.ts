@@ -41,11 +41,14 @@ class Properties {
   ai :string
   sprite :string
   actorCommands :[string]
-  stats : Stats
+  stats : [Stats]
 }
 
-
-class Stats {
+/**/
+export class Stats {
+  name: String
+  value: Number
+  /*
   health :number
   mana :number
   strenght :number
@@ -53,4 +56,6 @@ class Stats {
   velocity :number
   intelligence :number
   magic :number
+  /**/
 }
+/**/

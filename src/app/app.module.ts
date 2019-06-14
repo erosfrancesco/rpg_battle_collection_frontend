@@ -49,6 +49,7 @@ import { ActorDetailComponent } from './topics/actors/actor-detail/actor-detail.
 import { ActorSpriteComponent } from './topics/actors/actor-detail/sections/actor-sprite/actor-sprite.component';
 import { ActorAiComponent } from './topics/actors/actor-detail/sections/actor-ai/actor-ai.component';
 import { ActorCommandsComponent } from './topics/actors/actor-detail/sections/actor-commands/actor-commands.component';
+import { ActorStatsComponent } from './topics/actors/actor-detail/sections/actor-stats/actor-stats.component';
  
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {
 };
@@ -84,7 +85,8 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     ActorDetailComponent,
     ActorSpriteComponent,
     ActorAiComponent,
-    ActorCommandsComponent
+    ActorCommandsComponent,
+    ActorStatsComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

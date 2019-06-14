@@ -1,0 +1,9 @@
+<div *ngIf="actorHasStats()">
+	<mat-form-field *ngFor="let stat of actor.properties.stats">
+		<input placeholder="{{stat.name}}"
+			type="number"  
+			[value]="stat.value" 
+			(input)="stat.value = $event.target.value"
+			matInput>
+	</mat-form-field>
+</div>

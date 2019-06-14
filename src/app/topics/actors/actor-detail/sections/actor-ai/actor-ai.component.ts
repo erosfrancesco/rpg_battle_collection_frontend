@@ -19,7 +19,6 @@ export class ActorAiComponent implements OnInit {
 	private sub: any;
 	@Input() actor: Actor
 	service = this.appComponent.aiService
-	//ais: [Ai]
 
 	/*
 	*/
@@ -38,7 +37,6 @@ export class ActorAiComponent implements OnInit {
 	*/
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItems(ais => {
-			//this.ais = ais
 		}) );
 	}
 

@@ -55,6 +55,7 @@ export class ActorCommandsComponent implements OnInit {
 	commandToBeAdded: Command
 
 	addSelectedItem(item: Command, parent: Actor) {
+		console.log(item)
 		const index = parent.properties.actorCommands.indexOf(item.id)
 		if (index > -1) {
 			return
