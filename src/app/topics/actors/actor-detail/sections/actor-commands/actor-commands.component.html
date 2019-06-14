@@ -1,3 +1,35 @@
-<p>
-  actor-commands works!
-</p>
+
+<hr>
+<h3>Actor commands</h3>
+
+
+<div>
+	<mat-form-field>
+		<span>Add new command</span>
+		<mat-select>
+			<mat-option *ngFor="let item of service.items" 
+						[value]="item" 
+						[disabled]="computeItemDisabled(item, actor)"
+						(click)="addSelectedItem(item, actor)">
+				{{item.label}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
+
+
+<div *ngIf="checkIfParentHasProperties()">
+
+	<div *ngFor="let id of actor.properties.actorCommands">
+		<span> {{computeCommandLabel(id, service.items)}} </span>
+		<button mat-raised-button [routerLink]="['/commands/', id]">
+			DETAIL
+		</button>
+		<button mat-raised-button color="warn" (click)="deleteCommandItem(id, actor)">
+			DELETE
+		</button>
+	</div>
+	
+</div>
+
+<hr>

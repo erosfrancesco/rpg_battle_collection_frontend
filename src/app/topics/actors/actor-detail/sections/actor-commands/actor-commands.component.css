@@ -1,0 +1,9 @@
+/* Stub */
+:host div {
+	width: 400px;
+	/*border: solid 1px black;*/
+}
+
+:host div button {
+	float: right;
+}
