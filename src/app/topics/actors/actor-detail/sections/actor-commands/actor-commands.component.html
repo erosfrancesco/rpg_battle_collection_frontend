@@ -15,7 +15,37 @@
 
 <div *ngIf="checkIfParentHasProperties()">
 
+	<button mat-raised-button disableRipple color="primary" class="mat-elevation-z6" *ngFor="let id of actor.properties.actorCommands">
+		<mat-card class="mat-elevation-z0">		
+			<mat-card-title>
+				<span> {{computeCommandLabel(id, service.items)}} </span> 
+			</mat-card-title>
+
+			<mat-card-actions>
+				<button mat-button [routerLink]="['/commands/', id]">
+					DETAIL
+				</button>
+				
+				<button mat-raised-button color="warn" (click)="deleteCommandItem(id, actor)">
+					DELETE
+				</button>
+			</mat-card-actions>
+		</mat-card>
+	</button>
+
+
+
+
+	<!--
 	<div class="commandlist" *ngFor="let id of actor.properties.actorCommands">
+
+
+
+
+
+
+
+
 		<span> {{computeCommandLabel(id, service.items)}} </span>
 		<button mat-raised-button [routerLink]="['/commands/', id]">
 			DETAIL
@@ -24,5 +54,6 @@
 			DELETE
 		</button>
 	</div>
+	<!---->
 	
 </div>

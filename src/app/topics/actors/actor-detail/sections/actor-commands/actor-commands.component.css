@@ -1,9 +1,24 @@
-/* Stub */
-:host .commandlist {
-	height: 50px;
-	margin: 1%;
+:host mat-card {
+	margin: 4px;
+	height: 75px;
+	margin: 4px;
+	text-align: center;
+	background-color: inherit;
+	color: inherit;
 }
 
-:host div span {
-	margin-left: 1%;
+:host mat-card-title {
+	background-color: inherit;
+	color: inherit;
+	width: 300px;
+}
+
+:host mat-card-header {
+	width: 300px; 
+	background-color: inherit;
+	color: inherit;
+}
+
+:host button {
+	margin: 2px;
 }
