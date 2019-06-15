@@ -38,8 +38,10 @@ export class AiService extends FetchHelper {
 
     // this should be done on server side...
     newItem.properties = newItem.properties || {}
-    newItem.properties.body = newItem.properties.body = []
-    newItem.properties.params = newItem.properties.params = []
+    newItem.properties.params = newItem.properties.params = "scene, actor, callback"
+    newItem.properties.body = newItem.properties.body = ""
+    //newItem.properties.body = newItem.properties.body = []
+    //newItem.properties.params = newItem.properties.params = []
     //
     
     return super.addNewItemCategory("ai", newItem).then(responseHandler).catch(errorHandler);

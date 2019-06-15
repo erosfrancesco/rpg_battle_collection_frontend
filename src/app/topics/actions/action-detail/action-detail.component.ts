@@ -21,7 +21,7 @@ export class ActionDetailComponent implements OnInit {
 
 	private sub: any;
 	action: Action
-	originalAction: Action
+	//originalAction: Action
 	service = this.appComponent.actionsService
 
 	/*
@@ -32,8 +32,6 @@ export class ActionDetailComponent implements OnInit {
 				console.error(err)
 				return
 			}
-
-			console.log(action)
 			onFetched(action);
 		})
 	}
@@ -48,7 +46,7 @@ export class ActionDetailComponent implements OnInit {
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], action => {
 			this.action = action.deserialize(action)
-			this.originalAction = action
+			//this.originalAction = action
 			this.appComponent.navTitle = action.label
 			
 			setTimeout(() => {

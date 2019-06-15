@@ -65,7 +65,7 @@ export class AiDetailComponent implements OnInit {
 	/*
 	*/
 	checkItemProperties() :boolean {
-		return Boolean(this.ai && this.ai.properties && this.ai.properties.waterfall)
+		return Boolean(this.ai && this.ai.properties)
 	}
 
 }
