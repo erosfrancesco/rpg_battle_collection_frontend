@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
-import {Resource} from "../../services/resource.model"
+import {Resource} from "../../services/utils/resource.model"
 
 @Component({
   selector: 'app-resource-search',

@@ -5,8 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class FetchHelper {
 
-	baseUrl = //"http://localhost/" /* 
-		"https://arcane-whispers-7140.herokuapp.com/" /**/
+	baseUrl = "https://arcane-whispers-7140.herokuapp.com/"
 
 	constructor() { 
 	}
@@ -31,10 +30,7 @@ export class FetchHelper {
 	}
 
 	addNewItemCategory(category, newItem) {
-		//delete itemChanges.id;
-		//delete itemChanges.__v;
 		const body = JSON.stringify(newItem);
-
 		const url = this.baseUrl + category;
 		
 		const headers = new Headers();
@@ -49,10 +45,7 @@ export class FetchHelper {
 	}
 
 	updateItemCategory(category, id, itemChanges) {
-		delete itemChanges.id;
-		delete itemChanges.__v;
 		const body = JSON.stringify(itemChanges);
-
 		const url = this.baseUrl + category + "/" + id;
 
 		const headers = new Headers();

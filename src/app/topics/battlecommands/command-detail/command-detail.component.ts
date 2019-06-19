@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Command } from '../../../services/command.model'
+import { Command } from '../../../services/models/command.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 

@@ -64,7 +64,7 @@ export class ResourceService extends FetchHelper {
   // UPDATE
   updateItemById(id: String, body:any, callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
-    const responseHandler = updated => callback(null, updated)
+    const responseHandler = update => callback(null, new Resource().deserialize(update))
 
     return super.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);
   }

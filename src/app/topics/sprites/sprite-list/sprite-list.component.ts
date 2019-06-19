@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Sprite } from '../../../services/sprite.model'
+import { Sprite } from '../../../services/models/sprite.model'
 import { AppComponent } from '../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
 import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'

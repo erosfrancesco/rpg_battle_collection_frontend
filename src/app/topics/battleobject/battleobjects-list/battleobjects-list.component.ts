@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BattleObjects } from '../../../services/battleobjects.model'
+import { BattleObjects } from '../../../services/models/battleobjects.model'
 import { AppComponent } from '../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
 import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'

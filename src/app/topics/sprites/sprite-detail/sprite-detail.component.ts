@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
-import { Sprite } from '../../../services/sprite.model'
+import { Sprite } from '../../../services/models/sprite.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 
@@ -12,7 +12,6 @@ export class SpriteDetailComponent implements OnInit {
 	Number = Number;
 
 	constructor(private route: ActivatedRoute, private elementRef: ElementRef, private appComponent: AppComponent) { 
-
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
@@ -43,13 +42,16 @@ export class SpriteDetailComponent implements OnInit {
 
 	updateItemChanges() {
 		const updates = {}
-		this.service.updateItemById(this.sprite.id, this.sprite, console.log)
+		this.service.updateItemById(this.sprite.id, this.sprite, (err, item) => {
+			console.log(this.sprite)
+		})
 	}
 
 	/*
 	*/
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], sprite => {
+			console.log(sprite)
 			this.sprite = sprite
 			this.originalSprite = sprite
 			this.appComponent.navTitle = sprite.label

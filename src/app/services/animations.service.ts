@@ -1,5 +1,5 @@
-import { ResourceService } from '../services/resource.service'
-import { Animation } from '../services/animation.model';
+import { ResourceService } from '../services/utils/resource.service'
+import { Animation } from '../services/models/animation.model';
 
 export class AnimationsService extends ResourceService {
   constructor() {

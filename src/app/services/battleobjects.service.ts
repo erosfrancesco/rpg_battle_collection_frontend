@@ -1,5 +1,5 @@
-import { ResourceService } from '../services/resource.service'
-import { BattleObjects } from '../services/battleobjects.model';
+import { ResourceService } from '../services/utils/resource.service'
+import { BattleObjects } from '../services/models/battleobjects.model';
 
 export class BattleobjectsService extends ResourceService {
   constructor() {

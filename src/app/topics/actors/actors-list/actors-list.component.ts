@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Actor } from '../../../services/actor.model'
+import { Actor } from '../../../services/models/actor.model'
 import { AppComponent } from '../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
 import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'

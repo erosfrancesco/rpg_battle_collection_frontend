@@ -1,5 +1,5 @@
-import { ResourceService } from '../services/resource.service'
-import { Command } from '../services/command.model';
+import { ResourceService } from '../services/utils/resource.service'
+import { Command } from '../services/models/command.model';
 
 export class CommandService extends ResourceService {
   constructor() {

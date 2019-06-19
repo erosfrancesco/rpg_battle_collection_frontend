@@ -1,42 +1,31 @@
 <mat-tab-group>
 
-  <mat-tab label="Setup" color="primary"> 
-	<div *ngIf="checkItemProperty('setup')">
-		<span>Parameters: </span> <br>
-		<span>{{battleobject.properties.setup.params}}</span>
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
-		  	 [(value)]="battleobject.properties.setup.body">
-		</ace>
-	</div>
-  </mat-tab>
+	<mat-tab label="Setup"> 
+		<div *ngIf="checkItemProperty('setup')">
+			<app-custom-codeeditor [code]="battleobject.properties.setup.body" (codeChange)="battleobject.properties.setup.body = $event">
+			</app-custom-codeeditor>
+		</div>
+	</mat-tab>
 
-  <mat-tab label="Create"> 
-  	<div *ngIf="checkItemProperty('create')">
-		<span>Parameters: </span> <br>
-		<span>{{battleobject.properties.create.params}}</span>
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
-		  	 [(value)]="battleobject.properties.create.body">
-		</ace>
-	</div>
-  </mat-tab>
+	<mat-tab label="Create"> 
+		<div *ngIf="checkItemProperty('create')">
+			<app-custom-codeeditor [code]="battleobject.properties.create.body" (codeChange)="battleobject.properties.create.body = $event">
+			</app-custom-codeeditor>
+		</div>
+	</mat-tab>
 
-  <mat-tab label="Destroy" color="primary"> 
-	<div *ngIf="checkItemProperty('destroy')">
-		<span>Parameters: </span> <br>
-		<span>{{battleobject.properties.destroy.params}}</span>
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
-		  	 [(value)]="battleobject.properties.destroy.body">
-		</ace>
-	</div>
-  </mat-tab>
+	<mat-tab label="Destroy" color="primary"> 
+		<div *ngIf="checkItemProperty('destroy')">
+			<app-custom-codeeditor [code]="battleobject.properties.destroy.body" (codeChange)="battleobject.properties.destroy.body = $event">
+			</app-custom-codeeditor>
+		</div>
+	</mat-tab>
 
-  <mat-tab label="Animations">
-  	<div *ngIf="checkItemProperty('animations')">
-  		<app-battleobjects-animations-list [idlist]="battleobject.properties.animations" [parentobject]="battleobject">
-  		</app-battleobjects-animations-list>
-	</div>
-  </mat-tab>
-
-
+	<mat-tab label="Animations">
+		<div *ngIf="checkItemProperty('animations')">
+			<app-battleobjects-animations-list [idlist]="battleobject.properties.animations" [parentobject]="battleobject">
+			</app-battleobjects-animations-list>
+		</div>
+	</mat-tab>
 
 </mat-tab-group>

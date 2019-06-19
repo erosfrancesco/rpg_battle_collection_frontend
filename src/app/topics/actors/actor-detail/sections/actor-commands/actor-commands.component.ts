@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Actor } from '../../../../../services/actor.model'
-import { Command } from '../../../../../services/command.model'
+import { Actor } from '../../../../../services/models/actor.model'
+import { Command } from '../../../../../services/models/command.model'
 import { AppComponent } from '../../../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 

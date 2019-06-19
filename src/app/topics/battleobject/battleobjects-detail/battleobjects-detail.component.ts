@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BattleObjects } from '../../../services/battleobjects.model'
+import { BattleObjects } from '../../../services/models/battleobjects.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 
@@ -21,7 +21,6 @@ export class BattleobjectsDetailComponent implements OnInit {
 
 	private sub: any;
 	battleobject: BattleObjects
-	originalBattleObject: BattleObjects
 	service = this.appComponent.objectsService
 
 	/*
@@ -43,8 +42,9 @@ export class BattleobjectsDetailComponent implements OnInit {
 	}
 
 	updateItemChanges() {
-		const updates = {}
-		this.service.updateItemById(this.battleobject.id, this.battleobject, battleObject => console.log())
+		this.service.updateItemById(this.battleobject.id, this.battleobject, (err, item) => {
+			this.battleobject = item
+		})
 	}
 
 	/*
@@ -53,12 +53,11 @@ export class BattleobjectsDetailComponent implements OnInit {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], battleobject => {
 
 			this.appComponent.navTitle = battleobject.label
+			this.battleobject = battleobject
 			
 			setTimeout(() => {
 				this.appComponent.showSpinner = false
 			}, 200);
-
-			this.setupNewItemForAnimation()
 		}) );
 	}
 
@@ -75,16 +74,6 @@ export class BattleobjectsDetailComponent implements OnInit {
 
 	checkItemProperty(prop :string) :boolean {
 		return Boolean(this.battleobject && this.battleobject.properties && this.battleobject.properties[prop])
-	}
-
-	addNewAnimation() {
-		//this.battleobject.properties.animations.push(this.newAnimation)
-		this.setupNewItemForAnimation()
-	}
-
-	setupNewItemForAnimation() {
-		//this.newAnimation.label = "new_animation_label"
-		//this.newAnimation.body = ""
 	}
 
 }

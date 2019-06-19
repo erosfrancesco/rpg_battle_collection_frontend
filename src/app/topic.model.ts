@@ -1,4 +1,4 @@
-import { ResourceService } from "./services/resource.service"
+import { ResourceService } from "./services/utils/resource.service"
 
 export class Topic {
 	name :string

@@ -1,22 +1,16 @@
-
-<button mat-raised-button disableRipple color="primary" class="mat-elevation-z2">
-	<mat-card class="mat-elevation-z0">
-		
-		<mat-card-header>
-			<mat-card-title>
-				Add to this object
-			</mat-card-title>
-		</mat-card-header>
-
-		<mat-form-field>
-			<mat-select [(value)]="itemToBeAdded">
-				<mat-option *ngFor="let item of allItems" [value]="item" [disabled]="computeItemDisabled(item, parentobject)">{{item.label}}</mat-option>
-			</mat-select>
-		</mat-form-field>
-		<button mat-button (click)="addSelectedItem(itemToBeAdded, parentobject)"> ADD </button>
-		
-	</mat-card>
-</button>
+<div>
+	<mat-form-field>
+		<span> Add to this object </span>
+		<mat-select>
+			<mat-option *ngFor="let item of allItems" 
+						[value]="item" 
+						[disabled]="computeItemDisabled(item, parentobject)"
+						(click)="addSelectedItem(item, parentobject)">
+				{{item.label}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
 
 
 <button mat-raised-button disableRipple color="primary" class="mat-elevation-z2" *ngFor="let item of service.items">

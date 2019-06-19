@@ -1,5 +1,5 @@
-import { ResourceService } from '../services/resource.service'
-import { Sprite } from '../services/sprite.model';
+import { ResourceService } from '../services/utils/resource.service'
+import { Sprite } from '../services/models/sprite.model';
 
 export class SpriteService extends ResourceService {
   constructor() {

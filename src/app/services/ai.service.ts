@@ -1,5 +1,5 @@
-import { ResourceService } from '../services/resource.service'
-import { Ai } from '../services/ai.model';
+import { ResourceService } from '../services/utils/resource.service'
+import { Ai } from '../services/models/ai.model';
 
 export class AiService extends ResourceService {
   constructor() {

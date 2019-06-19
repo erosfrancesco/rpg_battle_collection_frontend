@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Sprite } from '../../../services/sprite.model'
+import { Sprite } from '../../../services/models/sprite.model'
 import { AppComponent } from '../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
 import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
@@ -24,11 +24,12 @@ export class SpriteItemComponent implements OnInit {
 
   /*
   */
-  backgroundExp : string;
-  widthExp : string;
-  heightExp : string;
-  leftExp : string;
-  zoomExp : number
+  backgroundExp : string
+  widthExp : string
+  heightExp : string
+  leftExp : string
+  topExp : string
+  transformExp: string
 
   computeSpriteStyle() {
 
@@ -36,13 +37,15 @@ export class SpriteItemComponent implements OnInit {
       return;
     }
 
-  	const {src, frameHeight, frameWidth, frameX, frameY} = this.sprite.properties
+  	const {src, frameHeight, frameWidth, frameX, frameY} = this.sprite.properties 
+    const zoom = 200 / ((frameWidth < frameHeight) ? frameHeight : frameWidth)
 
-  	this.backgroundExp = "url(" +  src + ")" + " -" + (frameWidth * frameX) + "px -" + (frameHeight * frameY) + "px no-repeat";
+  	this.backgroundExp = "url(" +  src + ")" + " -" + (frameWidth * frameX) + "px -" + (frameHeight * frameY) + "px no-repeat"
   	this.widthExp = String(frameWidth)
   	this.heightExp = String(frameHeight)
-    this.leftExp = "calc(50% - " + frameWidth + "px / 2)";
-    this.zoomExp = 200 / ((frameWidth < frameHeight) ? frameHeight : frameWidth)
+    this.leftExp = "calc(50% - " + frameWidth + "px / 2)"
+    this.topExp = "calc(0% - " + (frameHeight - frameHeight*zoom) + "px / 2)"
+    this.transformExp = "scale(" + zoom + ")"
   }
 
   spriteHasSource() :boolean {

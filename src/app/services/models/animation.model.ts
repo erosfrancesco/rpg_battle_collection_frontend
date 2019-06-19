@@ -1,4 +1,4 @@
-import { Resource } from "./resource.model"
+import { Resource } from "../utils/resource.model"
 
 export class Animation extends Resource {
   properties: {

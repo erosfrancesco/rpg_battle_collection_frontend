@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Actor } from '../../../services/actor.model'
+import { Actor } from '../../../services/models/actor.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
-
-import { Ai } from '../../../services/ai.model'
-import { Animation } from '../../../services/animation.model'
-import { Command } from '../../../services/command.model'
-import { Sprite } from '../../../services/sprite.model'
 
 import 'brace';
 import 'brace/mode/javascript';
@@ -29,15 +24,6 @@ export class ActorDetailComponent implements OnInit {
 	private sub: any;
 	actor: Actor
 	service = this.appComponent.actorService
-
-	serviceAi = this.appComponent.aiService
-	ai: [Ai]
-	serviceSprite = this.appComponent.spriteService
-	sprites: [Sprite]
-	serviceAnimation = this.appComponent.animationsService
-	animations: [Animation]
-	serviceCommand = this.appComponent.commandService
-	commands: [Command]
 
 	/*
 	*/
