@@ -29,7 +29,7 @@ import { SpriteItemComponent } from './topics/sprites/sprite-item/sprite-item.co
 import { SpriteListComponent } from './topics/sprites/sprite-list/sprite-list.component';
 import { SpriteDetailComponent } from './topics/sprites/sprite-detail/sprite-detail.component';
 
-import { AceModule, AceConfigInterface, ACE_CONFIG } from 'ngx-ace-wrapper';
+import { AceModule } from 'ngx-ace-wrapper';
 import { ActionsListComponent } from './topics/actions/actions-list/actions-list.component';
 import { ActionDetailComponent } from './topics/actions/action-detail/action-detail.component';
 import { ActionItemComponent } from './topics/actions/action-item/action-item.component';
@@ -50,9 +50,6 @@ import { ActorSpriteComponent } from './topics/actors/actor-detail/sections/acto
 import { ActorAiComponent } from './topics/actors/actor-detail/sections/actor-ai/actor-ai.component';
 import { ActorCommandsComponent } from './topics/actors/actor-detail/sections/actor-commands/actor-commands.component';
 import { ActorStatsComponent } from './topics/actors/actor-detail/sections/actor-stats/actor-stats.component';
- 
-const DEFAULT_ACE_CONFIG: AceConfigInterface = {
-};
 
 
 import { ResourceSearchComponent } from './navigation/resource-search/resource-search.component';
@@ -105,11 +102,7 @@ import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor
     BrowserAnimationsModule
   ],
   providers: [ 
-    HeaderComponent, 
-    {
-      provide: ACE_CONFIG,
-      useValue: DEFAULT_ACE_CONFIG
-    }
+    HeaderComponent
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ DialogLabelComponent ]
