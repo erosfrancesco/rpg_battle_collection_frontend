@@ -73,4 +73,8 @@ export class AiDetailComponent implements OnInit {
 		return Boolean(this.ai && this.ai.properties)
 	}
 
+	updateBodyCode(event) {
+		this.ai.properties.body = event
+	}
+
 }

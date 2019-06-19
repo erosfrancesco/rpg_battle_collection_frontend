@@ -1,4 +1,11 @@
 <div *ngIf="checkItemProperties()">
+
+	<span>Parameters: </span> <br>
+    <span>{{ai.properties.params}}</span>
+
+    <app-custom-codeeditor [code]="ai.properties.body" (codeChange)="updateBodyCode($event)"></app-custom-codeeditor>
+
+  <!--
   <div>
     <span>Parameters: </span> <br>
     <span>{{ai.properties.params}}</span>
@@ -7,4 +14,5 @@
       [(value)]="ai.properties.body">
     </ace>
   </div>
+  <!---->
 </div>

@@ -1,0 +1,9 @@
+:host ace {
+	height: 500px;
+	width: 100%;
+}
+
+:host mat-accordion {
+	background-color: inherit;
+	color: inherit;
+}

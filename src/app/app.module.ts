@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import {  
           MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
           MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule, 
-          MatSelectModule
+          MatSelectModule, MatExpansionModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -56,6 +56,7 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
 
 
 import { ResourceSearchComponent } from './navigation/resource-search/resource-search.component';
+import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor.component';
 
 
 @NgModule({
@@ -91,11 +92,12 @@ import { ResourceSearchComponent } from './navigation/resource-search/resource-s
     ActorAiComponent,
     ActorCommandsComponent,
     ActorStatsComponent,
-    ResourceSearchComponent
+    ResourceSearchComponent,
+    CustomCodeeditorComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
-    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule, MatSelectModule,
+    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule, MatSelectModule, MatExpansionModule,
     MatDialogModule,
     AceModule,
     BrowserModule,

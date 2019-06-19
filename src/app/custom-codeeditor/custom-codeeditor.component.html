@@ -1,0 +1,25 @@
+<button mat-raised-button disableRipple color="primary" class="mat-elevation-z6">
+	<mat-accordion>
+		<mat-expansion-panel>
+			<mat-expansion-panel-header>
+			  	Help
+			</mat-expansion-panel-header>
+
+			<div class="actions">
+				aCTIONS
+			</div>
+		</mat-expansion-panel>
+
+	</mat-accordion>
+</button>
+
+
+
+<div>
+	<ace [config]="config" 
+		 [mode]="'javascript'" 
+		 [theme]="'ambiance'" 
+		 (valueChange)="notify($event)"
+	  	 [(value)]="code">
+	</ace>
+</div>
