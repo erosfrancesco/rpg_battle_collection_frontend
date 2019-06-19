@@ -42,13 +42,18 @@ export class ActorDetailComponent implements OnInit {
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
-		this.service.getItemById(id, (err, actor) => {
+		this.service.getItemsById([id], (err, [item]) => {
 			if (err) {
 				console.error(err)
 				return
 			}
 
-			onFetched(actor);
+			if (!item) {
+				console.error("Item not found: ", id)
+				return
+			}
+
+			onFetched(item);
 		})
 	}
 

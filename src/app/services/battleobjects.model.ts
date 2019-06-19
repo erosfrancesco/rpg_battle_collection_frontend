@@ -1,13 +1,11 @@
-export class BattleObjects {
-  id: string
-  label: string
-  properties: Properties
+import { Resource, EncodedFunction } from "./resource.model"
 
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    this.id = input._id
-
-    return this;
+export class BattleObjects extends Resource {
+  properties: {
+    setup: EncodedFunction
+    create: EncodedFunction
+    destroy: EncodedFunction
+    animations: [string]
   }
 }
 
@@ -23,17 +21,4 @@ export class BattleObjects {
     "destroy": "",
     "preload": ""
 }
-
-postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 */
-class Properties {
-	setup: EncodedFunction
-	create: EncodedFunction
-	destroy: EncodedFunction
-  animations: [string]
-}
-
-export class EncodedFunction {
-	params: string
-	body: string
-}

@@ -27,13 +27,18 @@ export class CommandDetailComponent implements OnInit {
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
-		this.service.getItemById(id, (err, command) => {
+		this.service.getItemsById([id], (err, [item]) => {
 			if (err) {
 				console.error(err)
 				return
 			}
 
-			onFetched(command);
+			if (!item) {
+				console.error("Item not found: ", id)
+				return
+			}
+
+			onFetched(item);
 		})
 	}
 

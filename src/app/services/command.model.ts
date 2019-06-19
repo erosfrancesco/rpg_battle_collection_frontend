@@ -1,23 +1,8 @@
-export class Command {
-  id: string
-  label: string
-  properties: Properties
+import { Resource, EncodedFunction } from "./resource.model"
 
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    this.id = input._id
-
-    return this;
+export class Command extends Resource {
+  properties: {
+    label: string
+    action: EncodedFunction
   }
-}
-
-
-class Properties {
-  label: string
-  action: EncodedFunction
-}
-
-export class EncodedFunction {
-  params: string
-  body: string
 }

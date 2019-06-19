@@ -1,25 +1,8 @@
-export class Ai {
-  id: string
-  label: string
-  properties: Properties
+import { Resource, EncodedFunction } from "./resource.model"
 
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    this.id = input._id
-
-    return this;
+export class Ai extends Resource {
+  properties: {
+    body: string
+    params: string
   }
-}
-
-
-class Properties {
-  waterfall: [Waterfall]
-  //body: [string]
-  //params: [string]
-}
-
-
-class Waterfall {
-  body: string
-  params: string
 }

@@ -1,23 +1,13 @@
-export class Sprite {
-  id: string
-  label: string
-  properties: Properties
+import { Resource } from "./resource.model"
 
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    this.id = input._id
-
-    return this;
+export class Sprite extends Resource {
+  properties: {
+    src: string
+    frameWidth: number
+    frameHeight: number
+    frameX: number
+    frameY: number
+    scaleX: number
+    scaleY: number
   }
-}
-
-
-class Properties {
-  src: string
-  frameWidth: number
-  frameHeight: number
-  frameX: number
-  frameY: number
-  scaleX: number
-  scaleY: number
 }

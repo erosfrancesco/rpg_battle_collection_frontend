@@ -28,13 +28,18 @@ export class AnimationsDetailComponent implements OnInit {
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
-		this.service.getItemById(id, (err, animation) => {
+		this.service.getItemsById([id], (err, [item]) => {
 			if (err) {
 				console.error(err)
 				return
 			}
 
-			onFetched(animation);
+			if (!item) {
+				console.error("Not item found: ", id)
+				return
+			}
+
+			onFetched(item);
 		})
 	}
 

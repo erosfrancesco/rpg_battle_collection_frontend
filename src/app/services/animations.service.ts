@@ -1,3 +1,22 @@
+import { ResourceService } from '../services/resource.service'
+import { Animation } from '../services/animation.model';
+
+export class AnimationsService extends ResourceService {
+  constructor() {
+    super("animations")
+  }
+
+  /*
+  getItems(callback = function(err, res) {}) :Promise<any> {
+    const responseHandler = items => callback(null, items.map((item: Animation) => item as Animation))
+
+    return super.getItems(callback);
+  }
+  */
+}
+
+
+/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Animation } from '../services/animation.model';
@@ -74,3 +93,4 @@ export class AnimationsService extends FetchHelper {
     return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }
+*/

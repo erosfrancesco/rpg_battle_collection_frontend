@@ -1,19 +1,9 @@
-export class Animation {
-  id: string
-  label: string
-  properties: Properties
+import { Resource } from "./resource.model"
 
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    this.id = input._id
-
-    return this;
+export class Animation extends Resource {
+  properties: {
+    label: string
+    params: string
+    body: string
   }
-}
-
-
-class Properties {
-  label: string
-  params: string
-  body: string
 }

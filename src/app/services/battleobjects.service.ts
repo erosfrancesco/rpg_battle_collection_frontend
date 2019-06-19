@@ -1,3 +1,13 @@
+import { ResourceService } from '../services/resource.service'
+import { BattleObjects } from '../services/battleobjects.model';
+
+export class BattleobjectsService extends ResourceService {
+  constructor() {
+    super("objects")
+  }
+}
+
+/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { BattleObjects } from '../services/battleobjects.model';
@@ -64,3 +74,4 @@ export class BattleobjectsService extends FetchHelper {
     return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }
+*/

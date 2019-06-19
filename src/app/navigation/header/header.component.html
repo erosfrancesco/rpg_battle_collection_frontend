@@ -1,28 +1,28 @@
 <mat-toolbar color="primary" class="mat-elevation-z4">
 	
-	<app-back-button></app-back-button>
-
-	<span>{{app.navTitle}}</span>
-	
-	<div>
+	<div class="leftSide">
+		<app-back-button></app-back-button>
 		
+		<span>RPG Battle Framework</span>
 
 		<button mat-button [matMenuTriggerFor]="menu" color="background">
-			Topics
+			<span>{{updateButtonName(app.navTitle)}}</span>
 		    <mat-icon>expand_more</mat-icon>
 		</button>
 
 		<mat-menu #menu="matMenu">
-
-			<button *ngFor="let topic of app.topicMapList" mat-menu-item [routerLink]="[topic.path]">{{topic.name}}</button>
-
-			<!--
-			<button mat-menu-item [routerLink]="['/sprites']">Sprites</button>
-			<!---->
+			<button *ngFor="let topic of app.topicMapList" mat-menu-item [routerLink]="[topic.path]">
+				{{topic.name}}
+			</button>
 		</mat-menu>
+	</div>
+
+	
+	<div class="rightSide">	
+		<app-resource-search></app-resource-search>
 
 		<button mat-icon-button routerLink="/">
-			<mat-icon>home</mat-icon>
+			<mat-icon (click)="updateButtonName('')">home</mat-icon>
 		</button>
 
 	</div>

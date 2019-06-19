@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Animation } from '../../../services/animation.model'
-import { BattleObjects } from '../../../services/battleobjects.model'
-import { AppComponent } from '../../../app.component'
+import { Animation } from '../../../../services/animation.model'
+import { BattleObjects } from '../../../../services/battleobjects.model'
+import { AppComponent } from '../../../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
+import { DialogLabelComponent } from '../../../../dialogs/dialog-label/dialog-label.component'
 
 
 @Component({

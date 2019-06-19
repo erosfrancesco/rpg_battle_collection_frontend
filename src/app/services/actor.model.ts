@@ -1,15 +1,31 @@
-export class Actor {
-  id: string
-  label: string
-  properties: Properties
+import { Resource, EncodedFunction } from "./resource.model"
 
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    this.id = input._id
-
-    return this;
+export class Actor extends Resource {
+  properties: {
+    name :string
+    canBeEnemy :boolean
+    canBeAlly :boolean
+    ai :string
+    sprite :string
+    actorCommands :[string]
+    stats : [Stats]
   }
 }
+
+export class Stats {
+  name: String
+  value: Number
+  /*
+  health :number
+  mana :number
+  strenght :number
+  defense :number
+  velocity :number
+  intelligence :number
+  magic :number
+  /**/
+}
+
 
 /*
   "label": "Kefka",
@@ -32,30 +48,3 @@ export class Actor {
       }
   }
 */
-
-
-class Properties {
-  name :string
-  canBeEnemy :boolean
-  canBeAlly :boolean
-  ai :string
-  sprite :string
-  actorCommands :[string]
-  stats : [Stats]
-}
-
-/**/
-export class Stats {
-  name: String
-  value: Number
-  /*
-  health :number
-  mana :number
-  strenght :number
-  defense :number
-  velocity :number
-  intelligence :number
-  magic :number
-  /**/
-}
-/**/

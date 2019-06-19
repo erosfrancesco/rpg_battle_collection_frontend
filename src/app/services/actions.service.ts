@@ -1,3 +1,14 @@
+import { ResourceService } from '../services/resource.service'
+import { Action } from '../services/action.model';
+
+export class ActionsService extends ResourceService {
+  constructor() {
+    super("actions")
+  }
+}
+
+
+/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Action } from "./action.model"
@@ -61,3 +72,4 @@ export class ActionsService  extends FetchHelper {
     return super.deleteItemCategory("actions", id).then(responseHandler).catch(errorHandler);
   }
 }
+*/

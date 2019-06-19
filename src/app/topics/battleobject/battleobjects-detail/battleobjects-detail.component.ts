@@ -27,14 +27,18 @@ export class BattleobjectsDetailComponent implements OnInit {
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
-		this.service.getItemById(id, (err, item) => {
+		this.service.getItemsById([id], (err, [item]) => {
 			if (err) {
 				console.error(err)
 				return
 			}
 
-			this.battleobject = item.deserialize(item)
-			onFetched(this.battleobject);
+			if (!item) {
+				console.error("Item not found: ", id)
+				return
+			}
+
+			onFetched(item);
 		})
 	}
 

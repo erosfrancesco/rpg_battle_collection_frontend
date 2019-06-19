@@ -1,3 +1,13 @@
+import { ResourceService } from '../services/resource.service'
+import { Ai } from '../services/ai.model';
+
+export class AiService extends ResourceService {
+  constructor() {
+    super("ai")
+  }
+}
+
+/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Ai } from './ai.model';
@@ -63,3 +73,4 @@ export class AiService extends FetchHelper {
     return super.deleteItemCategory("ai", id).then(responseHandler).catch(errorHandler);
   }
 }
+*/

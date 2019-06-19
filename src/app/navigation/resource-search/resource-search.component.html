@@ -1,0 +1,12 @@
+<div>
+	<mat-form-field>
+		<mat-icon>search</mat-icon>
+		<input matInput inline [value]="searchString" (input)="searchResource($event.target.value);">
+	</mat-form-field>
+
+	<mat-menu #menu="matMenu">
+		<button *ngFor="let topic of app.topicMapList" mat-menu-item [routerLink]="[topic.path]" (click)="selectResource(topic.name)">
+			{{topic.name}}
+		</button>
+	</mat-menu>
+</div>

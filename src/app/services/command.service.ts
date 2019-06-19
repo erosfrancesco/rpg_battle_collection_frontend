@@ -1,3 +1,13 @@
+import { ResourceService } from '../services/resource.service'
+import { Command } from '../services/command.model';
+
+export class CommandService extends ResourceService {
+  constructor() {
+    super("commands")
+  }
+}
+
+/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Command } from '../services/command.model';
@@ -75,3 +85,4 @@ export class CommandService extends FetchHelper {
     return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }
+*/

@@ -3,9 +3,15 @@
 	<div *ngIf="checkItemProperty('setup')">
 		<span>Parameters: </span> <br>
 		<span>{{action.properties.setup.params}}</span>
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+<!--
+		<codemirror [(value)]="action.properties.setup.body" [config]="editorConfig" style="text-align: left; margin: 1%; width: 98%; height: 100px;">
+	    </codemirror>
+
+<!---->
+		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
 		  	 [(value)]="action.properties.setup.body">
 		</ace>
+		<!---->
 	</div>
   </mat-tab>
 
@@ -13,9 +19,15 @@
   	<div *ngIf="checkItemProperty('create')">
 		<span>Parameters: </span> <br>
 		<span>{{action.properties.create.params}}</span>
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+<!--
+		<codemirror [(value)]="action.properties.create.body" [config]="editorConfig" style="text-align: left; margin: 1%; width: 98%; height: 100px;" onFocus="onFocus">
+	    </codemirror>
+
+		<!---->
+		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
 		  	 [(value)]="action.properties.create.body">
 		</ace>
+		<!---->
 	</div>
   </mat-tab>
 
@@ -23,9 +35,16 @@
   	<div *ngIf="checkItemProperty('resolve')">
 		<span>Parameters: </span> <br>
 		<span>{{action.properties.resolve.params}}</span>
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
+		<!---->
+		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
 		  	 [(value)]="action.properties.resolve.body">
 		</ace>
+		<!--
+		<codemirror [(value)]="action.properties.resolve.body" [config]="editorConfig" style="text-align: left; margin: 1%; width: 98%; height: 100px;">
+	    </codemirror>
+	    <!---->
+		
+
 	</div>
   </mat-tab>
 

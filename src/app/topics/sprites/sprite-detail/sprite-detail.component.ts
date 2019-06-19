@@ -26,13 +26,18 @@ export class SpriteDetailComponent implements OnInit {
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
-		this.service.getItemById(id, (err, sprite) => {
+		this.service.getItemsById([id], (err, [item]) => {
 			if (err) {
 				console.error(err)
 				return
 			}
 
-			onFetched(sprite);
+			if (!item) {
+				console.error("Item not found: ", id)
+				return
+			}
+
+			onFetched(item);
 		})
 	}
 

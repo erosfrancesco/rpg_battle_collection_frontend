@@ -39,7 +39,7 @@ import { BattleobjectsDetailComponent } from './topics/battleobject/battleobject
 import { AnimationsListComponent } from './topics/animations/animations-list/animations-list.component';
 import { AnimationsItemComponent } from './topics/animations/animations-item/animations-item.component';
 import { AnimationsDetailComponent } from './topics/animations/animations-detail/animations-detail.component';
-import { BattleobjectsAnimationsListComponent } from './topics/battleobject/battleobjects-animations-list/battleobjects-animations-list.component';
+import { BattleobjectsAnimationsListComponent } from './topics/battleobject/battleobjects-detail/battleobjects-animations-list/battleobjects-animations-list.component';
 import { CommandListComponent } from './topics/battlecommands/command-list/command-list.component';
 import { CommandItemComponent } from './topics/battlecommands/command-item/command-item.component';
 import { CommandDetailComponent } from './topics/battlecommands/command-detail/command-detail.component';
@@ -53,6 +53,10 @@ import { ActorStatsComponent } from './topics/actors/actor-detail/sections/actor
  
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {
 };
+
+
+import { ResourceSearchComponent } from './navigation/resource-search/resource-search.component';
+
 
 @NgModule({
   declarations: [
@@ -86,7 +90,8 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
     ActorSpriteComponent,
     ActorAiComponent,
     ActorCommandsComponent,
-    ActorStatsComponent
+    ActorStatsComponent,
+    ResourceSearchComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

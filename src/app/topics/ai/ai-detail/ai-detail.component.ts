@@ -28,13 +28,18 @@ export class AiDetailComponent implements OnInit {
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
-		this.service.getItemById(id, (err, ai) => {
+		this.service.getItemsById([id], (err, [item]) => {
 			if (err) {
 				console.error(err)
 				return
 			}
 
-			onFetched(ai);
+			if (!item) {
+				console.error("Item not found: ", item)
+				return
+			}
+
+			onFetched(item);
 		})
 	}
 

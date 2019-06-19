@@ -11,14 +11,17 @@ export class HeaderComponent implements OnInit {
 
 	app: AppComponent
 
+	selectedTopicName: string = ""
+
 	constructor(private appComponent :AppComponent) { 
 		this.app = appComponent
 	}
 
-	ngOnInit() {
+	updateButtonName(topicName: string): string {
+		return (topicName === "RPG Battle Framework") ? "" : topicName
 	}
 
-  	ngOnDestroy() {
+	ngOnInit() {
 	}
 
 }

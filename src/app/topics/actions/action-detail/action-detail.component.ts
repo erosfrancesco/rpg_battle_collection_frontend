@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Action } from '../../../services/action.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
-
+/**/
 import 'brace';
 import 'brace/mode/javascript';
 import 'brace/theme/ambiance';
+/**/
+//import 'codemirror/mode/javascript/javascript'
 
 @Component({
   selector: 'app-action-detail',
@@ -21,18 +23,29 @@ export class ActionDetailComponent implements OnInit {
 
 	private sub: any;
 	action: Action
-	//originalAction: Action
 	service = this.appComponent.actionsService
+	/*
+	editorConfig = { 
+		lineNumbers: true,
+	    theme: 'material',
+	    mode: { name: 'javascript', typescript: true }
+	}
 
 	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
-		this.service.getItemById(id, (err, action) => {
+		this.service.getItemsById([id], (err, [ai]) => {
 			if (err) {
 				console.error(err)
 				return
 			}
-			onFetched(action);
+
+			if (!ai) {
+				console.error("Item not found: ", id)
+				return
+			}
+
+			onFetched(ai);
 		})
 	}
 
@@ -68,6 +81,10 @@ export class ActionDetailComponent implements OnInit {
 
 	checkItemProperty(prop :string) :boolean {
 		return Boolean(this.action && this.action.properties && this.action.properties[prop])
+	}
+
+	onFocus() {
+		console.log("ok")
 	}
 
 }

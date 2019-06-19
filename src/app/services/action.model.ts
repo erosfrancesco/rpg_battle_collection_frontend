@@ -1,13 +1,10 @@
-export class Action {
-  id: string
-  label: string
-  properties: Properties
+import { Resource, EncodedFunction } from "./resource.model"
 
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    this.id = input._id
-
-    return this;
+export class Action extends Resource {
+  properties: {
+    setup: EncodedFunction
+    create: EncodedFunction
+    resolve: EncodedFunction
   }
 }
 
@@ -18,13 +15,3 @@ export class Action {
     "imports": {"body":""}
 }
 */
-class Properties {
-	setup: EncodedFunction
-	create: EncodedFunction
-	resolve: EncodedFunction
-}
-
-class EncodedFunction {
-		params: string
-		body: string
-}

@@ -1,3 +1,13 @@
+import { ResourceService } from '../services/resource.service'
+import { Sprite } from '../services/sprite.model';
+
+export class SpriteService extends ResourceService {
+  constructor() {
+    super("sprites")
+  }
+}
+
+/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Sprite } from '../services/sprite.model';
@@ -68,3 +78,4 @@ export class SpriteService extends FetchHelper {
     return super.deleteItemCategory("sprites", id).then(responseHandler).catch(errorHandler);
   }
 }
+*/
