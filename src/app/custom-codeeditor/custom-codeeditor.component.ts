@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AppComponent } from '../app.component'
-import { AceModule, AceConfigInterface, ACE_CONFIG } from 'ngx-ace-wrapper';
+import { AceConfigInterface } from 'ngx-ace-wrapper';
 
 @Component({
   selector: 'app-custom-codeeditor',
@@ -11,11 +10,10 @@ export class CustomCodeeditorComponent implements OnInit {
 
 	@Input() code: string
 	@Output() codeChange = new EventEmitter()
-	config = ACE_CONFIG
+	
+	@Input() config :AceConfigInterface = { }
 
-	constructor(private appComponent: AppComponent) { 
-		//this.config = appComponent.config
-	}
+	constructor() { }
 
 	ngOnInit() {
 
