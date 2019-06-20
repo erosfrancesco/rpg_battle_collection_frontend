@@ -2,12 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Action } from '../../../services/action.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
-/**/
-import 'brace';
-import 'brace/mode/javascript';
-import 'brace/theme/ambiance';
-/**/
-//import 'codemirror/mode/javascript/javascript'
 
 @Component({
   selector: 'app-action-detail',
@@ -24,15 +18,7 @@ export class ActionDetailComponent implements OnInit {
 	private sub: any;
 	action: Action
 	service = this.appComponent.actionsService
-	/*
-	editorConfig = { 
-		lineNumbers: true,
-	    theme: 'material',
-	    mode: { name: 'javascript', typescript: true }
-	}
 
-	/*
-	*/
 	fetchItemById(id, onFetched: Function) {
 		this.service.getItemsById([id], (err, [ai]) => {
 			if (err) {
@@ -59,7 +45,6 @@ export class ActionDetailComponent implements OnInit {
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], action => {
 			this.action = action.deserialize(action)
-			//this.originalAction = action
 			this.appComponent.navTitle = action.label
 			
 			setTimeout(() => {

@@ -1,26 +1,29 @@
-
 import { Injectable } from '@angular/core';
-import { FetchHelper } from './fetch.helper';
-import { Animation } from '../services/animation.model';
+import { FetchHelper } from '../utils/fetch.helper';
+import { BattleObjects } from '../battleobjects.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AnimationsService extends FetchHelper {
+export class BattleobjectsService extends FetchHelper {
 
   constructor() { 
   	super();
   }
 
-  items: [Animation]
-  category: string = "animations"
+  items: [BattleObjects]
+  filtered: [BattleObjects]
+  category: string = "objects"
+
 
   getItems(callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = items => {
-      this.items = items.map((item: Animation) => new Animation().deserialize(item))
+      this.items = items.map((item: BattleObjects) => new BattleObjects().deserialize(item))
       callback(null, this.items)
     }
+    //callback(null, items.map((item: BattleObjects) => new BattleObjects().deserialize(item)))
 
   	return super.getCategory(this.category).then(responseHandler).catch(errorHandler);
   }
@@ -29,12 +32,13 @@ export class AnimationsService extends FetchHelper {
   getItemsById(id: [String], callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = items => {
-      this.items = items.map((item: Animation) => new Animation().deserialize(item))
-      callback(null, this.items)
-    }
+      this.filtered = items.map((item: BattleObjects) => new BattleObjects().deserialize(item))
+      callback(null, this.filtered)
+    }//callback(null, items.map((item: BattleObjects) => new BattleObjects().deserialize(item)))
 
     return super.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
   }
+
 
   addNewItem(newItem, callback) {
     const errorHandler = err => callback(err, null)
@@ -58,6 +62,7 @@ export class AnimationsService extends FetchHelper {
 
     return super.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);
   }
+
 
   deleteItemById(id: String, callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)

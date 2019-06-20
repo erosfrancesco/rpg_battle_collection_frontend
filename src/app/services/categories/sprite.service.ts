@@ -1,16 +1,7 @@
-/*import { ResourceService } from '../services/resource.service'
-import { Sprite } from '../services/sprite.model';
-
-export class SpriteService extends ResourceService {
-  constructor() {
-    super("sprites")
-  }
-}
-
-/**/
 import { Injectable } from '@angular/core';
-import { FetchHelper } from './fetch.helper';
-import { Sprite } from '../services/sprite.model';
+import { FetchHelper } from '../utils/fetch.helper';
+import { Sprite } from '../sprite.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +13,9 @@ export class SpriteService extends FetchHelper {
   }
 
   items: [Sprite]
+  filtered: [Sprite]
+  category: string = "sprites"
+
 
   getItems(callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
@@ -30,15 +24,18 @@ export class SpriteService extends FetchHelper {
       callback(null, this.items)
     }
 
-  	return super.getCategory("sprites").then(responseHandler).catch(errorHandler);
+  	return super.getCategory(this.category).then(responseHandler).catch(errorHandler);
   }
 
 
   getItemsById(id: [String], callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
-    const responseHandler = item => callback(null, new Sprite().deserialize(item))
+    const responseHandler = items => {
+      this.filtered = items.map((item: Sprite) => new Sprite().deserialize(item))
+      callback(null, this.filtered)
+    }
 
-    return super.getItemCategory("sprites", id).then(responseHandler).catch(errorHandler);
+    return super.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
   }
 
   addNewItem(newItem, callback) {
@@ -56,7 +53,7 @@ export class SpriteService extends FetchHelper {
     newItem.properties.frameY = newItem.properties.frameY = 0
     //
     
-    return super.addNewItemCategory("sprites", newItem).then(responseHandler).catch(errorHandler);
+    return super.addNewItemCategory(this.category, newItem).then(responseHandler).catch(errorHandler);
   }
 
 
@@ -66,7 +63,7 @@ export class SpriteService extends FetchHelper {
       callback(null, updated)
     }
 
-    return super.updateItemCategory("sprites", id, body).catch(errorHandler).then(responseHandler);
+    return super.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);
   }
 
   deleteItemById(id: String, callback = function(err, res) {}) :Promise<any> {
@@ -75,6 +72,6 @@ export class SpriteService extends FetchHelper {
       this.getItems(err => callback(err, removed))
     }
 
-    return super.deleteItemCategory("sprites", id).then(responseHandler).catch(errorHandler);
+    return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }

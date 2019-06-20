@@ -1,4 +1,16 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ResourceServices } from './services/index.service'
+const {
+	AiService,
+	SpriteService, 
+	ActionsService,
+	BattleobjectsService,
+	AnimationsService,
+	CommandService,
+	ActorService
+} = ResourceServices;
+
+/*
 import { AiService } from './services/ai.service';
 import { SpriteService } from './services/sprite.service';
 import { ActionsService } from './services/actions.service';
@@ -6,6 +18,8 @@ import { BattleobjectsService } from './services/battleobjects.service';
 import { AnimationsService } from './services/animations.service';
 import { CommandService } from './services/command.service';
 import { ActorService } from './services/actor.service';
+*/
+
 import { Topic } from './topic.model'
 
 

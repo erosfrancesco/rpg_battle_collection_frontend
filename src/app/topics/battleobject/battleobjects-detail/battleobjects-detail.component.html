@@ -1,6 +1,6 @@
 <mat-tab-group>
 
-<!---->
+	<!---->
 	<mat-tab label="Setup"> 
 		<div *ngIf="checkItemProperty('setup')">
 			<app-custom-codeeditor [code]="battleobject.properties.setup.body" (codeChange)="battleobject.properties.setup.body = $event">

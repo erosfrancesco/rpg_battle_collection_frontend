@@ -2,7 +2,7 @@
 	<mat-form-field>
 		<span> Add to this object </span>
 		<mat-select>
-			<mat-option *ngFor="let item of allItems" 
+			<mat-option *ngFor="let item of service.items" 
 						[value]="item" 
 						[disabled]="computeItemDisabled(item, parentobject)"
 						(click)="addSelectedItem(item, parentobject)">
@@ -13,7 +13,7 @@
 </div>
 
 
-<button mat-raised-button disableRipple color="primary" class="mat-elevation-z2" *ngFor="let item of service.items">
+<button mat-raised-button disableRipple color="primary" class="mat-elevation-z2" *ngFor="let item of service.filtered">
 	<mat-card class="mat-elevation-z0">
 		
 		<mat-card-header>

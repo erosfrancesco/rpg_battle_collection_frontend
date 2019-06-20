@@ -16,11 +16,6 @@ export class FetchHelper {
 		return fetch(url).then(res => res.json());
 	}
 
-	getItemCategory(category, id) {
-		const url = this.baseUrl + category + "/" + id;
-		return fetch(url).then(res => res.json());
-	}
-
 	getCategoryItemsWithId(category, ids) {
 		let url = this.baseUrl + category + "/findById?";
 
@@ -31,8 +26,6 @@ export class FetchHelper {
 	}
 
 	addNewItemCategory(category, newItem) {
-		//delete itemChanges.id;
-		//delete itemChanges.__v;
 		const body = JSON.stringify(newItem);
 
 		const url = this.baseUrl + category;
@@ -49,8 +42,6 @@ export class FetchHelper {
 	}
 
 	updateItemCategory(category, id, itemChanges) {
-		delete itemChanges.id;
-		delete itemChanges.__v;
 		const body = JSON.stringify(itemChanges);
 
 		const url = this.baseUrl + category + "/" + id;
