@@ -5,14 +5,13 @@ import { Resource } from "./resource.model"
 @Injectable({
   providedIn: 'root'
 })
-export class ResourceService extends FetchHelper {
+export class ResourceService {
 
   category: string
   items: [Resource]
   
   
   constructor(category: string) { 
-  	super()
     this.category = category
   }
 
@@ -25,17 +24,8 @@ export class ResourceService extends FetchHelper {
       callback(null, this.items)
     }
 
-  	return super.getCategory(this.category).then(responseHandler).catch(errorHandler);
+  	return FetchHelper.getCategory(this.category).then(responseHandler).catch(errorHandler);
   }
-
-  /*
-  getItemById(id: String, callback = function(err, res) {}) :Promise<any> {
-    const errorHandler = err => callback(err, null)
-    const responseHandler = item => callback(null, new Resource().deserialize(item))
-
-    return super.getItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
-  }
-  /**/
 
 
   getItemsById(id: [String], callback = function(err, res) {}) :Promise<any> {
@@ -45,7 +35,7 @@ export class ResourceService extends FetchHelper {
       callback(null, this.items)
     }
 
-    return super.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
+    return FetchHelper.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
   }
 
 
@@ -57,7 +47,7 @@ export class ResourceService extends FetchHelper {
     // this should be done on server side...
     newItem.properties = newItem.properties || {}
     
-    return super.addNewItemCategory(this.category, newItem).then(responseHandler).catch(errorHandler);
+    return FetchHelper.addNewItemCategory(this.category, newItem).then(responseHandler).catch(errorHandler);
   }
 
 
@@ -66,7 +56,7 @@ export class ResourceService extends FetchHelper {
     const errorHandler = err => callback(err, null)
     const responseHandler = update => callback(null, new Resource().deserialize(update))
 
-    return super.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);
+    return FetchHelper.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);
   }
 
 
@@ -75,6 +65,6 @@ export class ResourceService extends FetchHelper {
     const errorHandler = err => callback(err, null)
     const responseHandler = removed => this.getItems(err => callback(err, removed))
 
-    return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
+    return FetchHelper.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }

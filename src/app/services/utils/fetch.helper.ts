@@ -5,22 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class FetchHelper {
 
-	baseUrl = "https://arcane-whispers-7140.herokuapp.com/"
+	static baseUrl = "https://arcane-whispers-7140.herokuapp.com/"
 
 	constructor() { 
 	}
 
-	getCategory(category) {
+	static getCategory(category) {
 		const url = this.baseUrl + category;
 		return fetch(url).then(res => res.json());
 	}
 
-	getItemCategory(category, id) {
+	static getItemCategory(category, id) {
 		const url = this.baseUrl + category + "/" + id;
 		return fetch(url).then(res => res.json());
 	}
 
-	getCategoryItemsWithId(category, ids) {
+	static getCategoryItemsWithId(category, ids) {
 		let url = this.baseUrl + category + "/findById?";
 
 		ids.forEach(id => {url += ("id=" + id + "&")})
@@ -29,7 +29,7 @@ export class FetchHelper {
 		return fetch(url).then(res => res.json());
 	}
 
-	addNewItemCategory(category, newItem) {
+	static addNewItemCategory(category, newItem) {
 		const body = JSON.stringify(newItem);
 		const url = this.baseUrl + category;
 		
@@ -44,7 +44,7 @@ export class FetchHelper {
 		return fetch(url, options).then(res => res.json());
 	}
 
-	updateItemCategory(category, id, itemChanges) {
+	static updateItemCategory(category, id, itemChanges) {
 		const body = JSON.stringify(itemChanges);
 		const url = this.baseUrl + category + "/" + id;
 
@@ -59,7 +59,7 @@ export class FetchHelper {
 		return fetch(url, options).then(res => res.json());
 	}
 
-	deleteItemCategory(category: string, id: String, callback = function(err, res) {}) :Promise<any> {
+	static deleteItemCategory(category: string, id: String, callback = function(err, res) {}) :Promise<any> {
 		const url = this.baseUrl + category + "/" + id;
 	    const options = { 
 			method: 'DELETE'
