@@ -5,22 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class FetchHelper {
 
-	static baseUrl = "https://arcane-whispers-7140.herokuapp.com/"
+	baseUrl = //"http://localhost/" /* 
+		"https://arcane-whispers-7140.herokuapp.com/" /**/
 
 	constructor() { 
 	}
 
-	static getCategory(category) {
+	getCategory(category) {
 		const url = this.baseUrl + category;
 		return fetch(url).then(res => res.json());
 	}
 
-	static getItemCategory(category, id) {
+	getItemCategory(category, id) {
 		const url = this.baseUrl + category + "/" + id;
 		return fetch(url).then(res => res.json());
 	}
 
-	static getCategoryItemsWithId(category, ids) {
+	getCategoryItemsWithId(category, ids) {
 		let url = this.baseUrl + category + "/findById?";
 
 		ids.forEach(id => {url += ("id=" + id + "&")})
@@ -29,8 +30,11 @@ export class FetchHelper {
 		return fetch(url).then(res => res.json());
 	}
 
-	static addNewItemCategory(category, newItem) {
+	addNewItemCategory(category, newItem) {
+		//delete itemChanges.id;
+		//delete itemChanges.__v;
 		const body = JSON.stringify(newItem);
+
 		const url = this.baseUrl + category;
 		
 		const headers = new Headers();
@@ -44,8 +48,11 @@ export class FetchHelper {
 		return fetch(url, options).then(res => res.json());
 	}
 
-	static updateItemCategory(category, id, itemChanges) {
+	updateItemCategory(category, id, itemChanges) {
+		delete itemChanges.id;
+		delete itemChanges.__v;
 		const body = JSON.stringify(itemChanges);
+
 		const url = this.baseUrl + category + "/" + id;
 
 		const headers = new Headers();
@@ -59,7 +66,7 @@ export class FetchHelper {
 		return fetch(url, options).then(res => res.json());
 	}
 
-	static deleteItemCategory(category: string, id: String, callback = function(err, res) {}) :Promise<any> {
+	deleteItemCategory(category: string, id: String, callback = function(err, res) {}) :Promise<any> {
 		const url = this.baseUrl + category + "/" + id;
 	    const options = { 
 			method: 'DELETE'

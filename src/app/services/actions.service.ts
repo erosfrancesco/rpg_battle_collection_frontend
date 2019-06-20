@@ -1,14 +1,4 @@
-import { ResourceService } from '../services/utils/resource.service'
-import { Action } from '../services/models/action.model';
 
-export class ActionsService extends ResourceService {
-  constructor() {
-    super("actions")
-  }
-}
-
-
-/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Action } from "./action.model"
@@ -24,7 +14,7 @@ export class ActionsService  extends FetchHelper {
 
   items: [Action]
 
-  getItemById(id: String, callback = function(err, res) {}) :Promise<any> {
+  getItemsById(id: [String], callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = item => callback(null, new Action().deserialize(item))
 
@@ -72,4 +62,3 @@ export class ActionsService  extends FetchHelper {
     return super.deleteItemCategory("actions", id).then(responseHandler).catch(errorHandler);
   }
 }
-*/

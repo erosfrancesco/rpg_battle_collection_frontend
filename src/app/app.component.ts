@@ -38,13 +38,13 @@ export class AppComponent {
 
 	/**/
 	topicMapList :Topic[] = [
-		new Topic("Actions", "/actions", this.actionsService),
-		new Topic("Actor", "/actors", this.actorService),
-		new Topic("Ai", "/ai", this.aiService),
-		new Topic("Animations", "/animations", this.animationsService),
-		new Topic("Commands", "/commands", this.commandService),
-		new Topic("Objects", "/objects", this.objectsService),
-		new Topic("Sprite", "/sprites", this.spriteService)
+		new Topic("Actions", "/actions"),
+		new Topic("Actor", "/actors"),
+		new Topic("Ai", "/ai"),
+		new Topic("Animations", "/animations"),
+		new Topic("Commands", "/commands"),
+		new Topic("Objects", "/objects"),
+		new Topic("Sprite", "/sprites")
 	]
 	/**/
 }

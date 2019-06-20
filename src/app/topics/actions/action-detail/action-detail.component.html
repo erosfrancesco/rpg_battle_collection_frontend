@@ -3,11 +3,11 @@
 	<div *ngIf="checkItemProperty('setup')">
 		<span>Parameters: </span> <br>
 		<span>{{action.properties.setup.params}}</span>
-<!--
-		<codemirror [(value)]="action.properties.setup.body" [config]="editorConfig" style="text-align: left; margin: 1%; width: 98%; height: 100px;">
-	    </codemirror>
 
-<!---->
+		<app-custom-codeeditor [code]="action.properties.setup.body" (codeChange)="action.properties.setup.body = $event">
+		</app-custom-codeeditor>
+
+		<!--
 		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
 		  	 [(value)]="action.properties.setup.body">
 		</ace>
@@ -19,11 +19,11 @@
   	<div *ngIf="checkItemProperty('create')">
 		<span>Parameters: </span> <br>
 		<span>{{action.properties.create.params}}</span>
-<!--
-		<codemirror [(value)]="action.properties.create.body" [config]="editorConfig" style="text-align: left; margin: 1%; width: 98%; height: 100px;" onFocus="onFocus">
-	    </codemirror>
 
-		<!---->
+		<app-custom-codeeditor [code]="action.properties.create.body" (codeChange)="action.properties.create.body = $event">
+		</app-custom-codeeditor>
+
+		<!--
 		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
 		  	 [(value)]="action.properties.create.body">
 		</ace>
@@ -35,13 +35,14 @@
   	<div *ngIf="checkItemProperty('resolve')">
 		<span>Parameters: </span> <br>
 		<span>{{action.properties.resolve.params}}</span>
-		<!---->
+
+		<app-custom-codeeditor [code]="action.properties.resolve.body" (codeChange)="action.properties.resolve.body = $event">
+		</app-custom-codeeditor>
+
+		<!--
 		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
 		  	 [(value)]="action.properties.resolve.body">
 		</ace>
-		<!--
-		<codemirror [(value)]="action.properties.resolve.body" [config]="editorConfig" style="text-align: left; margin: 1%; width: 98%; height: 100px;">
-	    </codemirror>
 	    <!---->
 		
 

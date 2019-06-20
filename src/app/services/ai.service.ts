@@ -1,13 +1,4 @@
-import { ResourceService } from '../services/utils/resource.service'
-import { Ai } from '../services/models/ai.model';
 
-export class AiService extends ResourceService {
-  constructor() {
-    super("ai")
-  }
-}
-
-/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Ai } from './ai.model';
@@ -23,7 +14,7 @@ export class AiService extends FetchHelper {
 
   items: [Ai]
 
-  getItemById(id: String, callback = function(err, res) {}) :Promise<any> {
+  getItemsById(id: [String], callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = item => callback(null, new Ai().deserialize(item))
 
@@ -73,4 +64,3 @@ export class AiService extends FetchHelper {
     return super.deleteItemCategory("ai", id).then(responseHandler).catch(errorHandler);
   }
 }
-*/

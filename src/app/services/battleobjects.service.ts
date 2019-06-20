@@ -1,13 +1,4 @@
-import { ResourceService } from '../services/utils/resource.service'
-import { BattleObjects } from '../services/models/battleobjects.model';
 
-export class BattleobjectsService extends ResourceService {
-  constructor() {
-    super("objects")
-  }
-}
-
-/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { BattleObjects } from '../services/battleobjects.model';
@@ -35,7 +26,7 @@ export class BattleobjectsService extends FetchHelper {
   }
 
 
-  getItemById(id: String, callback = function(err, res) {}) :Promise<any> {
+  getItemsById(id: [String], callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = item => callback(null, new BattleObjects().deserialize(item))
 
@@ -74,4 +65,3 @@ export class BattleobjectsService extends FetchHelper {
     return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }
-*/

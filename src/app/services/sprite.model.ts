@@ -1,4 +1,4 @@
-import { Resource } from "../utils/resource.model"
+import { Resource } from "./resource.model"
 
 export class Sprite extends Resource {
   properties: {

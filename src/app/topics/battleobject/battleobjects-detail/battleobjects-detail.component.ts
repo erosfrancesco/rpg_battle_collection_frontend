@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BattleObjects } from '../../../services/models/battleobjects.model'
+import { BattleObjects } from '../../../services/battleobjects.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 

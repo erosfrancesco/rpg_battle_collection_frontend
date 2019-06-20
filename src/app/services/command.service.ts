@@ -1,13 +1,4 @@
-import { ResourceService } from '../services/utils/resource.service'
-import { Command } from '../services/models/command.model';
 
-export class CommandService extends ResourceService {
-  constructor() {
-    super("commands")
-  }
-}
-
-/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Command } from '../services/command.model';
@@ -33,13 +24,6 @@ export class CommandService extends FetchHelper {
     }
 
   	return super.getCategory(this.category).then(responseHandler).catch(errorHandler);
-  }
-
-  getItemById(id: String, callback = function(err, res) {}) :Promise<any> {
-    const errorHandler = err => callback(err, null)
-    const responseHandler = item => callback(null, new Command().deserialize(item))
-
-    return super.getItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 
 
@@ -85,4 +69,3 @@ export class CommandService extends FetchHelper {
     return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }
-*/

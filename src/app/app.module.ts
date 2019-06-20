@@ -52,7 +52,7 @@ import { ActorCommandsComponent } from './topics/actors/actor-detail/sections/ac
 import { ActorStatsComponent } from './topics/actors/actor-detail/sections/actor-stats/actor-stats.component';
 
 
-import { ResourceSearchComponent } from './navigation/resource-search/resource-search.component';
+//import { ResourceSearchComponent } from './navigation/resource-search/resource-search.component';
 import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor.component';
 
 
@@ -89,7 +89,7 @@ import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor
     ActorAiComponent,
     ActorCommandsComponent,
     ActorStatsComponent,
-    ResourceSearchComponent,
+    //ResourceSearchComponent,
     CustomCodeeditorComponent
   ],
   imports: [

@@ -1,5 +1,5 @@
-import { ResourceService } from '../services/utils/resource.service'
-import { Sprite } from '../services/models/sprite.model';
+/*import { ResourceService } from '../services/resource.service'
+import { Sprite } from '../services/sprite.model';
 
 export class SpriteService extends ResourceService {
   constructor() {
@@ -7,7 +7,7 @@ export class SpriteService extends ResourceService {
   }
 }
 
-/*
+/**/
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Sprite } from '../services/sprite.model';
@@ -34,7 +34,7 @@ export class SpriteService extends FetchHelper {
   }
 
 
-  getItemById(id: String, callback = function(err, res) {}) :Promise<any> {
+  getItemsById(id: [String], callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = item => callback(null, new Sprite().deserialize(item))
 
@@ -78,4 +78,3 @@ export class SpriteService extends FetchHelper {
     return super.deleteItemCategory("sprites", id).then(responseHandler).catch(errorHandler);
   }
 }
-*/

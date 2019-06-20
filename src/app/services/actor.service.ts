@@ -1,13 +1,4 @@
-import { ResourceService } from '../services/utils/resource.service'
-import { Actor } from '../services/models/actor.model';
 
-export class ActorService extends ResourceService {
-  constructor() {
-    super("actors")
-  }
-}
-
-/*
 import { Injectable } from '@angular/core';
 import { FetchHelper } from './fetch.helper';
 import { Actor } from "./actor.model"
@@ -33,13 +24,6 @@ export class ActorService extends FetchHelper {
     }
 
   	return super.getCategory(this.category).then(responseHandler).catch(errorHandler);
-  }
-
-  getItemById(id: String, callback = function(err, res) {}) :Promise<any> {
-    const errorHandler = err => callback(err, null)
-    const responseHandler = item => callback(null, new Actor().deserialize(item))
-
-    return super.getItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 
 
@@ -86,4 +70,3 @@ export class ActorService extends FetchHelper {
     return super.deleteItemCategory(this.category, id).then(responseHandler).catch(errorHandler);
   }
 }
-*/

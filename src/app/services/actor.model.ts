@@ -1,4 +1,4 @@
-import { Resource } from "../utils/resource.model"
+import { Resource, EncodedFunction } from "./resource.model"
 
 export class Actor extends Resource {
   properties: {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Actor } from '../../../../../services/models/actor.model'
-import { Sprite } from '../../../../../services/models/sprite.model'
+import { Actor } from '../../../../../services/actor.model'
+import { Sprite } from '../../../../../services/sprite.model'
 import { AppComponent } from '../../../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 

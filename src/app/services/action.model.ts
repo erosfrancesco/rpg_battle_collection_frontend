@@ -1,4 +1,4 @@
-import { Resource, EncodedFunction } from "../utils/resource.model"
+import { Resource, EncodedFunction } from "./resource.model"
 
 export class Action extends Resource {
   properties: {
