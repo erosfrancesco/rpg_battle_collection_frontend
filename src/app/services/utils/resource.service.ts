@@ -8,7 +8,7 @@ import { Resource } from "./resource.model"
 export class ResourceService {
 
   category: string
-  items: [Resource]
+  items: [Resource] = [null]
   
   
   constructor(category: string) { 
