@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { FetchHelper } from './fetch.helper';
+import { Injectable } from '@angular/core'
+import { FetchHelper } from './fetch.helper'
 import { Resource } from "./resource.model"
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Resource } from "./resource.model"
 export class ResourceService {
 
   category: string
-  items: [Resource] = [null]
+  items: [Resource] = null
   
   
   constructor(category: string) { 
