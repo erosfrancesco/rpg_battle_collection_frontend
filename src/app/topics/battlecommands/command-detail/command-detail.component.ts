@@ -15,14 +15,17 @@ import 'brace/theme/ambiance';
 export class CommandDetailComponent implements OnInit {
 
   	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
+  		appComponent.navTitle = "Commands"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 	}
 
 	private sub: any;
 	commandobject: Command
-	service = this.appComponent.commandService
+	service :any
 
 	/*
 	*/
@@ -38,6 +41,8 @@ export class CommandDetailComponent implements OnInit {
 				return
 			}
 
+			this.commandobject = item
+
 			onFetched(item);
 		})
 	}
@@ -51,9 +56,6 @@ export class CommandDetailComponent implements OnInit {
 	*/
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], command => {
-			this.commandobject = command.deserialize(command)
-			this.appComponent.navTitle = command.label
-			
 			setTimeout(() => {
 				this.appComponent.showSpinner = false
 			}, 200);

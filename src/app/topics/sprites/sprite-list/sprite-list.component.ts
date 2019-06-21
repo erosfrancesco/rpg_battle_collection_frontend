@@ -12,14 +12,14 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 })
 export class SpriteListComponent implements OnInit {
 
-	
-
-	service = this.appComponent.spriteService
+	service :any
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
 		appComponent.navTitle = "Sprites"
 		appComponent.fabButtonIcon = ""
 		appComponent.showSpinner = true
+		this.service = this.appComponent.getCurrentTopicService()
+		
 		this.fetchItems(() => {
 			appComponent.showSpinner = false
 			appComponent.fabButtonIcon = "add"

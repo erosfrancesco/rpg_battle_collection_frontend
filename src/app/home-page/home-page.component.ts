@@ -18,7 +18,7 @@ export class HomePageComponent implements OnInit {
   }
 
   saveSprites() {
-    this.appComponent.spriteService.getItems((err, items) => {
+    this.appComponent.getTopicService("Sprites").spriteService.getItems((err, items) => {
       if (err) {
         console.error(err)
         return
@@ -26,13 +26,6 @@ export class HomePageComponent implements OnInit {
       this.saveData(items, "sprites");
     })
   }
-
-  /*
-  toBeImported: [any]
-  importSprites() {
-
-  }
-  /**/
 
   // Function to download data to a file
   saveData(data, filename) :void {

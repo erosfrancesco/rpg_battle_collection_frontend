@@ -10,14 +10,17 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class ActionDetailComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
+		appComponent.navTitle = "Actions"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 	}
 
-	private sub: any;
+	private sub: any
 	action: Action
-	service = this.appComponent.actionsService
+	service: any
 
 	fetchItemById(id, onFetched: Function) {
 		this.service.getItemsById([id], (err, [ai]) => {

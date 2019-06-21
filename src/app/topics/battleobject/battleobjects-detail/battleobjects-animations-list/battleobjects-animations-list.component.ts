@@ -15,7 +15,7 @@ import { DialogLabelComponent } from '../../../../dialogs/dialog-label/dialog-la
 export class BattleobjectsAnimationsListComponent implements OnInit {
 
 
-  	service = this.appComponent.animationsService
+  	service :any //= this.appComponent.getTopicService("Ai")//this.appComponent.animationsService
   	@Input() idlist :[string]
   	@Input() parentobject :BattleObjects
   	items: [Animation]
@@ -24,6 +24,7 @@ export class BattleobjectsAnimationsListComponent implements OnInit {
 
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
+		this.service = this.appComponent.getTopicService("Animations")
 		this.service.getItems((err, all) => {
 			this.allItems = all
 		})

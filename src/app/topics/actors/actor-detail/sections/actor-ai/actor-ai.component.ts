@@ -13,12 +13,12 @@ export class ActorAiComponent implements OnInit {
 
 
 	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
-
+		this.service = this.appComponent.getTopicService("AI")
 	}
 
-	private sub: any;
+	private sub: any
 	@Input() actor: Actor
-	service = this.appComponent.aiService
+	service :any
 
 	/*
 	*/
@@ -36,8 +36,7 @@ export class ActorAiComponent implements OnInit {
 	/*
 	*/
 	ngOnInit() {
-		this.sub = this.route.params.subscribe(params => this.fetchItems(ais => {
-		}) );
+		this.sub = this.route.params.subscribe(params => this.fetchItems(ais => {}) );
 	}
 
 	ngOnDestroy() {

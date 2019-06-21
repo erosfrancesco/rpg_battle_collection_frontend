@@ -14,12 +14,15 @@ export class BattleobjectsListComponent implements OnInit {
 
 	
 
-	service = this.appComponent.objectsService
+	service :any 
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
 		appComponent.navTitle = "Battle Objects"
 		appComponent.fabButtonIcon = ""
 		appComponent.showSpinner = true
+		
+		this.service = this.appComponent.getCurrentTopicService()
+
 		this.fetchItems(() => {
 			appComponent.showSpinner = false
 			appComponent.fabButtonIcon = "add"

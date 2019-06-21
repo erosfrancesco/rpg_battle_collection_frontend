@@ -12,15 +12,17 @@ export class SpriteDetailComponent implements OnInit {
 	Number = Number;
 
 	constructor(private route: ActivatedRoute, private elementRef: ElementRef, private appComponent: AppComponent) { 
+		appComponent.navTitle = "Sprites"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 	}
 
 	private sub: any;
 	sprite: Sprite
-	originalSprite: Sprite
-	service = this.appComponent.spriteService
+	service :any
 
 	/*
 	*/
@@ -42,9 +44,7 @@ export class SpriteDetailComponent implements OnInit {
 
 	updateItemChanges() {
 		const updates = {}
-		this.service.updateItemById(this.sprite.id, this.sprite, (err, item) => {
-			console.log(this.sprite)
-		})
+		this.service.updateItemById(this.sprite.id, this.sprite, (err, item) => {})
 	}
 
 	/*
@@ -53,8 +53,6 @@ export class SpriteDetailComponent implements OnInit {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], sprite => {
 			console.log(sprite)
 			this.sprite = sprite
-			this.originalSprite = sprite
-			this.appComponent.navTitle = sprite.label
 			
 			setTimeout(() => {
 				this.syncFrameSizeAndPosition(this.sprite)

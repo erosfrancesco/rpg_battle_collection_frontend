@@ -18,11 +18,12 @@ export class ActorCommandsComponent implements OnInit {
 
 	private sub: any;
 	@Input() actor: Actor
-	service = this.appComponent.commandService
+	service: any// = this.appComponent.commandService
 
 	/*
 	*/
 	fetchItems(onFetched: Function) {
+		this.service = this.appComponent.getTopicService("Commands")
 		this.service.getItems((err, actor) => {
 			if (err) {
 				console.error(err)

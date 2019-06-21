@@ -12,12 +12,14 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 })
 export class AiListComponent implements OnInit {
 
-	service = this.appComponent.aiService
+	service :any// = this.appComponent.aiService
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
 		appComponent.navTitle = "AI"
 		appComponent.fabButtonIcon = ""
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 
 		this.fetchItems(() => {
 			appComponent.showSpinner = false

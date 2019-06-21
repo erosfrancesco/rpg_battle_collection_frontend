@@ -1,14 +1,11 @@
-//import { ResourceService } from "./services/utils/resource.service"
-
 export class Topic {
 	name :string
 	path :string 
-	//service :ResourceService
+	service :any
 	
-	constructor(name :string, path :string){
-		//, service :ResourceService) {
+	constructor(name :string, path :string, service :any){
 		this.name = name
 		this.path = path
-		//this.service = service
+		this.service = service
 	}
 }

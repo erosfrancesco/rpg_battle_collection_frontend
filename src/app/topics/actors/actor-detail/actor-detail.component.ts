@@ -15,15 +15,18 @@ import 'brace/theme/ambiance';
 })
 export class ActorDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
+  	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
+  		appComponent.navTitle = "Actors"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 	}
 
 	private sub: any;
 	actor: Actor
-	service = this.appComponent.actorService
+	service: any
 
 	/*
 	*/

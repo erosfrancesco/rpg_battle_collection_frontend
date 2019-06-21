@@ -15,15 +15,17 @@ import 'brace/theme/ambiance';
 export class AnimationsDetailComponent implements OnInit {
 
   	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
+  		appComponent.navTitle = "Animations"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 	}
 
 	private sub: any;
 	animation: Animation
-	originalAction: Animation
-	service = this.appComponent.animationsService
+	service :any
 
 	/*
 	*/
@@ -53,8 +55,7 @@ export class AnimationsDetailComponent implements OnInit {
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], animation => {
 			this.animation = animation.deserialize(animation)
-			this.originalAction = animation
-			this.appComponent.navTitle = animation.label
+			//this.appComponent.navTitle = animation.label
 			
 			setTimeout(() => {
 				this.appComponent.showSpinner = false

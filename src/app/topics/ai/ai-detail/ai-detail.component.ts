@@ -15,15 +15,17 @@ import 'brace/theme/ambiance';
 export class AiDetailComponent implements OnInit {
 
 	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
+		appComponent.navTitle = "AI"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 	}
 
 	private sub: any;
 	ai: Ai
-	originalAi: Ai
-	service = this.appComponent.aiService
+	service: any
 
 	/*
 	*/
@@ -39,6 +41,8 @@ export class AiDetailComponent implements OnInit {
 				return
 			}
 
+			this.ai = item
+
 			onFetched(item);
 		})
 	}
@@ -52,10 +56,6 @@ export class AiDetailComponent implements OnInit {
 	*/
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], ai => {
-			this.ai = ai.deserialize(ai)
-			this.originalAi = ai
-			this.appComponent.navTitle = ai.label
-			
 			setTimeout(() => {
 				this.appComponent.showSpinner = false
 			}, 200);

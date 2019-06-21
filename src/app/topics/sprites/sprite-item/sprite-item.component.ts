@@ -14,9 +14,11 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 export class SpriteItemComponent implements OnInit {
 
 	@Input() sprite: Sprite
-  service = this.appComponent.spriteService
+  service :any
 
-  constructor(public dialog: MatDialog, private appComponent: AppComponent) {}
+  constructor(public dialog: MatDialog, private appComponent: AppComponent) {
+    this.service = this.appComponent.getCurrentTopicService()
+  }
 
   ngOnInit() {
   	this.computeSpriteStyle()

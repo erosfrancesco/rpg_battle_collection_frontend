@@ -17,12 +17,14 @@ export class ActorSpriteComponent implements OnInit {
 
 	private sub: any;
 	@Input() actor: Actor
-	service = this.appComponent.spriteService
+	service: any
 	sprites: [Sprite]
 
 	/*
 	*/
 	fetchItems(onFetched: Function) {
+		this.service = this.appComponent.getTopicService("Sprites")
+
 		this.service.getItems((err, actor) => {
 			if (err) {
 				console.error(err)

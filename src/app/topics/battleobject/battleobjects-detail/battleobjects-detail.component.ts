@@ -14,14 +14,17 @@ import 'brace/theme/ambiance';
 })
 export class BattleobjectsDetailComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
+		appComponent.navTitle = "Battle Objects"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
+
+		this.service = this.appComponent.getCurrentTopicService()
 	}
 
 	private sub: any;
 	battleobject: BattleObjects
-	service = this.appComponent.objectsService
+	service: any
 
 	/*
 	*/

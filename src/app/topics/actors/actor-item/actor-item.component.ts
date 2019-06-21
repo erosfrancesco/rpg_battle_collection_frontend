@@ -13,13 +13,15 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 })
 export class ActorItemComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private appComponent: AppComponent) { }
+  constructor(public dialog: MatDialog, private appComponent: AppComponent) {
+    this.service = this.appComponent.getCurrentTopicService()
+  }
 
   ngOnInit() {
   }
 
   @Input() actor: Actor
-  service = this.appComponent.actorService
+  service: any
 
   /*
   */
