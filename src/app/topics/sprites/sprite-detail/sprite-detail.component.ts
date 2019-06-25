@@ -51,7 +51,6 @@ export class SpriteDetailComponent implements OnInit {
 	*/
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], sprite => {
-			console.log(sprite)
 			this.sprite = sprite
 			
 			setTimeout(() => {

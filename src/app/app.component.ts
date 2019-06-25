@@ -27,17 +27,6 @@ export class AppComponent {
 	fabButtonIcon :string = "add"
 	fabButtonAction() {}
 	showSpinner :boolean = false
-	/**/
-
-	/*
-	actionsService = new ActionsService()
-	actorService = new ActorService()
-	aiService = new AiService()
-	animationsService = new AnimationsService()
-	commandService = new CommandService()
-	objectsService = new BattleobjectsService()
-	spriteService = new SpriteService()
-	/**/
 
 	topicMapList :Topic[] = [
 		new Topic("Actions", "/actions", new ActionsService()),

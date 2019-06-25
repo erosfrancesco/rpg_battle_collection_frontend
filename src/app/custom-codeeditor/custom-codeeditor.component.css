@@ -1,4 +1,4 @@
-:host ace {
+:host .ace {
 	height: 500px;
 	width: 100%;
 }
@@ -39,4 +39,19 @@
 :host mat-option {
 	background-color: inherit;
 	color: inherit;
+}
+
+
+::ng-deep .mat-select-value {
+	background-color: inherit;
+	color: white;
+}
+
+::ng-deep .mat-select-arrow-wrapper {
+	background-color: inherit;
+	color: inherit;
+}
+
+:host .label {
+	margin-right: 30px;
 }

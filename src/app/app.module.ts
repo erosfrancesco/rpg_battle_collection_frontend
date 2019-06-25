@@ -54,6 +54,7 @@ import { ActorStatsComponent } from './topics/actors/actor-detail/sections/actor
 
 //import { ResourceSearchComponent } from './navigation/resource-search/resource-search.component';
 import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor.component';
+import { ItemBuildComponent } from './custom-codeeditor/plugins/item-build/item-build.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor
     ActorCommandsComponent,
     ActorStatsComponent,
     //ResourceSearchComponent,
-    CustomCodeeditorComponent
+    CustomCodeeditorComponent,
+    ItemBuildComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

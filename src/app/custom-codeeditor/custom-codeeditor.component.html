@@ -6,22 +6,7 @@
 			  	<span> Utils </span>
 			</mat-expansion-panel-header>
 
-			<div class="actions">
-				<span> Build </span>
-				<mat-form-field>
-					<mat-select>
-						<mat-option> 1 </mat-option>
-						<mat-option> 1 </mat-option>
-					</mat-select>
-				</mat-form-field>
-
-				<mat-form-field>
-					<mat-select>
-						<mat-option> a </mat-option>
-						<mat-option> b </mat-option>
-					</mat-select>
-				</mat-form-field>
-			</div>
+			<app-item-build (build)="insertLineOnCurrentPosition($event)"></app-item-build>
 		</mat-expansion-panel>
 
 	</mat-accordion>
@@ -30,10 +15,18 @@
 
 
 <div>
-	<ace [config]="config" 
-		 [mode]="'javascript'" 
-		 [theme]="'ambiance'" 
-		 (valueChange)="notify($event)"
-	  	 [(value)]="code">
+	<div class="ace" 
+		 #editor
+		 (input)="code = $event"
+		 [ace]="config">
+	</div>
+	<!--
+	<ace #editor 
+		[config]="config" 
+		[mode]="'javascript'" 
+		[theme]="'ambiance'" 
+		(valueChange)="notify($event)"
+	  	[(value)]="code">
 	</ace>
+	<!---->
 </div>
