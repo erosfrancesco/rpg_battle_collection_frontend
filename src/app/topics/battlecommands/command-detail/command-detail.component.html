@@ -8,7 +8,12 @@
 <div *ngIf="checkItemProperty('action')">
 	<span>Parameters: </span> <br>
 	<span>{{commandobject.properties.action.params}}</span>
+
+	<app-custom-codeeditor [code]="commandobject.properties.action.body" (codeChange)="commandobject.properties.action.body = $event"></app-custom-codeeditor>
+
+	<!--
 	<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
 	  	 [(value)]="commandobject.properties.action.body">
 	</ace>
+	<!---->
 </div>
