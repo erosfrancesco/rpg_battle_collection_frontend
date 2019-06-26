@@ -1,12 +1,12 @@
-::ng-deep .mat-select-value {
+/*::ng-deep .mat-select-value {
 	background-color: inherit;
-	color: white;
+	color: inherit;
 }
 
 ::ng-deep .mat-select-arrow-wrapper {
 	background-color: inherit;
 	color: inherit;
-}
+}*/
 
 
 :host .label {

@@ -50,9 +50,9 @@ export class CommandService extends FetchHelper {
   }
 
 
-  updateItemById(id: String, body:any, callback = function(err, res) {}) :Promise<any> {
+  updateItemById(id: String, body: Command, callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
-    const responseHandler = updated => callback(null, updated)
+    const responseHandler = updated => callback(null, body.deserialize(updated))
 
     return super.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);
   }

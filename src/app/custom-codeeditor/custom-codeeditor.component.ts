@@ -10,18 +10,36 @@ export class CustomCodeeditorComponent implements OnInit {
 	
 	app :any
 
+	dependenciesBlockStart = '/* --COMPUTED DEPENDENCIES BY PLUGIN */\n'
+	dependenciesBlockStop  = '/* COMPUTED DEPENDENCIES BY PLUGIN-- */\n\n'
+
 	@ViewChild("editor") editor: ElementRef;
 	
 
 	constructor(private elementRef: ElementRef) { 
 	}
 
-	ngOnInit() { }
+	ngOnInit() {
+	}
 
 	//
-	insertLineOnCurrentPosition(lineCode: string) {
-		const { editor } = this.editor.nativeElement.env
-		editor.session.insert(editor.getCursorPosition(), lineCode)
+	insertDependency(lineCode: string) :string {
+		const at = this.computeDependencyBlockIndex()
+		return this.code.slice(0, at) + lineCode + this.code.slice(at);
+	}
+
+	computeDependencyBlockIndex(): number {
+		let index = this.dependenciesBlockStart.length;
+		const start = this.code.indexOf(this.dependenciesBlockStart)
+		const end   = this.code.indexOf(this.dependenciesBlockStop)
+
+		if ((start < 0) || (end < 0)) {
+			this.code = this.dependenciesBlockStart + this.dependenciesBlockStop + this.code
+		}else {
+			index = end
+		}
+
+		return index;
 	}
 
 	//
@@ -37,5 +55,9 @@ export class CustomCodeeditorComponent implements OnInit {
 
 	notify(event) {
 		this.codeChange.emit(event);
+	}
+
+	inputHandler(event) {
+		this.code = event
 	}
 }

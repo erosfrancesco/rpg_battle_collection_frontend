@@ -12,12 +12,14 @@
 	background-color: inherit;
 	color: inherit;
 	width: 100%;
+	align-items: center;
 }
 
 :host mat-expansion-panel {
 	background-color: inherit;
 	color: inherit;
 	width: 100%;
+	align-items: center;
 }
 
 :host mat-expansion-panel-header {
@@ -41,6 +43,10 @@
 	color: inherit;
 }
 
+:host h4 {
+	text-align: center;
+}
+/*
 
 ::ng-deep .mat-select-value {
 	background-color: inherit;
@@ -55,3 +61,4 @@
 :host .label {
 	margin-right: 30px;
 }
+*/

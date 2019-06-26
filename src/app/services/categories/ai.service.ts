@@ -23,7 +23,6 @@ export class AiService extends FetchHelper {
       this.items = items.map((item: Ai) => new Ai().deserialize(item))
       callback(null, this.items)
     }
-    //callback(null, items.map((item: Ai) => new Ai().deserialize(item)))
 
     return super.getCategory(this.category).then(responseHandler).catch(errorHandler);
   }
@@ -34,7 +33,6 @@ export class AiService extends FetchHelper {
       this.filtered = items.map((item: Ai) => new Ai().deserialize(item))
       callback(null, this.filtered)
     }
-    //callback(null, items.map((item: Ai) => new Ai().deserialize(item)))
 
     return super.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
   }
@@ -51,7 +49,7 @@ export class AiService extends FetchHelper {
   }
 
 
-  updateItemById(id: String, body:Ai, callback = function(err, res) {}) :Promise<any> {
+  updateItemById(id: String, body: Ai, callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)
     const responseHandler = updated => callback(null, body.deserialize(updated))
 

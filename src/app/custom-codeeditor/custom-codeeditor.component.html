@@ -1,26 +1,28 @@
 <!---->
-<button mat-raised-button disableRipple color="primary" class="mat-elevation-z0">
-	<mat-accordion class="mat-elevation-z0">
-		<mat-expansion-panel class="mat-elevation-z0">
-			<mat-expansion-panel-header class="mat-elevation-z0">
-			  	<span> Utils </span>
-			</mat-expansion-panel-header>
 
-			<app-item-build (build)="insertLineOnCurrentPosition($event)"></app-item-build>
-		</mat-expansion-panel>
+<mat-accordion>
+	<mat-expansion-panel>
+		<mat-expansion-panel-header>
+		  	<h4> Plug-ins </h4>
+		</mat-expansion-panel-header>
 
-	</mat-accordion>
-</button>
+		<app-item-build (build)="code = insertDependency($event)"></app-item-build>
+	</mat-expansion-panel>
+
+</mat-accordion>
+
 <!---->
 
 
 <div>
+	<!--
 	<div class="ace" 
 		 #editor
-		 (input)="code = $event"
+		 (input)="inputHandler"
 		 [ace]="config">
+		 {{code}}
 	</div>
-	<!--
+	<!---->
 	<ace #editor 
 		[config]="config" 
 		[mode]="'javascript'" 

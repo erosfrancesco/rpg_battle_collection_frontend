@@ -1,6 +1,14 @@
-<mat-tab-group>
+<div class="props" *ngIf="checkItemProperty('type')">
+	<mat-form-field>
+		<mat-label> Object type </mat-label>
+		<mat-select [(value)]="battleobject.properties.type">
+			<mat-option *ngFor="let type of availableTypes" [value]="type">{{type}}</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
 
-	<!---->
+
+<mat-tab-group>
 	<mat-tab label="Setup"> 
 		<div *ngIf="checkItemProperty('setup')">
 			<app-custom-codeeditor [code]="battleobject.properties.setup.body" (codeChange)="battleobject.properties.setup.body = $event">
@@ -28,6 +36,4 @@
 			</app-battleobjects-animations-list>
 		</div>
 	</mat-tab>
-	<!---->
-
 </mat-tab-group>

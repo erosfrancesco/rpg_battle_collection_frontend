@@ -1,6 +1,6 @@
-:host ace {
-	height: 500px;
+:host .props {
 	width: 100%;
+	height: 50px;
 }
 
 :host mat-tab-group {

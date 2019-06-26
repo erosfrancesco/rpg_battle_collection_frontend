@@ -25,6 +25,7 @@ export class BattleobjectsDetailComponent implements OnInit {
 	private sub: any;
 	battleobject: BattleObjects
 	service: any
+	availableTypes = ["generic", "menu", "particle"]
 
 	/*
 	*/

@@ -1,12 +1,13 @@
 import { Resource, EncodedFunction } from "./resource.model"
 
 export class BattleObjects extends Resource {
-  properties: {
-    setup: EncodedFunction
-    create: EncodedFunction
-    destroy: EncodedFunction
-    animations: [string]
-  }
+    properties: {
+        setup: EncodedFunction
+        create: EncodedFunction
+        destroy: EncodedFunction
+        animations: [string]
+        type: string
+    }
 }
 
 /*
