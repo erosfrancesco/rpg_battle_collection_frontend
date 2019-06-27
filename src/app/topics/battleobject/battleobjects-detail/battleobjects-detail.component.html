@@ -11,22 +11,25 @@
 <mat-tab-group>
 	<mat-tab label="Setup"> 
 		<div *ngIf="checkItemProperty('setup')">
-			<app-custom-codeeditor [code]="battleobject.properties.setup.body" (codeChange)="battleobject.properties.setup.body = $event">
-			</app-custom-codeeditor>
+			<app-wrapper-editor [encodedFunction]="battleobject.properties.setup" 
+		 						(encodedFunctionChange)="battleobject.properties.setup = $event">
+		    </app-wrapper-editor>
 		</div>
 	</mat-tab>
 
 	<mat-tab label="Create"> 
 		<div *ngIf="checkItemProperty('create')">
-			<app-custom-codeeditor [code]="battleobject.properties.create.body" (codeChange)="battleobject.properties.create.body = $event">
-			</app-custom-codeeditor>
+			<app-wrapper-editor [encodedFunction]="battleobject.properties.create" 
+		 						(encodedFunctionChange)="battleobject.properties.create = $event">
+		    </app-wrapper-editor>
 		</div>
 	</mat-tab>
 
 	<mat-tab label="Destroy" color="primary"> 
 		<div *ngIf="checkItemProperty('destroy')">
-			<app-custom-codeeditor [code]="battleobject.properties.destroy.body" (codeChange)="battleobject.properties.destroy.body = $event">
-			</app-custom-codeeditor>
+			<app-wrapper-editor [encodedFunction]="battleobject.properties.destroy" 
+		 						(encodedFunctionChange)="battleobject.properties.destroy = $event">
+		    </app-wrapper-editor>
 		</div>
 	</mat-tab>
 

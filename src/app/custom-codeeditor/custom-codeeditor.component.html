@@ -1,17 +1,20 @@
-<!---->
-
 <mat-accordion>
 	<mat-expansion-panel>
 		<mat-expansion-panel-header>
 		  	<h4> Plug-ins </h4>
 		</mat-expansion-panel-header>
 
+		<h4>Parameters:</h4>
+		<mat-form-field style="display: inline">
+			<input matInput placeholder="Parameters"
+				[value]="params" 
+				(input)="params = $event.target.value; notifyParamsChange($event.target.value);">
+		</mat-form-field>
+
 		<app-item-build (build)="code = insertDependency($event)"></app-item-build>
 	</mat-expansion-panel>
-
 </mat-accordion>
 
-<!---->
 
 
 <div>
@@ -27,7 +30,7 @@
 		[config]="config" 
 		[mode]="'javascript'" 
 		[theme]="'ambiance'" 
-		(valueChange)="notify($event)"
+		(valueChange)="notifyCodeChange($event)"
 	  	[(value)]="code">
 	</ace>
 	<!---->

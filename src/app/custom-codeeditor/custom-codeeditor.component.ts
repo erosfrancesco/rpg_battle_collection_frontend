@@ -13,6 +13,14 @@ export class CustomCodeeditorComponent implements OnInit {
 	dependenciesBlockStart = '/* --COMPUTED DEPENDENCIES BY PLUGIN */\n'
 	dependenciesBlockStop  = '/* COMPUTED DEPENDENCIES BY PLUGIN-- */\n\n'
 
+
+	//
+	@Input() code: string
+	@Output() codeChange = new EventEmitter()
+
+	@Input() params: string
+	@Output() paramsChange = new EventEmitter()
+
 	@ViewChild("editor") editor: ElementRef;
 	
 
@@ -43,9 +51,6 @@ export class CustomCodeeditorComponent implements OnInit {
 	}
 
 	//
-	@Input() code: string
-	@Output() codeChange = new EventEmitter()
-	
 	@Input() config :AceConfigInterface = { 
 		"theme": 'ambiance',
 		"mode": "javascript",
@@ -53,11 +58,11 @@ export class CustomCodeeditorComponent implements OnInit {
 		"printMarginColumn": true
 	}
 
-	notify(event) {
+	notifyCodeChange(event) {
 		this.codeChange.emit(event);
 	}
 
-	inputHandler(event) {
-		this.code = event
+	notifyParamsChange(event) {
+		this.paramsChange.emit(event)
 	}
 }

@@ -1,0 +1,5 @@
+<app-custom-codeeditor  [code]="encodedFunction.body" 
+						(codeChange)="encodedFunction.body = $event; notify();"
+						[params]="encodedFunction.params"
+						(paramsChange)="encodedFunction.params = $event; notify();">
+</app-custom-codeeditor>

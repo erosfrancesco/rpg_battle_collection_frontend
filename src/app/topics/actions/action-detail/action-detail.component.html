@@ -1,51 +1,25 @@
 <mat-tab-group>
   <mat-tab label="Setup" color="primary"> 
 	<div *ngIf="checkItemProperty('setup')">
-		<span>Parameters: </span> <br>
-		<span>{{action.properties.setup.params}}</span>
-
-		<app-custom-codeeditor [code]="action.properties.setup.body" (codeChange)="action.properties.setup.body = $event">
-		</app-custom-codeeditor>
-
-		<!--
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
-		  	 [(value)]="action.properties.setup.body">
-		</ace>
-		<!---->
+		<app-wrapper-editor [encodedFunction]="action.properties.setup" 
+							(encodedFunctionChange)="action.properties.setup = $event">
+		</app-wrapper-editor>
 	</div>
   </mat-tab>
 
   <mat-tab label="Create"> 
   	<div *ngIf="checkItemProperty('create')">
-		<span>Parameters: </span> <br>
-		<span>{{action.properties.create.params}}</span>
-
-		<app-custom-codeeditor [code]="action.properties.create.body" (codeChange)="action.properties.create.body = $event">
-		</app-custom-codeeditor>
-
-		<!--
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
-		  	 [(value)]="action.properties.create.body">
-		</ace>
-		<!---->
+  		<app-wrapper-editor [encodedFunction]="action.properties.create" 
+							(encodedFunctionChange)="action.properties.create = $event">
+		</app-wrapper-editor>
 	</div>
   </mat-tab>
 
   <mat-tab label="Resolve">
   	<div *ngIf="checkItemProperty('resolve')">
-		<span>Parameters: </span> <br>
-		<span>{{action.properties.resolve.params}}</span>
-
-		<app-custom-codeeditor [code]="action.properties.resolve.body" (codeChange)="action.properties.resolve.body = $event">
-		</app-custom-codeeditor>
-
-		<!--
-		<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" showGutter
-		  	 [(value)]="action.properties.resolve.body">
-		</ace>
-	    <!---->
-		
-
+		<app-wrapper-editor [encodedFunction]="action.properties.resolve" 
+							(encodedFunctionChange)="action.properties.resolve = $event">
+		</app-wrapper-editor>
 	</div>
   </mat-tab>
 

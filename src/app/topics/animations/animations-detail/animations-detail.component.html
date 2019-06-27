@@ -1,13 +1,5 @@
 <div *ngIf="checkItemProperties()">
-	<span>Parameters: </span> <br>
-	<span>{{animation.properties.params}}</span>
-
-
-	<app-custom-codeeditor [code]="animation.properties.body" (codeChange)="animation.properties.body = $event">
-	</app-custom-codeeditor>
-
-
-<!-- 	<ace [config]="config" [mode]="'javascript'" [theme]="'ambiance'" 
-	  	 [(value)]="animation.properties.body">
-	</ace> -->
+	<app-wrapper-editor [encodedFunction]="animation.properties" 
+						(encodedFunctionChange)="animation.properties = $event">
+    </app-wrapper-editor>
 </div>
