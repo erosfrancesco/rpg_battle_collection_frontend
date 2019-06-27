@@ -54,6 +54,7 @@ export class CustomCodeeditorComponent implements OnInit {
 	@Input() config :AceConfigInterface = { 
 		"theme": 'ambiance',
 		"mode": "javascript",
+		"fontSize": 18,
 		"showPrintMargin": true,              // Sets showing of the print margin (Default: false).
 		"printMarginColumn": true
 	}
