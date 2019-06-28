@@ -1,0 +1,27 @@
+<button mat-raised-button disableRipple color="primary" class="mat-elevation-z6">
+	<mat-card class="mat-elevation-z0">
+		
+		<mat-card-header>
+			<mat-card-title>
+				<span> {{battle.label}} </span> 
+				
+				<button mat-icon-button (click)="editLabel()">
+					<mat-icon color="background">edit</mat-icon>
+				</button>
+			</mat-card-title>
+		</mat-card-header>
+
+
+		<mat-card-actions>
+
+			<button mat-button [routerLink]="['/battles/', battle.id]">
+				DETAIL
+			</button>
+			
+			<button mat-raised-button color="warn" (click)="deleteItem()">
+				DELETE
+			</button>
+		</mat-card-actions>
+		
+	</mat-card>
+</button>

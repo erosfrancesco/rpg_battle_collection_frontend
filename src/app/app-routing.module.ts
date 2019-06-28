@@ -17,6 +17,8 @@ import { CommandListComponent } from './topics/battlecommands/command-list/comma
 import { CommandDetailComponent } from './topics/battlecommands/command-detail/command-detail.component'
 import { ActorsListComponent } from './topics/actors/actors-list/actors-list.component'
 import { ActorDetailComponent } from './topics/actors/actor-detail/actor-detail.component'
+import { BattleListComponent } from './topics/battles/battle-list/battle-list.component'
+import { BattleDetailComponent } from './topics/battles/battle-detail/battle-detail.component'
 
 const routes: Routes = [
 	{ path: '', component: HomePageComponent },
@@ -40,7 +42,10 @@ const routes: Routes = [
 	{ path: 'commands/:id', component: CommandDetailComponent },
 
 	{ path: 'actors', component: ActorsListComponent },
-	{ path: 'actors/:id', component: ActorDetailComponent }
+	{ path: 'actors/:id', component: ActorDetailComponent },
+
+	{ path: 'battles', component: BattleListComponent },
+	{ path: 'battles/:id', component: BattleDetailComponent }
 ];
 
 @NgModule({

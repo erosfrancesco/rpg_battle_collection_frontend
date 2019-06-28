@@ -52,10 +52,13 @@ import { ActorCommandsComponent } from './topics/actors/actor-detail/sections/ac
 import { ActorStatsComponent } from './topics/actors/actor-detail/sections/actor-stats/actor-stats.component';
 
 
-//import { ResourceSearchComponent } from './navigation/resource-search/resource-search.component';
 import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor.component';
 import { ItemBuildComponent } from './custom-codeeditor/plugins/item-build/item-build.component';
 import { WrapperEditorComponent } from './custom-codeeditor/wrapper/wrapper-editor/wrapper-editor.component';
+import { BattleListComponent } from './topics/battles/battle-list/battle-list.component';
+import { BattleItemComponent } from './topics/battles/battle-item/battle-item.component';
+import { BattleDetailComponent } from './topics/battles/battle-detail/battle-detail.component';
+import { ActorsSectionComponent } from './topics/battles/battle-detail/actors-section/actors-section.component';
 
 
 @NgModule({
@@ -91,10 +94,13 @@ import { WrapperEditorComponent } from './custom-codeeditor/wrapper/wrapper-edit
     ActorAiComponent,
     ActorCommandsComponent,
     ActorStatsComponent,
-    //ResourceSearchComponent,
     CustomCodeeditorComponent,
     ItemBuildComponent,
-    WrapperEditorComponent
+    WrapperEditorComponent,
+    BattleListComponent,
+    BattleItemComponent,
+    BattleDetailComponent,
+    ActorsSectionComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

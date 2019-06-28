@@ -7,7 +7,8 @@ const {
 	BattleobjectsService,
 	AnimationsService,
 	CommandService,
-	ActorService
+	ActorService,
+	BattlesService
 } = ResourceServices;
 
 import { Topic } from './topic.model'
@@ -35,6 +36,7 @@ export class AppComponent {
 		new Topic("Animations", "/animations", new AnimationsService()),
 		new Topic("Commands", "/commands", new CommandService()),
 		new Topic("Battle Objects", "/objects", new BattleobjectsService()),
+		new Topic("Battle", "/battles", new BattlesService()),
 		new Topic("Sprites", "/sprites", new SpriteService())
 	]
 

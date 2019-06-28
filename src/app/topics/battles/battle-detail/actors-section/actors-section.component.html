@@ -1,0 +1,30 @@
+<p>
+  actors-section works!
+</p>
+
+<!-- 
+actors: [{
+	id: "5cf7dda1b5be12001770ee7d",
+	options: {x: 200, y: 200, isEnemy: true}
+}], 
+    preload: new Function("scene", preload),
+    create : new Function("scene", create),
+    update : new Function("scene", update), 
+    onWin  : new Function("scene", onWin),
+    onLose : new Function("scene", onLose)
+  
+-->
+
+<div *ngIf="checkIfBattleHasActors()">
+	<mat-form-field>
+		<span>Add actor</span>
+		<mat-select>
+			<mat-option *ngFor="let item of service.items" 
+						[value]="item" 
+						[disabled]="computeItemDisabled(item, battle)"
+						(click)="addSelectedItem(item, battle)">
+				{{item.label}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>

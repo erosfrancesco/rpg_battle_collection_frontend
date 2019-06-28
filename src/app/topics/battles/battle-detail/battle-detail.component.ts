@@ -1,34 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Actor } from '../../../services/actor.model'
+import { Battle } from '../../../services/battle.model'
 import { AppComponent } from '../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 
-import 'brace';
-import 'brace/mode/javascript';
-import 'brace/theme/ambiance';
-
-
 @Component({
-  selector: 'app-actor-detail',
-  templateUrl: './actor-detail.component.html',
-  styleUrls: ['./actor-detail.component.css']
+  selector: 'app-battle-detail',
+  templateUrl: './battle-detail.component.html',
+  styleUrls: ['./battle-detail.component.css']
 })
-export class ActorDetailComponent implements OnInit {
+export class BattleDetailComponent implements OnInit {
+
+	private sub: any;
+	battle: Battle
+	service: any
 
   	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
-  		appComponent.navTitle = "Actors"
+	  	appComponent.navTitle = "Battle"
 		appComponent.fabButtonIcon = "save"
 		appComponent.fabButtonAction = () => this.updateItemChanges();
 		appComponent.showSpinner = true
 
 		this.service = this.appComponent.getCurrentTopicService()
-	}
+  	}
 
-	private sub: any;
-	actor: Actor
-	service: any
-
-	/*
+  	/*
 	*/
 	fetchItemById(id, onFetched: Function) {
 		this.service.getItemsById([id], (err, [item]) => {
@@ -48,17 +43,15 @@ export class ActorDetailComponent implements OnInit {
 
 	updateItemChanges() {
 		const updates = {}
-		this.service.updateItemById(this.actor.id, this.actor, (err, actor) => { this.actor = actor })
+		this.service.updateItemById(this.battle.id, this.battle, (err, battle) => { this.battle = battle })
 	}
 
 	/*
 	*/
 	ngOnInit() {
-		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], actor => {
-			this.actor = actor.deserialize(actor)
-			this.actor.properties.canBeAlly = this.actor.properties.canBeAlly || false
-			this.actor.properties.canBeEnemy = this.actor.properties.canBeEnemy || false
-			this.appComponent.navTitle = actor.label
+		this.sub = this.route.params.subscribe(params => this.fetchItemById(params['id'], battle => {
+			this.battle = battle.deserialize(battle)
+			this.appComponent.navTitle = battle.label
 			
 			setTimeout(() => {
 				this.appComponent.showSpinner = false
@@ -74,7 +67,11 @@ export class ActorDetailComponent implements OnInit {
 	/*
 	*/
 	checkItemProperties() :boolean {
-		return Boolean(this.actor && this.actor.properties)
+		return Boolean(this.battle && this.battle.properties)
+	}
+
+	checkItemProperty(prop) :boolean {
+		return Boolean(this.checkItemProperties() && this.battle.properties[prop])
 	}
 
 }

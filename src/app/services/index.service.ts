@@ -3,6 +3,7 @@ import { ActorService } from "./categories/actor.service"
 import { AiService } from "./categories/ai.service"
 import { AnimationsService } from "./categories/animations.service"
 import { BattleobjectsService } from "./categories/battleobjects.service"
+import { BattlesService } from "./categories/battles.service"
 import { CommandService } from "./categories/command.service"
 import { SpriteService } from "./categories/sprite.service"
 
@@ -12,6 +13,7 @@ export const ResourceServices = {
 	AiService,
 	AnimationsService,
 	BattleobjectsService,
+	BattlesService,
 	CommandService,
 	SpriteService
 }
