@@ -13,7 +13,6 @@ export class ActorsSectionComponent implements OnInit {
 
 	private sub: any;
 	@Input() battle: Battle
-	//service: any
 	service: any
 
   	constructor(private route: ActivatedRoute, private appComponent: AppComponent) { 
@@ -68,14 +67,34 @@ export class ActorsSectionComponent implements OnInit {
 		//this.actors = null
 	}
 
-	deleteCommandItem(item: Actor, parent: Battle) {
-		const index = this.battle.properties.actors.findIndex(encodedActor => encodedActor.id === item.id)
-		parent.properties.actors.splice(index, 1)
+	removeElement(item: Actor, parent: Battle) {
+		//console.log(item, parent.properties.actors.findIndex(encodedActor => encodedActor.id === item.id))
+		const index = parent.properties.actors.findIndex(encodedActor => encodedActor.id === item.id)
+		if (index < 0) {
+			return
+		}
+		parent.properties.actors.splice(index, 1);
+
+		console.log(parent.properties.actors)
 	}
 
 	computeItemDisabled(item: Actor, parent: Battle) :boolean {
 		const index = this.battle.properties.actors.findIndex(encodedActor => encodedActor.id === item.id)
 		return (index > -1)
+	}
+
+
+	/**/
+	computeActorLabel(id) {
+		if (!this.service.items) {
+			return ""
+		}
+		const actor = this.service.items.find(item => item.id === id)
+		if (!actor) {
+			return ""
+		}
+
+		return actor.label;
 	}
 
 }

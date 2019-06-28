@@ -36,6 +36,6 @@ class EncodedActor {
 }
 
 class EncodedFunction {
-	body: { type: string, default: "callback();" }
-    params: { type: string, default: "scene, options, callback" }
+	body: string
+    params: string
 }

@@ -1,11 +1,7 @@
-<p>
-  actors-section works!
-</p>
-
 <!-- 
 actors: [{
 	id: "5cf7dda1b5be12001770ee7d",
-	options: {x: 200, y: 200, isEnemy: true}
+	options: {x: 200, y: 200, isEnemy: true, isAlly: true}
 }], 
     preload: new Function("scene", preload),
     create : new Function("scene", create),
@@ -27,4 +23,64 @@ actors: [{
 			</mat-option>
 		</mat-select>
 	</mat-form-field>
+
+
+	<br>
+
+
+	<div style="display: inline">
+		<button mat-raised-button disableRipple color="primary" class="mat-elevation-z6" *ngFor="let actor of battle.properties.actors">
+			<mat-card class="mat-elevation-z0">
+				
+				<mat-card-header>
+					<mat-card-title>
+						{{computeActorLabel(actor.id)}}
+					</mat-card-title>
+				</mat-card-header>
+
+				<div>
+
+					<span>Role: </span>
+					<mat-checkbox 	[checked]="actor.options.isAlly" 
+									(change)="actor.options.isAlly = $event.checked;"> Is ally 
+					</mat-checkbox>
+					<mat-checkbox 	[checked]="actor.options.isEnemy" 
+									(change)="actor.options.isEnemy = $event.checked;"> Is Enemy
+					</mat-checkbox>
+
+					<br>
+					<span>Position: </span>
+
+					<mat-form-field>
+						<input placeholder="X" 
+							type="number"
+							[value]="actor.options.x" 
+							(input)="actor.options.x = $event.target.value;"
+							matInput>
+					</mat-form-field>
+					<mat-form-field>
+						<input placeholder="Y" 
+							type="number"
+							[value]="actor.options.y" 
+							(input)="actor.options.y = $event.target.value;"
+							matInput>
+					</mat-form-field>
+
+				</div>
+
+
+				<mat-card-actions>
+
+					<button mat-button [routerLink]="['/actors/', actor.id]">
+						DETAIL
+					</button>
+					
+					<button mat-raised-button color="warn" (click)="removeElement(actor, battle)">
+						REMOVE
+					</button>
+				</mat-card-actions>
+				
+			</mat-card>
+		</button>
+	</div>
 </div>

@@ -1,7 +1,6 @@
-/*Stub*/
 :host mat-card {
 	margin: 4px;
-	height: 75px;
+	height: 200px;
 	margin: 4px;
 	text-align: center;
 	background-color: inherit;
@@ -22,4 +21,9 @@
 
 :host button {
 	margin: 2px;
+}
+
+/* Checkbox color */
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
+    background-color: blue !important;
 }
