@@ -59,6 +59,7 @@ import { BattleListComponent } from './topics/battles/battle-list/battle-list.co
 import { BattleItemComponent } from './topics/battles/battle-item/battle-item.component';
 import { BattleDetailComponent } from './topics/battles/battle-detail/battle-detail.component';
 import { ActorsSectionComponent } from './topics/battles/battle-detail/actors-section/actors-section.component';
+import { ResourcesListComponent } from './resources-list/resources-list.component';
 
 
 @NgModule({
@@ -100,7 +101,8 @@ import { ActorsSectionComponent } from './topics/battles/battle-detail/actors-se
     BattleListComponent,
     BattleItemComponent,
     BattleDetailComponent,
-    ActorsSectionComponent
+    ActorsSectionComponent,
+    ResourcesListComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

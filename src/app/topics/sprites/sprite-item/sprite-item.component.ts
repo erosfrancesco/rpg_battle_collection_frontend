@@ -40,13 +40,13 @@ export class SpriteItemComponent implements OnInit {
     }
 
   	const {src, frameHeight, frameWidth, frameX, frameY} = this.sprite.properties 
-    const zoom = 200 / ((frameWidth < frameHeight) ? frameHeight : frameWidth)
+    const zoom = 150 / ((frameWidth < frameHeight) ? frameHeight : frameWidth)
 
   	this.backgroundExp = "url(" +  src + ")" + " -" + (frameWidth * frameX) + "px -" + (frameHeight * frameY) + "px no-repeat"
   	this.widthExp = String(frameWidth)
   	this.heightExp = String(frameHeight)
     this.leftExp = "calc(50% - " + frameWidth + "px / 2)"
-    this.topExp = "calc(0% - " + (frameHeight - frameHeight*zoom) + "px / 2)"
+    this.topExp = "calc(0% - 25px - " + (frameHeight - frameHeight*zoom) + "px / 2)"
     this.transformExp = "scale(" + zoom + ")"
   }
 

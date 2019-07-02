@@ -14,7 +14,7 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 export class BattleobjectsItemComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private appComponent: AppComponent) { 
-    this.service = this.appComponent.getTopicService("Objects")
+    this.service = this.appComponent.getCurrentTopicService()
   }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class BattleobjectsItemComponent implements OnInit {
         return
       }
       this.battleobject.label = label;
-      this.service.updateItemById(this.battleobject.id, null, (err, res) => console.log(err, res))
+      this.service.updateItemById(this.battleobject.id, this.battleobject, (err, res) => console.log(err, res))
     });
   }
 

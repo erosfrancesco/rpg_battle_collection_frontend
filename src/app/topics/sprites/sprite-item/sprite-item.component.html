@@ -1,4 +1,4 @@
-<button mat-raised-button disableRipple color="primary" class="mat-elevation-z6">
+<!-- <button mat-raised-button disableRipple color="primary" class="mat-elevation-z6">
 	<mat-card class="mat-elevation-z0">
 	
 	<mat-card-header>
@@ -31,4 +31,12 @@
 	</mat-card-actions>
 	
 </mat-card>
-</button>
+</button> -->
+
+<app-resources-list category="sprites" [resource]="sprite">
+	<div id="frameWrapper">
+		<div *ngIf="spriteHasSource()"
+[ngStyle]="{'background': backgroundExp, 'width.px': widthExp, 'height.px': heightExp, 'margin-left': leftExp, 'margin-top': topExp, 'transform': transformExp}">
+		</div>
+	</div>
+</app-resources-list>
