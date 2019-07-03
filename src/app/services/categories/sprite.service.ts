@@ -38,6 +38,16 @@ export class SpriteService extends FetchHelper {
     return super.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
   }
 
+  getItemsByGroup(group, callback = function(err, res) {}) :Promise<any> {
+    const errorHandler = err => callback(err, null)
+    const responseHandler = items => {
+      this.items = items.map((item: Sprite) => new Sprite().deserialize(item))
+      callback(null, this.items)
+    }
+    
+    return super.getCategoryFilteredByGroup(this.category, group).then(responseHandler).catch(errorHandler);
+  }
+
   addNewItem(newItem, callback) {
     const errorHandler = err => callback(err, null)
     const responseHandler = added => {
@@ -51,6 +61,8 @@ export class SpriteService extends FetchHelper {
     newItem.properties.frameHeight = newItem.properties.frameHeight = 0
     newItem.properties.frameX = newItem.properties.frameX = 0
     newItem.properties.frameY = newItem.properties.frameY = 0
+
+    newItem.groups = newItem.groups || []
     //
     
     return super.addNewItemCategory(this.category, newItem).then(responseHandler).catch(errorHandler);

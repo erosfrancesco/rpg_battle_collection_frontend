@@ -23,7 +23,6 @@ export class BattleobjectsService extends FetchHelper {
       this.items = items.map((item: BattleObjects) => new BattleObjects().deserialize(item))
       callback(null, this.items)
     }
-    //callback(null, items.map((item: BattleObjects) => new BattleObjects().deserialize(item)))
 
   	return super.getCategory(this.category).then(responseHandler).catch(errorHandler);
   }
@@ -34,9 +33,20 @@ export class BattleobjectsService extends FetchHelper {
     const responseHandler = items => {
       this.filtered = items.map((item: BattleObjects) => new BattleObjects().deserialize(item))
       callback(null, this.filtered)
-    }//callback(null, items.map((item: BattleObjects) => new BattleObjects().deserialize(item)))
+    }
 
     return super.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
+  }
+
+
+  getItemsByGroup(group, callback = function(err, res) {}) :Promise<any> {
+    const errorHandler = err => callback(err, null)
+    const responseHandler = items => {
+      this.items = items.map((item: BattleObjects) => new BattleObjects().deserialize(item))
+      callback(null, this.items)
+    }
+    
+    return super.getCategoryFilteredByGroup(this.category, group).then(responseHandler).catch(errorHandler);
   }
 
 
@@ -48,18 +58,11 @@ export class BattleobjectsService extends FetchHelper {
 
     // this should be done on server side...
     newItem.properties = newItem.properties || {}
+    newItem.groups = newItem.groups || []
     //
     
     return super.addNewItemCategory(this.category, newItem).then(responseHandler).catch(errorHandler);
   }
-
-
-  // updateItemById(id: String, body: BattleObjects, callback = function(err, res) {}) :Promise<any> {
-  //   const errorHandler = err => callback(err, null)
-  //   const responseHandler = updated => callback(null, body.deserialize(updated))
-
-  //   return super.updateItemCategory(this.category, id, body).catch(errorHandler).then(responseHandler);
-  // }
 
   updateItemById(id: String, body: BattleObjects, callback = function(err, res) {}) :Promise<any> {
     const errorHandler = err => callback(err, null)

@@ -1,26 +1,6 @@
 :host mat-toolbar {
 	width: 100% !important;
 }
-/*
-:host div {
-	float: right;
-	align-self: right;
-	/*
-	position: absolute; 
-	right: 4px;
-	*/
-/*}
-
-
-:host button {
-}
-
-:host app-resource-search {
-	position: absolute; 
-	right: 160px;
-	top: -10px;
-	height: 24px;
-}*/
 
 :host .leftSide {
 	position: absolute;

@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+	<h1 mat-dialog-title> Are you sure? </h1>
+</div>
+
+
+<div mat-dialog-actions (keyup.enter)="confirmClicked()">
+	<button mat-button (click)="cancelClicked()"> nope </button>
+	<button mat-raised-button color="warn" (click)="confirmClicked()" cdkFocusInitial> Yes </button>
+</div>

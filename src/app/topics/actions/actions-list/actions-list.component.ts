@@ -29,6 +29,12 @@ export class ActionsListComponent implements OnInit {
 		})
 	}
 
+	filterByGroup(groupId) {
+		
+	}
+
+	/*
+	*/
 	fetchItems(callback = function() {}) {
 		this.service.getItems((err, items) => {
 			if (err) {
@@ -59,6 +65,8 @@ export class ActionsListComponent implements OnInit {
 	}
 
 
+	/*
+	*/
 	openDialog(): MatDialogRef<DialogLabelComponent> {
 	    return this.dialog.open(DialogLabelComponent, {
 	      data: {label: "new_action_label"}

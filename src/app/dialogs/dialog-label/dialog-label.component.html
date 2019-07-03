@@ -1,9 +1,8 @@
-
-<h1 mat-dialog-title> Item label </h1>
-
 <div mat-dialog-content>
+	<h1 mat-dialog-title> Item label </h1>
 	<mat-form-field>
 		<input matInput 
+			(keyup.enter)="doneClicked(data.label)"
 			[value]="data.label" 
 			(input)="data.label = $event.target.value;">
 	</mat-form-field>	
@@ -11,5 +10,5 @@
 
 <div mat-dialog-actions>
 	<button mat-button (click)="cancelClicked()"> Cancel </button>
-	<button mat-button (click)="doneClicked()" cdkFocusInitial [mat-dialog-close]="data.label"> Done </button>
+	<button mat-button (click)="doneClicked(data.label)" cdkFocusInitial> Done </button>
 </div>

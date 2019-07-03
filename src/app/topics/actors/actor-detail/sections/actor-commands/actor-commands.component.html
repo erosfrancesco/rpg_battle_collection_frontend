@@ -17,7 +17,7 @@
 
 	<button mat-raised-button disableRipple color="primary" class="mat-elevation-z6" *ngFor="let id of actor.properties.actorCommands">
 		<mat-card class="mat-elevation-z0">		
-			<mat-card-title>
+			<mat-card-title [routerLink]="['/commands/', id]">
 				<span> {{computeCommandLabel(id, service.items)}} </span> 
 			</mat-card-title>
 
@@ -34,3 +34,4 @@
 	</button>
 
 </div>
+<br>

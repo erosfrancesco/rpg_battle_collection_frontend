@@ -14,10 +14,13 @@ export class SpriteListComponent implements OnInit {
 
 	service :any
 
+	sub :any
+
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
 		appComponent.navTitle = "Sprites"
 		appComponent.fabButtonIcon = ""
 		appComponent.showSpinner = true
+
 		this.service = this.appComponent.getCurrentTopicService()
 		
 		this.fetchItems(() => {
@@ -25,13 +28,44 @@ export class SpriteListComponent implements OnInit {
 			appComponent.fabButtonIcon = "add"
 			appComponent.fabButtonAction = () => this.addNewItem()
 		})
+
+
+		this.sub = appComponent.groupSelected.subscribe(group => {
+			appComponent.fabButtonIcon = ""
+			appComponent.showSpinner = true
+			
+			this.fetchItemsByGroup(group, () => {
+				appComponent.showSpinner = false
+				appComponent.fabButtonIcon = "add"
+			})
+		})
 	}
 
 	ngOnInit() {
+
+	}
+
+	ngOnDestroy() {
+		this.sub.unsubscribe();
 	}
 
 	fetchItems(callback = function() {}) {
 		this.service.getItems((err, items) => {
+			if (err) {
+				console.error(err)
+				return
+			}
+			callback();
+		});
+	}
+
+	fetchItemsByGroup(group :string, callback = function() {}) {
+		if (!group) {
+			this.fetchItems(callback)
+			return
+		}
+
+		this.service.getItemsByGroup(group, (err, items) => {
 			if (err) {
 				console.error(err)
 				return

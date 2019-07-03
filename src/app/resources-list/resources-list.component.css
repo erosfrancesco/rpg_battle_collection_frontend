@@ -1,4 +1,5 @@
-:host {
+
+:host .mat-elevation-z6 {
 	margin: 4px;
 }
 
@@ -16,7 +17,7 @@
 :host mat-card-title {
 	background-color: inherit;
 	color: inherit;
-	width: 200px;
+	width: calc(200px + 1em);
 }
 
 :host mat-card-header {
@@ -25,16 +26,32 @@
 	color: inherit;
 }
 
+:host mat-card-content {
+	background-color: inherit;
+	color: inherit;
+	height: 100px;
+	width: 200px;
+}
+
+
+:host mat-card-header mat-card-title span {
+	width: 200px; 
+	margin: 0px !important;
+	text-align: center;
+	background-color: inherit;
+	color: inherit;
+}
+
 :host div {
 	background-size: contain;
 	background-color: inherit;
+	margin: 0px !important;
 	color: inherit;
 }
 
 :host mat-card-header mat-card-title button {
 	float: right;
-	margin-right: 10px;
-	margin-top: -5px;
+	margin-top:  -10px;
 	background-color: inherit;
 	color: inherit;
 }

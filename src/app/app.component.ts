@@ -8,7 +8,8 @@ const {
 	AnimationsService,
 	CommandService,
 	ActorService,
-	BattlesService
+	BattlesService,
+	GroupsService
 } = ResourceServices;
 
 import { Topic } from './topic.model'
@@ -28,6 +29,10 @@ export class AppComponent {
 	fabButtonIcon :string = "add"
 	fabButtonAction() {}
 	showSpinner :boolean = false
+	
+	group : string | boolean
+	@Output() groupSelected: EventEmitter<any> = new EventEmitter<any>();
+	groupService :any = new GroupsService() 
 
 	topicMapList :Topic[] = [
 		new Topic("Actions", "/actions", new ActionsService()),
@@ -39,6 +44,8 @@ export class AppComponent {
 		new Topic("Battle", "/battles", new BattlesService()),
 		new Topic("Sprites", "/sprites", new SpriteService())
 	]
+
+	
 
 	getCurrentTopicService() :any {
 		return this.getTopicService(this.navTitle)

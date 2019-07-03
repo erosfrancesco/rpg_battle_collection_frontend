@@ -13,33 +13,33 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 export class AiItemComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private appComponent: AppComponent) {
-    this.service = this.appComponent.getCurrentTopicService()
+    // this.service = this.appComponent.getCurrentTopicService()
   }
 
   ngOnInit() {
   }
 
   @Input() ai: Ai
-  service :any
+  // service :any
 
-  /*
-  */
-  editLabel() {
-    this.openDialog().afterClosed().subscribe(label => {
-      if (!label) {
-        return
-      }
-      this.ai.label = label;
-      this.service.updateItemById(this.ai.id, this.ai, (err, res) => console.log(err, res))
-    });
-  }
+  // /*
+  // */
+  // editLabel() {
+  //   this.openDialog().afterClosed().subscribe(label => {
+  //     if (!label) {
+  //       return
+  //     }
+  //     this.ai.label = label;
+  //     this.service.updateItemById(this.ai.id, this.ai, (err, res) => console.log(err, res))
+  //   });
+  // }
 
-  openDialog() :MatDialogRef<DialogLabelComponent> {
-    return this.dialog.open(DialogLabelComponent, { data: {label: this.ai.label} });
-  }
+  // openDialog() :MatDialogRef<DialogLabelComponent> {
+  //   return this.dialog.open(DialogLabelComponent, { data: {label: this.ai.label} });
+  // }
 
-  deleteItem() :void {
-    this.service.deleteItemById(this.ai.id, (err, res) => console.log(err, res))
-  }
+  // deleteItem() :void {
+  //   this.service.deleteItemById(this.ai.id, (err, res) => console.log(err, res))
+  // }
 
 }

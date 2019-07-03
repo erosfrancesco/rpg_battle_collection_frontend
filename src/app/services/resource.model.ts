@@ -1,6 +1,7 @@
 export class Resource {
   id: string
   label: string
+  groups: [string]
 
   deserialize(input: any): this {
     Object.assign(this, input);

@@ -4,6 +4,7 @@ import { Resource } from '../services/resource.model'
 import { AppComponent } from '../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
 import { DialogLabelComponent } from '../dialogs/dialog-label/dialog-label.component'
+import { DialogConfirmComponent } from '../dialogs/dialog-confirm/dialog-confirm.component'
 
 @Component({
   selector: 'app-resources-list',
@@ -26,7 +27,7 @@ export class ResourcesListComponent implements OnInit {
   /*
   */
   editLabel() {
-    this.openDialog().afterClosed().subscribe(label => {
+    this.openEditDialog().afterClosed().subscribe(label => {
       if (!label) {
         return
       }
@@ -35,12 +36,29 @@ export class ResourcesListComponent implements OnInit {
     });
   }
 
-  openDialog() :MatDialogRef<DialogLabelComponent> {
+  deleteItem() :void {
+    this.openConfirmDialog().afterClosed().subscribe(confirm => {
+      if (!confirm) {
+        return
+      }
+      this.service.deleteItemById(this.resource.id, (err, res) => console.log(err, res))
+    });
+  }
+  
+
+  /*
+  */
+  openEditDialog() :MatDialogRef<DialogLabelComponent> {
     return this.dialog.open(DialogLabelComponent, { data: {label: this.resource.label} });
   }
 
-  deleteItem() :void {
-    this.service.deleteItemById(this.resource.id, (err, res) => console.log(err, res))
+  openConfirmDialog() :MatDialogRef<DialogConfirmComponent> {
+    return this.dialog.open(DialogConfirmComponent, { data: {} });
+  }
+
+  
+  stopPropagation(event){
+      event.stopPropagation();
   }
 
 }

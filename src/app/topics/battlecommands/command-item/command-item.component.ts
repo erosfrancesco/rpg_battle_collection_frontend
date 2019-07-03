@@ -14,34 +14,34 @@ export class CommandItemComponent implements OnInit {
 
 
 	constructor(public dialog: MatDialog, private appComponent: AppComponent) { 
-    this.service = this.appComponent.getCurrentTopicService()
+    // this.service = this.appComponent.getCurrentTopicService()
   }
 
   ngOnInit() {
   }
 
   @Input() commandobject: Command
-  service :any
+  // service :any
 
-  /*
-  */
-  editLabel() {
-    this.openDialog().afterClosed().subscribe(label => {
-      if (!label) {
-        return
-      }
-      this.commandobject.label = label;
-      this.service.updateItemById(this.commandobject.id, this.commandobject, (err, res) => console.log(err, res))
-    });
-  }
+  // /*
+  // */
+  // editLabel() {
+  //   this.openDialog().afterClosed().subscribe(label => {
+  //     if (!label) {
+  //       return
+  //     }
+  //     this.commandobject.label = label;
+  //     this.service.updateItemById(this.commandobject.id, this.commandobject, (err, res) => console.log(err, res))
+  //   });
+  // }
 
-  openDialog() :MatDialogRef<DialogLabelComponent> {
-    return this.dialog.open(DialogLabelComponent, { data: {label: this.commandobject.label} });
-  }
+  // openDialog() :MatDialogRef<DialogLabelComponent> {
+  //   return this.dialog.open(DialogLabelComponent, { data: {label: this.commandobject.label} });
+  // }
 
-  deleteItem() :void {
-    this.service.deleteItemById(this.commandobject.id, (err, res) => console.log(err, res))
-  }
+  // deleteItem() :void {
+  //   this.service.deleteItemById(this.commandobject.id, (err, res) => console.log(err, res))
+  // }
 
 
 }

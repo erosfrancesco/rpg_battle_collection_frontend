@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import {  
           MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
           MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule, 
-          MatSelectModule, MatExpansionModule
+          MatSelectModule, MatExpansionModule, MatDividerModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -60,6 +60,9 @@ import { BattleItemComponent } from './topics/battles/battle-item/battle-item.co
 import { BattleDetailComponent } from './topics/battles/battle-detail/battle-detail.component';
 import { ActorsSectionComponent } from './topics/battles/battle-detail/actors-section/actors-section.component';
 import { ResourcesListComponent } from './resources-list/resources-list.component';
+import { DialogConfirmComponent } from './dialogs/dialog-confirm/dialog-confirm.component';
+import { PrimaryButtonComponent } from './navigation/primary-button/primary-button.component';
+import { SecondaryButtonComponent } from './navigation/secondary-button/secondary-button.component';
 
 
 @NgModule({
@@ -102,11 +105,14 @@ import { ResourcesListComponent } from './resources-list/resources-list.componen
     BattleItemComponent,
     BattleDetailComponent,
     ActorsSectionComponent,
-    ResourcesListComponent
+    ResourcesListComponent,
+    DialogConfirmComponent,
+    PrimaryButtonComponent,
+    SecondaryButtonComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
-    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule, MatSelectModule, MatExpansionModule,
+    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule, MatSelectModule, MatExpansionModule, MatDividerModule,
     MatDialogModule,
     AceModule,
     BrowserModule,
@@ -117,6 +123,6 @@ import { ResourcesListComponent } from './resources-list/resources-list.componen
     HeaderComponent
   ],
   bootstrap: [ AppComponent ],
-  entryComponents: [ DialogLabelComponent ]
+  entryComponents: [ DialogLabelComponent, DialogConfirmComponent ]
 })
 export class AppModule { }

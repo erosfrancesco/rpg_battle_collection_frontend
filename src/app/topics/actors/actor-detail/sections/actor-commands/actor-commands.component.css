@@ -10,11 +10,11 @@
 :host mat-card-title {
 	background-color: inherit;
 	color: inherit;
-	width: 300px;
+	width: 200px;
 }
 
 :host mat-card-header {
-	width: 300px; 
+	width: 200px; 
 	background-color: inherit;
 	color: inherit;
 }

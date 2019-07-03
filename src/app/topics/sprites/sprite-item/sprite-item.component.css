@@ -1,4 +1,4 @@
-:host {
+/*:host {
 	margin: 4px;
 }
 
@@ -36,16 +36,14 @@
 	background-size: contain;
 	background-color: inherit;
 	color: inherit;
-}
+}*/
 
 :host #frameWrapper {
 	width: 200px; 
-	height: 200px; 
-	background-color: inherit; 
-	margin-left: 50px;
+	height: 150px; 
 }
 
-:host mat-card-header mat-card-title button {
+/*:host mat-card-header mat-card-title button {
 	float: right;
 	margin-right: 10px;
 	margin-top: -5px;
@@ -57,4 +55,4 @@
 	position: absolute; 
 	bottom: 20px; 
 	width: 100%;
-}
+}*/

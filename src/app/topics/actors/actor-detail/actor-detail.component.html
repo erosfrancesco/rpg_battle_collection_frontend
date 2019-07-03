@@ -1,6 +1,5 @@
 <div *ngIf="checkItemProperties()">
 	<h3>Actor Properties</h3>
-	<hr>
 
 	<mat-form-field>
 		<input placeholder="Actor Name" 
@@ -20,14 +19,12 @@
 	<app-actor-sprite [actor]="actor"></app-actor-sprite>
 
 
-	<br>
+	<mat-divider [inset]="true"></mat-divider>
 	<h3>Actor Commands</h3>
-	<hr>
 	<app-actor-commands [actor]="actor"></app-actor-commands>
 
 
-	<br>
+	<mat-divider [inset]="true"></mat-divider>
 	<h3>Actor Stats</h3>
-	<hr>
 	<app-actor-stats [actor]="actor"></app-actor-stats>
 </div>

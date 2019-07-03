@@ -38,12 +38,24 @@ export class AiService extends FetchHelper {
   }
 
 
+  getItemsByGroup(group, callback = function(err, res) {}) :Promise<any> {
+    const errorHandler = err => callback(err, null)
+    const responseHandler = items => {
+      this.items = items.map((item: Ai) => new Ai().deserialize(item))
+      callback(null, this.items)
+    }
+    
+    return super.getCategoryFilteredByGroup(this.category, group).then(responseHandler).catch(errorHandler);
+  }
+
+
   addNewItem(newItem, callback) {
     const errorHandler = err => callback(err, null)
     const responseHandler = added => this.getItems(err => callback(err, added))
 
     // this should be done on server side...
     newItem.properties = newItem.properties || {}
+    newItem.groups = newItem.groups || []
     
     return super.addNewItemCategory(this.category, newItem).then(responseHandler).catch(errorHandler);
   }

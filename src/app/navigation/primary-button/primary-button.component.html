@@ -1,0 +1,12 @@
+<button mat-button [matMenuTriggerFor]="menu" color="background">
+	<h4> RPG Battle Framework {{updateButtonName(app.navTitle)}}</h4>
+</button>
+
+<mat-icon>expand_more</mat-icon>
+
+
+<mat-menu #menu="matMenu">
+	<button *ngFor="let topic of app.topicMapList" mat-menu-item [routerLink]="[topic.path]">
+		{{topic.name}}
+	</button>
+</mat-menu>

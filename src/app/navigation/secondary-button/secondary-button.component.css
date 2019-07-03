@@ -1,0 +1,8 @@
+:host div {
+	display: inline
+}
+
+:host .mat-raised-button {
+	width: 48%; 
+	margin: 1%;
+}

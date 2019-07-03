@@ -33,9 +33,20 @@ export class CommandService extends FetchHelper {
     const responseHandler = items => {
       this.filtered = items.map((item: Command) => new Command().deserialize(item))
       callback(null, this.filtered)
-    }//callback(null, items.map((item: Command) => new Command().deserialize(item)))
+    }
 
     return super.getCategoryItemsWithId(this.category, id).then(responseHandler).catch(errorHandler);
+  }
+
+
+  getItemsByGroup(group, callback = function(err, res) {}) :Promise<any> {
+    const errorHandler = err => callback(err, null)
+    const responseHandler = items => {
+      this.items = items.map((item: Command) => new Command().deserialize(item))
+      callback(null, this.items)
+    }
+    
+    return super.getCategoryFilteredByGroup(this.category, group).then(responseHandler).catch(errorHandler);
   }
 
 
@@ -45,6 +56,7 @@ export class CommandService extends FetchHelper {
 
     // this should be done on server side...
     newItem.properties = newItem.properties || {}
+    newItem.groups = newItem.groups || []
     
     return super.addNewItemCategory(this.category, newItem).then(responseHandler).catch(errorHandler);
   }

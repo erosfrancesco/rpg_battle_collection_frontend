@@ -3,25 +3,15 @@
 	<div class="leftSide">
 		<app-back-button></app-back-button>
 
-		<button mat-button [matMenuTriggerFor]="menu" color="background">
-			<span> RPG Battle Framework {{updateButtonName(app.navTitle)}}</span>
-		    <mat-icon>expand_more</mat-icon>
-		</button>
-
-		<mat-menu #menu="matMenu">
-			<button *ngFor="let topic of app.topicMapList" mat-menu-item [routerLink]="[topic.path]">
-				{{topic.name}}
-			</button>
-		</mat-menu>
+		<app-primary-button></app-primary-button>
+		<app-secondary-button></app-secondary-button>
 	</div>
 
 	
 	<div class="rightSide">	
-
 		<button mat-icon-button routerLink="/">
 			<mat-icon (click)="updateButtonName('')">home</mat-icon>
 		</button>
-
 	</div>
 
 </mat-toolbar>

@@ -5,10 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class FetchHelper {
 
-	baseUrl = //"http://localhost/" /* 
-		"https://arcane-whispers-7140.herokuapp.com/" /**/
+	baseUrl = "https://arcane-whispers-7140.herokuapp.com/"
 
-	constructor() { 
+	constructor() { }
+
+	getCategoryFilteredByGroup(category, group) {
+		const url = this.baseUrl + group + "/" + category;
+		return fetch(url).then(res => res.json());
 	}
 
 	getCategory(category) {

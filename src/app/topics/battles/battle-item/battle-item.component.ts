@@ -13,10 +13,10 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 export class BattleItemComponent implements OnInit {
 
 	@Input() battle: Battle
-	service :any
+	//service :any
 
 	constructor(public dialog: MatDialog, private appComponent: AppComponent) {
-	    this.service = this.appComponent.getCurrentTopicService()
+	    //this.service = this.appComponent.getCurrentTopicService()
 	}
 
 	ngOnInit() {
@@ -24,22 +24,22 @@ export class BattleItemComponent implements OnInit {
 
 	/*
   */
-  editLabel() {
-    this.openDialog().afterClosed().subscribe(label => {
-      if (!label) {
-        return
-      }
-      this.battle.label = label;
-      this.service.updateItemById(this.battle.id, this.battle, (err, res) => console.log(err, res))
-    });
-  }
+  // editLabel() {
+  //   this.openDialog().afterClosed().subscribe(label => {
+  //     if (!label) {
+  //       return
+  //     }
+  //     this.battle.label = label;
+  //     this.service.updateItemById(this.battle.id, this.battle, (err, res) => console.log(err, res))
+  //   });
+  // }
 
-  openDialog() :MatDialogRef<DialogLabelComponent> {
-    return this.dialog.open(DialogLabelComponent, { data: {label: this.battle.label} });
-  }
+  // openDialog() :MatDialogRef<DialogLabelComponent> {
+  //   return this.dialog.open(DialogLabelComponent, { data: {label: this.battle.label} });
+  // }
 
-  deleteItem() :void {
-    this.service.deleteItemById(this.battle.id, (err, res) => console.log(err, res))
-  }
+  // deleteItem() :void {
+  //   this.service.deleteItemById(this.battle.id, (err, res) => console.log(err, res))
+  // }
 
 }
