@@ -20,15 +20,14 @@ export class SpriteListComponent implements OnInit {
 		appComponent.navTitle = "Sprites"
 		appComponent.fabButtonIcon = ""
 		appComponent.showSpinner = true
+		appComponent.fabButtonAction = () => this.addNewItem()
 
 		this.service = this.appComponent.getCurrentTopicService()
-		
-		this.fetchItems(() => {
-			appComponent.showSpinner = false
-			appComponent.fabButtonIcon = "add"
-			appComponent.fabButtonAction = () => this.addNewItem()
-		})
 
+		this.fetchItemsByGroup(appComponent.group, () => {
+			appComponent.showSpinner = false
+		 	appComponent.fabButtonIcon = "add"
+		})
 
 		this.sub = appComponent.groupSelected.subscribe(group => {
 			appComponent.fabButtonIcon = ""
@@ -59,7 +58,7 @@ export class SpriteListComponent implements OnInit {
 		});
 	}
 
-	fetchItemsByGroup(group :string, callback = function() {}) {
+	fetchItemsByGroup(group :string | boolean, callback = function() {}) {
 		if (!group) {
 			this.fetchItems(callback)
 			return

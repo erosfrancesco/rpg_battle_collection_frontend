@@ -10,7 +10,7 @@ export class FetchHelper {
 	constructor() { }
 
 	getCategoryFilteredByGroup(category, group) {
-		const url = this.baseUrl + group + "/" + category;
+		const url = this.baseUrl + "groups/" + group + "/" + category;
 		return fetch(url).then(res => res.json());
 	}
 

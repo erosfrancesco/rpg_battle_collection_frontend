@@ -1,3 +1,6 @@
-
-<app-action-item *ngFor="let item of service.items" [action]="item">
-</app-action-item>
+<app-resources-list-wrapper (serviceFound)="service = $event">
+	<div *ngIf="service">
+		<app-action-item *ngFor="let item of service.items" [action]="item">
+		</app-action-item>
+	</div>
+</app-resources-list-wrapper>

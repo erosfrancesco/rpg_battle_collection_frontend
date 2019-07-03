@@ -15,6 +15,7 @@ export class SecondaryButtonComponent implements OnInit {
 	service: any
 	filtered: Groups[]
 	filterLabel :string = ""
+	label :string = "Groups"
 
   	constructor(private appComponent :AppComponent, public dialog: MatDialog) { 
 		this.app = appComponent
@@ -58,13 +59,15 @@ export class SecondaryButtonComponent implements OnInit {
 
 	/*
 	*/
+
 	filterByLabel(label: string) {
 		this.filtered = this.service.items.filter(item => item.label.includes(label))
 	}
 
-	updateFilters(group: Groups) {
-		this.app.group = group.id
-		this.app.groupSelected.emit(group.id)
+	updateFilters(group: Groups | false) {
+		this.app.group = group ? group.id : false 
+		this.label = group ? group.label : "Groups"
+		this.app.groupSelected.emit(group ? group.id : false)
 	}
 
 	deleteGroup(group: Groups) {

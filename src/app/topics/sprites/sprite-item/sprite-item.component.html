@@ -1,7 +1,7 @@
-<app-resources-list category="sprites" [resource]="sprite">
+<app-resources-item-wrapper category="sprites" [resource]="sprite">
 	<div id="frameWrapper">
 		<div *ngIf="spriteHasSource()" 
 		     [ngStyle]="{'background': backgroundExp, 'width.px': widthExp, 'height.px': heightExp, 'margin-left': leftExp, 'margin-top': topExp, 'transform': transformExp}">
 		</div>
 	</div>
-</app-resources-list>
+</app-resources-item-wrapper>

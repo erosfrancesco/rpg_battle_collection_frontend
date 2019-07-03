@@ -59,10 +59,11 @@ import { BattleListComponent } from './topics/battles/battle-list/battle-list.co
 import { BattleItemComponent } from './topics/battles/battle-item/battle-item.component';
 import { BattleDetailComponent } from './topics/battles/battle-detail/battle-detail.component';
 import { ActorsSectionComponent } from './topics/battles/battle-detail/actors-section/actors-section.component';
-import { ResourcesListComponent } from './resources-list/resources-list.component';
+import { ResourcesItemWrapperComponent } from './resources-item-wrapper/resources-item-wrapper.component';
 import { DialogConfirmComponent } from './dialogs/dialog-confirm/dialog-confirm.component';
 import { PrimaryButtonComponent } from './navigation/primary-button/primary-button.component';
 import { SecondaryButtonComponent } from './navigation/secondary-button/secondary-button.component';
+import { ResourcesListWrapperComponent } from './resources-list-wrapper/resources-list-wrapper.component';
 
 
 @NgModule({
@@ -105,10 +106,11 @@ import { SecondaryButtonComponent } from './navigation/secondary-button/secondar
     BattleItemComponent,
     BattleDetailComponent,
     ActorsSectionComponent,
-    ResourcesListComponent,
+    ResourcesItemWrapperComponent,
     DialogConfirmComponent,
     PrimaryButtonComponent,
-    SecondaryButtonComponent
+    SecondaryButtonComponent,
+    ResourcesListWrapperComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

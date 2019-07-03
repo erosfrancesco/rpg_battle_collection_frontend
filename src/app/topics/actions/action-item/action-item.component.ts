@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Action } from '../../../services/action.model'
-import { AppComponent } from '../../../app.component'
-import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
+// import { AppComponent } from '../../../app.component'
+// import { MatDialog, MatDialogRef } from '@angular/material'
+// import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
 
 
 @Component({
@@ -13,7 +13,7 @@ import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label
 })
 export class ActionItemComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private appComponent: AppComponent) { 
+  constructor() {//(public dialog: MatDialog, private appComponent: AppComponent) { 
     //this.service = this.appComponent.getCurrentTopicService()
   }
 
@@ -21,7 +21,8 @@ export class ActionItemComponent implements OnInit {
   }
 
   @Input() action: Action
-  // service: any
+  //@Input() service: any
+  //service: any
 
   // /*
   // */

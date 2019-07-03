@@ -7,11 +7,11 @@ import { DialogLabelComponent } from '../dialogs/dialog-label/dialog-label.compo
 import { DialogConfirmComponent } from '../dialogs/dialog-confirm/dialog-confirm.component'
 
 @Component({
-  selector: 'app-resources-list',
-  templateUrl: './resources-list.component.html',
-  styleUrls: ['./resources-list.component.css']
+  selector: 'app-resources-item-wrapper',
+  templateUrl: './resources-item-wrapper.component.html',
+  styleUrls: ['./resources-item-wrapper.component.css']
 })
-export class ResourcesListComponent implements OnInit {
+export class ResourcesItemWrapperComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private appComponent: AppComponent) { 
     this.service = this.appComponent.getCurrentTopicService()
@@ -43,6 +43,12 @@ export class ResourcesListComponent implements OnInit {
       }
       this.service.deleteItemById(this.resource.id, (err, res) => console.log(err, res))
     });
+  }
+
+  /*
+  */
+  showGroupMenu(resource: Resource) {
+    console.log(resource.groups)
   }
   
 
