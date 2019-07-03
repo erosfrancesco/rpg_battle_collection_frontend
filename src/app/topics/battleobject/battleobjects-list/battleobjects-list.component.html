@@ -1,2 +1,6 @@
-<app-battleobjects-item *ngFor="let item of service.items" [battleobject]="item">
-</app-battleobjects-item>
+<app-resources-list-wrapper (serviceFound)="service = $event">
+	<div *ngIf="service">
+		<app-battleobjects-item *ngFor="let item of service.items" [battleobject]="item">
+		</app-battleobjects-item>
+	</div>
+</app-resources-list-wrapper>

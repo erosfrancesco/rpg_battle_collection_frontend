@@ -11,11 +11,7 @@
 			</mat-card-title>
 		</mat-card-header>
 
-		
-		<mat-card-content [routerLink]="['/' + category + '/', resource.id]">
-			<ng-content></ng-content>
-		</mat-card-content>
-
+		<ng-content></ng-content>
 
 		<mat-card-actions>
 			<button mat-raised-button color="secondary" (click)="showGroupMenu(resource)">

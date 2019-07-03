@@ -1,2 +1,6 @@
-<app-command-item *ngFor="let item of service.items" [commandobject]="item">
-</app-command-item>
+<app-resources-list-wrapper (serviceFound)="service = $event">
+	<div *ngIf="service">
+		<app-command-item *ngFor="let item of service.items" [commandobject]="item">
+		</app-command-item>
+	</div>
+</app-resources-list-wrapper>

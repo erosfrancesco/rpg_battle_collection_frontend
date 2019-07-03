@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AppComponent } from '../../../app.component'
-//import { Action } from '../../../services/action.model'
 
 
 @Component({
@@ -12,7 +11,6 @@ import { AppComponent } from '../../../app.component'
 export class ActionsListComponent implements OnInit {
 
   	service: any
-  	//newItem: Action = new Action()
 
 	constructor(private appComponent: AppComponent) {
 		appComponent.navTitle = "Actions"

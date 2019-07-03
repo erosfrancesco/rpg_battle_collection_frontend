@@ -1,7 +1,6 @@
 <app-resources-item-wrapper category="sprites" [resource]="sprite">
-	<div id="frameWrapper">
-		<div *ngIf="spriteHasSource()" 
-		     [ngStyle]="{'background': backgroundExp, 'width.px': widthExp, 'height.px': heightExp, 'margin-left': leftExp, 'margin-top': topExp, 'transform': transformExp}">
-		</div>
+	<div *ngIf="spriteHasSource()" class="frameWrapper"
+	     [routerLink]="['/sprites/', sprite.id]"
+	     [ngStyle]="{'background': backgroundExp, 'width.px': widthExp, 'height.px': heightExp, 'margin-left': leftExp, 'margin-top': topExp, 'transform': transformExp}">
 	</div>
 </app-resources-item-wrapper>

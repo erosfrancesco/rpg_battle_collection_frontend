@@ -15,14 +15,34 @@ export class ResourcesListWrapperComponent implements OnInit {
 	app :any
 	service: any
 	@Output() serviceFound :EventEmitter<any> = new EventEmitter()
-	//@Input() newItem :Resource
+	groupFilter: any
 
 	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
+		/* Shell */
 		this.app = appComponent
+		this.app.showSpinner = true
+		this.app.fabButtonIcon = ""
 		this.app.fabButtonAction = () => this.addNewItem()
 
 		
+		/* Service */
 		this.serviceFound.subscribe(service => this.fetchItems() )
+
+		/* Init */
+		this.fetchItemsByGroup(this.app.group, () => {
+			this.app.showSpinner = false
+		 	this.app.fabButtonIcon = "add"
+		})
+
+		this.groupFilter = this.app.groupSelected.subscribe(group => {
+			this.app.fabButtonIcon = ""
+			this.app.showSpinner = true
+			
+			this.fetchItemsByGroup(group, () => {
+				this.app.showSpinner = false
+				this.app.fabButtonIcon = "add"
+			})
+		})
 	}
 
 	/*
@@ -49,6 +69,24 @@ export class ResourcesListWrapperComponent implements OnInit {
 		});
 	}
 
+	fetchItemsByGroup(group :string | boolean, callback = function() {}) {
+		if (!group) {
+			this.fetchItems(callback)
+			return
+		}
+
+		this.service.getItemsByGroup(group, (err, items) => {
+			if (err) {
+				console.error(err)
+				return
+			}
+			callback();
+		});
+	}
+
+
+	/*
+	*/
 	addNewItem() {
 		this.openDialog().afterClosed().subscribe(label => {
 			if (!label) {
@@ -64,9 +102,7 @@ export class ResourcesListWrapperComponent implements OnInit {
 					return
 				}
 
-				this.fetchItems(() => {
-					console.log("wut?", this.service.items)
-				})
+				this.fetchItems()
 
 				// new item event
 			})
@@ -89,6 +125,7 @@ export class ResourcesListWrapperComponent implements OnInit {
 
 	ngOnDestroy() {
 		this.serviceFound.unsubscribe();
+		this.groupFilter.unsubscribe();
 	}
 
   

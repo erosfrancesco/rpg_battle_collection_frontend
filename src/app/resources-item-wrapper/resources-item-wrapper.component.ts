@@ -32,7 +32,7 @@ export class ResourcesItemWrapperComponent implements OnInit {
         return
       }
       this.resource.label = label;
-      this.service.updateItemById(this.resource.id, this.resource, (err, res) => console.log(err, res))
+      this.service.updateItemById(this.resource.id, this.resource);
     });
   }
 
@@ -41,7 +41,7 @@ export class ResourcesItemWrapperComponent implements OnInit {
       if (!confirm) {
         return
       }
-      this.service.deleteItemById(this.resource.id, (err, res) => console.log(err, res))
+      this.service.deleteItemById(this.resource.id);
     });
   }
 

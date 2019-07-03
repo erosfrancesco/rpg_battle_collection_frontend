@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Actor } from '../../../services/actor.model'
+// import { Actor } from '../../../services/actor.model'
 import { AppComponent } from '../../../app.component'
-import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
+// import { MatDialog, MatDialogRef } from '@angular/material'
+// import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
 
 
 @Component({
@@ -15,55 +15,55 @@ export class ActorsListComponent implements OnInit {
 
   service: any
   
-  constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
+  constructor(private appComponent: AppComponent) {//, public dialog: MatDialog) { 
     appComponent.navTitle = "Actors"
-    appComponent.fabButtonIcon = ""
-    appComponent.showSpinner = true
+    // appComponent.fabButtonIcon = ""
+    // appComponent.showSpinner = true
 
-    this.service = this.appComponent.getCurrentTopicService()
+    // this.service = this.appComponent.getCurrentTopicService()
 
-    this.fetchItems(() => {
-      appComponent.showSpinner = false
-      appComponent.fabButtonIcon = "add"
-      appComponent.fabButtonAction = () => this.addNewItem()
-    })
+    // this.fetchItems(() => {
+    //   appComponent.showSpinner = false
+    //   appComponent.fabButtonIcon = "add"
+    //   appComponent.fabButtonAction = () => this.addNewItem()
+    // })
   }
 
-  fetchItems(callback = function() {}) {
-    this.service.getItems((err, items) => {
-      if (err) {
-        console.error(err)
-        return
-      }
+  // fetchItems(callback = function() {}) {
+  //   this.service.getItems((err, items) => {
+  //     if (err) {
+  //       console.error(err)
+  //       return
+  //     }
       
-      callback();
-    });
-  }
+  //     callback();
+  //   });
+  // }
 
-  addNewItem() {
-    this.openDialog().afterClosed().subscribe(label => {
-      if (!label) {
-        return
-      }
+  // addNewItem() {
+  //   this.openDialog().afterClosed().subscribe(label => {
+  //     if (!label) {
+  //       return
+  //     }
 
-      const newSprite = new Actor()
-      newSprite.label = label
-      this.service.addNewItem(newSprite, (err, res) => {
-        if (err) {
-          // a pop up maybe...
-          console.error(err)
-          return
-        }
-      })
-      });
-  }
+  //     const newSprite = new Actor()
+  //     newSprite.label = label
+  //     this.service.addNewItem(newSprite, (err, res) => {
+  //       if (err) {
+  //         // a pop up maybe...
+  //         console.error(err)
+  //         return
+  //       }
+  //     })
+  //     });
+  // }
 
 
-  openDialog(): MatDialogRef<DialogLabelComponent> {
-      return this.dialog.open(DialogLabelComponent, {
-        data: {label: "new_actor_label"}
-      });
-  }
+  // openDialog(): MatDialogRef<DialogLabelComponent> {
+  //     return this.dialog.open(DialogLabelComponent, {
+  //       data: {label: "new_actor_label"}
+  //     });
+  // }
 
   ngOnInit() {
   }

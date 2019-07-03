@@ -46,7 +46,7 @@ export class SpriteItemComponent implements OnInit {
   	this.widthExp = String(frameWidth)
   	this.heightExp = String(frameHeight)
     this.leftExp = "calc(50% - " + frameWidth + "px / 2)"
-    this.topExp = "calc(0% - 20px - " + (frameHeight - frameHeight*zoom) + "px / 2)"
+    this.topExp = "calc(0% - 6px - " + (frameHeight - frameHeight*zoom) + "px / 2)"
     this.transformExp = "scale(" + zoom + ")"
   }
 

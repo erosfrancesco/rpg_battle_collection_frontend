@@ -38,10 +38,10 @@
 	color: inherit;
 }*/
 
-:host #frameWrapper {
+/*:host .frameWrapper {
 	width: 200px; 
 	height: 150px; 
-}
+}*/
 
 /*:host mat-card-header mat-card-title button {
 	float: right;

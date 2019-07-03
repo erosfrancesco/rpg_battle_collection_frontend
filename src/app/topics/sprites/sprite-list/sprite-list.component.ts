@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Sprite } from '../../../services/sprite.model'
 import { AppComponent } from '../../../app.component'
-import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../../../dialogs/dialog-label/dialog-label.component'
 
 
 @Component({
@@ -14,86 +11,10 @@ export class SpriteListComponent implements OnInit {
 
 	service :any
 
-	sub :any
-
-	constructor(private appComponent: AppComponent, public dialog: MatDialog) { 
+	constructor(private appComponent: AppComponent) { 
 		appComponent.navTitle = "Sprites"
-		appComponent.fabButtonIcon = ""
-		appComponent.showSpinner = true
-		appComponent.fabButtonAction = () => this.addNewItem()
-
-		this.service = this.appComponent.getCurrentTopicService()
-
-		this.fetchItemsByGroup(appComponent.group, () => {
-			appComponent.showSpinner = false
-		 	appComponent.fabButtonIcon = "add"
-		})
-
-		this.sub = appComponent.groupSelected.subscribe(group => {
-			appComponent.fabButtonIcon = ""
-			appComponent.showSpinner = true
-			
-			this.fetchItemsByGroup(group, () => {
-				appComponent.showSpinner = false
-				appComponent.fabButtonIcon = "add"
-			})
-		})
 	}
 
 	ngOnInit() {
-
-	}
-
-	ngOnDestroy() {
-		this.sub.unsubscribe();
-	}
-
-	fetchItems(callback = function() {}) {
-		this.service.getItems((err, items) => {
-			if (err) {
-				console.error(err)
-				return
-			}
-			callback();
-		});
-	}
-
-	fetchItemsByGroup(group :string | boolean, callback = function() {}) {
-		if (!group) {
-			this.fetchItems(callback)
-			return
-		}
-
-		this.service.getItemsByGroup(group, (err, items) => {
-			if (err) {
-				console.error(err)
-				return
-			}
-			callback();
-		});
-	}
-
-	addNewItem() {
-		this.openDialog().afterClosed().subscribe(label => {
-			if (!label) {
-				return
-			}
-
-			const newSprite = new Sprite()
-			newSprite.label = label
-			this.service.addNewItem(newSprite, (err, res) => {
-				if (err) {
-					// a pop up maybe...
-					console.error(err)
-					return
-				}
-			})
-	    });
-	}
-
-	openDialog(): MatDialogRef<DialogLabelComponent> {
-	    return this.dialog.open(DialogLabelComponent, {
-	      data: {label: "new_sprite_label"}
-	    });
 	}
 }
