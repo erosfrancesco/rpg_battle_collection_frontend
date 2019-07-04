@@ -1,33 +1,10 @@
 <div *ngIf="app.navTitle !== 'RPG Battle Framework'">
 	<button mat-button [matMenuTriggerFor]="menu" color="background">
-		<h4> {{label}} </h4>
+		<span> {{label}} </span>
+		<mat-icon>expand_more</mat-icon>
 	</button>
 
-	<mat-icon>expand_more</mat-icon>
-
 	<mat-menu #menu="matMenu">
-
-		<button mat-menu-item (click)="stopPropagation(false)">
-			<mat-form-field *ngIf="filtered" (click)="stopPropagation($event)">
-				<input matInput placeholder="Search"
-								autocomplete="off"
-								[value]="filterLabel"
-								(input)="filterLabel = $event.target.value; filterByLabel(filterLabel);">
-			</mat-form-field>
-		</button>
-		
-
-		<button mat-menu-item (click)="stopPropagation(false)">
-			<button mat-raised-button (click)="updateFilters(false)" [disabled]="!app.group"> Clear </button>
-			<button mat-raised-button (click)="addNewGroupTapped()" color="primary"> New Group </button>
-		</button>
-
-		
-
-		<button *ngFor="let group of filtered" mat-menu-item (click)="updateFilters(group)">
-			<mat-icon color="warn" (click)="deleteGroup(group); stopPropagation($event);">cancel</mat-icon>
-			<span>{{group.label}}</span>
-		</button>
-
+		<app-group-list (selected)="groupSelected($event)"></app-group-list>
 	</mat-menu>
 </div>

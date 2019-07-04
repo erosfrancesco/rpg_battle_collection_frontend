@@ -44,12 +44,6 @@ export class ResourcesItemWrapperComponent implements OnInit {
       this.service.deleteItemById(this.resource.id);
     });
   }
-
-  /*
-  */
-  showGroupMenu(resource: Resource) {
-    console.log(resource.groups)
-  }
   
 
   /*
@@ -62,7 +56,8 @@ export class ResourcesItemWrapperComponent implements OnInit {
     return this.dialog.open(DialogConfirmComponent, { data: {} });
   }
 
-  
+  /*
+  */
   stopPropagation(event){
       event.stopPropagation();
   }

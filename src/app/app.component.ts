@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 import { ResourceServices } from './services/index.service'
 const {
 	AiService,
@@ -29,6 +29,8 @@ export class AppComponent {
 	fabButtonIcon :string = "add"
 	fabButtonAction() {}
 	showSpinner :boolean = false
+	sideNavOpened :boolean = true
+	@ViewChild("sidenav") sidenav: ElementRef;
 	
 	group : string | boolean
 	@Output() groupSelected: EventEmitter<any> = new EventEmitter<any>();

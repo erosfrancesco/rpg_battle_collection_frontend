@@ -1,4 +1,4 @@
-<!-- <button mat-menu-item (click)="stopPropagation(false)">
+<button mat-menu-item>
 	<mat-form-field *ngIf="filtered" (click)="stopPropagation($event)">
 		<input matInput placeholder="Search"
 						autocomplete="off"
@@ -8,7 +8,7 @@
 </button>
 
 
-<button mat-menu-item (click)="stopPropagation(false)">
+<button mat-menu-item>
 	<button mat-raised-button (click)="updateFilters(false)" [disabled]="!app.group"> Clear </button>
 	<button mat-raised-button (click)="addNewGroupTapped()" color="primary"> New Group </button>
 </button>
@@ -18,4 +18,4 @@
 <button *ngFor="let group of filtered" mat-menu-item (click)="updateFilters(group)">
 	<mat-icon color="warn" (click)="deleteGroup(group); stopPropagation($event);">cancel</mat-icon>
 	<span>{{group.label}}</span>
-</button> -->
+</button>

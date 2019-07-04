@@ -1,8 +1,8 @@
-<button mat-button [matMenuTriggerFor]="menu" color="background">
-	<h4> RPG Battle Framework {{updateButtonName(app.navTitle)}}</h4>
-</button>
+<mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
 
-<mat-icon>expand_more</mat-icon>
+<button mat-button [matMenuTriggerFor]="menu" color="background">
+	<h6> {{updateButtonName(app.navTitle)}} </h6>
+</button>
 
 
 <mat-menu #menu="matMenu">

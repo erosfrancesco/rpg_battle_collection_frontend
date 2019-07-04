@@ -14,9 +14,7 @@
 		<ng-content></ng-content>
 
 		<mat-card-actions>
-			<button mat-raised-button color="secondary" (click)="showGroupMenu(resource)">
-				ASSIGN TO <mat-icon>more</mat-icon>
-			</button>
+ 			<app-resources-group-plugin [resource]="resource"></app-resources-group-plugin>
 
 			<button mat-raised-button color="warn" (click)="deleteItem()">
 				DELETE

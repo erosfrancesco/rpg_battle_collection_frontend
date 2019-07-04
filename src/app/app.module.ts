@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import {  
           MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatCardModule, MatIconModule, 
           MatSidenavModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule, MatTabsModule, 
-          MatSelectModule, MatExpansionModule, MatDividerModule
+          MatSelectModule, MatExpansionModule, MatDividerModule, MatChipsModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -65,6 +65,7 @@ import { PrimaryButtonComponent } from './navigation/primary-button/primary-butt
 import { SecondaryButtonComponent } from './navigation/secondary-button/secondary-button.component';
 import { ResourcesListWrapperComponent } from './misc/resources-list-wrapper/resources-list-wrapper.component';
 import { GroupListComponent } from './misc/group-list/group-list.component';
+import { ResourcesGroupPluginComponent } from './misc/resources-group-plugin/resources-group-plugin.component';
 
 
 @NgModule({
@@ -112,11 +113,14 @@ import { GroupListComponent } from './misc/group-list/group-list.component';
     PrimaryButtonComponent,
     SecondaryButtonComponent,
     ResourcesListWrapperComponent,
-    GroupListComponent
+    GroupListComponent,
+    ResourcesGroupPluginComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
-    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule, MatSelectModule, MatExpansionModule, MatDividerModule,
+    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatTabsModule, MatSelectModule, MatExpansionModule, 
+    MatDividerModule, MatChipsModule,
+    
     MatDialogModule,
     AceModule,
     BrowserModule,
