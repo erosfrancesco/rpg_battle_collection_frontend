@@ -6,21 +6,22 @@
 	<mat-icon>expand_more</mat-icon>
 
 	<mat-menu #menu="matMenu">
-		<mat-form-field *ngIf="filtered" (click)="stopPropagation($event)">
-			<span></span>
-			<input matInput placeholder="Search"
-							autocomplete="off"
-							[value]="filterLabel"
-							(input)="filterLabel = $event.target.value; filterByLabel(filterLabel);">
-			
 
-		</mat-form-field>
+		<button mat-menu-item (click)="stopPropagation(false)">
+			<mat-form-field *ngIf="filtered" (click)="stopPropagation($event)">
+				<input matInput placeholder="Search"
+								autocomplete="off"
+								[value]="filterLabel"
+								(input)="filterLabel = $event.target.value; filterByLabel(filterLabel);">
+			</mat-form-field>
+		</button>
 		
-		<br>
-		<button mat-raised-button (click)="updateFilters(false)" [disabled]="!app.group"> Clear </button>
-		<button mat-raised-button (click)="addNewGroupTapped()" color="primary"> New Group </button>
 
-		
+		<button mat-menu-item (click)="stopPropagation(false)">
+			<button mat-raised-button (click)="updateFilters(false)" [disabled]="!app.group"> Clear </button>
+			<button mat-raised-button (click)="addNewGroupTapped()" color="primary"> New Group </button>
+		</button>
+
 		
 
 		<button *ngFor="let group of filtered" mat-menu-item (click)="updateFilters(group)">

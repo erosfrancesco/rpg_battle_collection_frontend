@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="topics">
 	<h4 class="label"> Build Resource: </h4>
 
 	<mat-form-field>
@@ -10,7 +10,7 @@
 
 	<mat-form-field>
 		<mat-select>
-			<mat-option *ngFor="let topic of app.topicMapList" 
+			<mat-option *ngFor="let topic of topics" 
 						placeholder="Category"
 						(click)="selectedTopic = topic; topic.service.getItems();" 
 						[value]="topic.name"> {{topic.name}} 

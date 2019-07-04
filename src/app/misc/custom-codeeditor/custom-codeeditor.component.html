@@ -11,7 +11,9 @@
 				(input)="params = $event.target.value; notifyParamsChange($event.target.value);">
 		</mat-form-field>
 
-		<app-item-build (build)="code = insertDependency($event)"></app-item-build>
+		<app-item-build [topics]="app.topicMapList"
+						[code]="code" 
+						(build)="insertDependency($event.codeLine, $event.at)"></app-item-build>
 	</mat-expansion-panel>
 </mat-accordion>
 

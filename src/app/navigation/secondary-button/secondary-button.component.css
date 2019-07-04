@@ -1,8 +1,9 @@
 :host div {
-	display: inline
+	display: inline;
+	align-items: center;
+	align-content: center;
+	align-self: center;
 }
 
 :host .mat-raised-button {
-	width: 48%; 
-	margin: 1%;
 }

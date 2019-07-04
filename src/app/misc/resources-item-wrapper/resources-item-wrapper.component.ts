@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Resource } from '../services/resource.model'
-import { AppComponent } from '../app.component'
+import { Resource } from '../../services/resource.model'
+import { AppComponent } from '../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../dialogs/dialog-label/dialog-label.component'
-import { DialogConfirmComponent } from '../dialogs/dialog-confirm/dialog-confirm.component'
+import { DialogLabelComponent } from '../../dialogs/dialog-label/dialog-label.component'
+import { DialogConfirmComponent } from '../../dialogs/dialog-confirm/dialog-confirm.component'
 
 @Component({
   selector: 'app-resources-item-wrapper',

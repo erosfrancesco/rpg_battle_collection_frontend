@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Resource } from '../services/resource.model'
-import { AppComponent } from '../app.component'
+import { Resource } from '../../services/resource.model'
+import { AppComponent } from '../../app.component'
 import { MatDialog, MatDialogRef } from '@angular/material'
-import { DialogLabelComponent } from '../dialogs/dialog-label/dialog-label.component'
+import { DialogLabelComponent } from '../../dialogs/dialog-label/dialog-label.component'
 
 @Component({
   selector: 'app-resources-list-wrapper',
@@ -26,13 +26,16 @@ export class ResourcesListWrapperComponent implements OnInit {
 
 		
 		/* Service */
-		this.serviceFound.subscribe(service => this.fetchItems() )
-
-		/* Init */
-		this.fetchItemsByGroup(this.app.group, () => {
+		this.serviceFound.subscribe(service => this.fetchItemsByGroup(this.app.group, () => {
 			this.app.showSpinner = false
 		 	this.app.fabButtonIcon = "add"
-		})
+		}))
+
+		/* Init */
+		// this.fetchItemsByGroup(this.app.group, () => {
+		// 	this.app.showSpinner = false
+		//  	this.app.fabButtonIcon = "add"
+		// })
 
 		this.groupFilter = this.app.groupSelected.subscribe(group => {
 			this.app.fabButtonIcon = ""

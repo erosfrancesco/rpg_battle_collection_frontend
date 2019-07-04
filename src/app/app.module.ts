@@ -52,18 +52,19 @@ import { ActorCommandsComponent } from './topics/actors/actor-detail/sections/ac
 import { ActorStatsComponent } from './topics/actors/actor-detail/sections/actor-stats/actor-stats.component';
 
 
-import { CustomCodeeditorComponent } from './custom-codeeditor/custom-codeeditor.component';
-import { ItemBuildComponent } from './custom-codeeditor/plugins/item-build/item-build.component';
-import { WrapperEditorComponent } from './custom-codeeditor/wrapper/wrapper-editor/wrapper-editor.component';
+import { CustomCodeeditorComponent } from './misc/custom-codeeditor/custom-codeeditor.component';
+import { ItemBuildComponent } from './misc/custom-codeeditor/plugins/item-build/item-build.component';
+import { WrapperEditorComponent } from './misc/custom-codeeditor/wrapper/wrapper-editor/wrapper-editor.component';
 import { BattleListComponent } from './topics/battles/battle-list/battle-list.component';
 import { BattleItemComponent } from './topics/battles/battle-item/battle-item.component';
 import { BattleDetailComponent } from './topics/battles/battle-detail/battle-detail.component';
 import { ActorsSectionComponent } from './topics/battles/battle-detail/actors-section/actors-section.component';
-import { ResourcesItemWrapperComponent } from './resources-item-wrapper/resources-item-wrapper.component';
+import { ResourcesItemWrapperComponent } from './misc/resources-item-wrapper/resources-item-wrapper.component';
 import { DialogConfirmComponent } from './dialogs/dialog-confirm/dialog-confirm.component';
 import { PrimaryButtonComponent } from './navigation/primary-button/primary-button.component';
 import { SecondaryButtonComponent } from './navigation/secondary-button/secondary-button.component';
-import { ResourcesListWrapperComponent } from './resources-list-wrapper/resources-list-wrapper.component';
+import { ResourcesListWrapperComponent } from './misc/resources-list-wrapper/resources-list-wrapper.component';
+import { GroupListComponent } from './misc/group-list/group-list.component';
 
 
 @NgModule({
@@ -110,7 +111,8 @@ import { ResourcesListWrapperComponent } from './resources-list-wrapper/resource
     DialogConfirmComponent,
     PrimaryButtonComponent,
     SecondaryButtonComponent,
-    ResourcesListWrapperComponent
+    ResourcesListWrapperComponent,
+    GroupListComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 
