@@ -5,7 +5,7 @@
 </button>
 
 <mat-menu #menu="matMenu">
-	<h6>assigned groups</h6>
+<!-- 	<h6>assigned groups</h6>
 	<mat-chip-list>
 		<mat-chip *ngFor="let id of resource.groups" (removed)="removeAssignedGroup(id)">
 			{{computeAssignedGroupLabel(id)}}
@@ -16,6 +16,6 @@
 
 	<mat-divider></mat-divider>
 
-	<h6>add</h6>
-	<app-group-list (selected)="addGroupToResource($event);"></app-group-list>
+	<h6>add</h6> -->
+	<app-group-list (toggle)="updateResource($event);" selectable="{{true}}" [selectedItems]="resource.groups"></app-group-list>
 </mat-menu>

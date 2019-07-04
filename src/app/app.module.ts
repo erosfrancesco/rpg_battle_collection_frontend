@@ -66,6 +66,8 @@ import { SecondaryButtonComponent } from './navigation/secondary-button/secondar
 import { ResourcesListWrapperComponent } from './misc/resources-list-wrapper/resources-list-wrapper.component';
 import { GroupListComponent } from './misc/group-list/group-list.component';
 import { ResourcesGroupPluginComponent } from './misc/resources-group-plugin/resources-group-plugin.component';
+import { GroupListItemsComponent } from './misc/group-list-items/group-list-items.component';
+import { GroupListSelectableComponent } from './misc/group-list-selectable/group-list-selectable.component';
 
 
 @NgModule({
@@ -114,7 +116,9 @@ import { ResourcesGroupPluginComponent } from './misc/resources-group-plugin/res
     SecondaryButtonComponent,
     ResourcesListWrapperComponent,
     GroupListComponent,
-    ResourcesGroupPluginComponent
+    ResourcesGroupPluginComponent,
+    GroupListItemsComponent,
+    GroupListSelectableComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

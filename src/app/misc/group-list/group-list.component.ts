@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { Groups } from '../../services/groups.model'
 import { MatDialog, MatDialogRef } from '@angular/material'
@@ -16,7 +16,10 @@ export class GroupListComponent implements OnInit {
 	filtered: Groups[]
 	filterLabel :string = ""
 
+	@Input() selectedItems: string[]
+	@Input() selectable :boolean = false
 	@Output() selected = new EventEmitter<Groups | boolean>()
+	@Output() toggle = new EventEmitter<string[]>()
 
 	constructor(private appComponent :AppComponent, public dialog: MatDialog) { 
 		this.app = appComponent
@@ -66,15 +69,16 @@ export class GroupListComponent implements OnInit {
 	/*
 	*/
 
+	updateSelected(groups: string[]) {
+		this.toggle.emit(this.selectedItems)
+	}
+
 	filterByLabel(label: string) {
 		this.filtered = this.service.items.filter(item => item.label.includes(label))
 	}
 
 	updateFilters(group: Groups | false) {
 		this.selected.emit(group)
-	// 	this.app.group = group ? group.id : false 
-	// 	this.label = group ? group.label : "Groups"
-	// 	this.app.groupSelected.emit(group ? group.id : false)
 	}
 
 	deleteGroup(group: Groups) {

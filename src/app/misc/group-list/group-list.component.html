@@ -8,14 +8,26 @@
 </button>
 
 
-<button mat-menu-item>
-	<button mat-raised-button (click)="updateFilters(false)" [disabled]="!app.group"> Clear </button>
-	<button mat-raised-button (click)="addNewGroupTapped()" color="primary"> New Group </button>
-</button>
 
 
 
-<button *ngFor="let group of filtered" mat-menu-item (click)="updateFilters(group)">
-	<mat-icon color="warn" (click)="deleteGroup(group); stopPropagation($event);">cancel</mat-icon>
-	<span>{{group.label}}</span>
-</button>
+<div *ngIf="!selectable">
+	<div>
+		<button mat-menu-item>
+			<button mat-raised-button (click)="updateFilters(false)" [disabled]="!app.group"> Clear </button>
+			<button mat-raised-button (click)="addNewGroupTapped()" color="primary"> New Group </button>
+		</button>
+	</div>
+
+	<app-group-list-items 	[groups]="filtered" 
+							(selected)="updateFilters($event);" 
+							(removed)="deleteGroup($event);">
+	</app-group-list-items>
+</div>
+
+<div *ngIf="selectable">
+	<app-group-list-selectable 	[groups]="filtered" 
+								[selectedItems]="selectedItems"
+								(toggle)="updateSelected($event)">
+	</app-group-list-selectable>
+</div>

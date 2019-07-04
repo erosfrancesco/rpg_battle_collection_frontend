@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Resource } from '../../services/resource.model'
+import { Groups } from '../../services/groups.model'
 import { AppComponent } from '../../app.component'
 
 @Component({
@@ -21,31 +22,41 @@ export class ResourcesGroupPluginComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	computeAssignedGroupLabel(id: string) :string {
-		const group = this.groupService.items.find(item => item.id === id);
-
-		if (!group) {
-			const index = this.resource.groups.findIndex(item => item === id)
-			this.resource.groups.splice(index, 1);
-			return ""
-		}
-
-		return group.label
+	updateResource(e :[string]) {
+		//console.log("updating", e)
+		this.resource.groups = e;
+		this.service.updateItemById(this.resource.id, this.resource, r => console.log(r))
 	}
 
-	addGroupToResource(group: Resource) {
-		this.resource.groups.push(group.id)
-		this.service.updateItemById(this.resource.id, this.resource, r => console.log(r));
-	}
+	// updateGroups(groups: string[]) {
+	// 	this.resource.groups = groups;
+	// }
 
-	removeAssignedGroup(id: string) {
-		const index = this.resource.groups.findIndex(item => item === id)
-		if (index < 0) {
-			return
-		}
+	// computeAssignedGroupLabel(id: string) :string {
+	// 	const group = this.groupService.items.find(item => item.id === id);
 
-		this.resource.groups.splice(index, 1);
+	// 	if (!group) {
+	// 		const index = this.resource.groups.findIndex(item => item === id)
+	// 		this.resource.groups.splice(index, 1);
+	// 		return ""
+	// 	}
 
-		this.service.updateItemById(this.resource.id, this.resource, r => console.log(r));
-	}
+	// 	return group.label
+	// }
+
+	// addGroupToResource(group: Resource) {
+	// 	this.resource.groups.push(group.id)
+	// 	this.service.updateItemById(this.resource.id, this.resource, r => console.log(r));
+	// }
+
+	// removeAssignedGroup(id: string) {
+	// 	const index = this.resource.groups.findIndex(item => item === id)
+	// 	if (index < 0) {
+	// 		return
+	// 	}
+
+	// 	this.resource.groups.splice(index, 1);
+
+	// 	this.service.updateItemById(this.resource.id, this.resource, r => console.log(r));
+	// }
 }

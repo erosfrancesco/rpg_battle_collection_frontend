@@ -1,0 +1,4 @@
+<button *ngFor="let group of groups" mat-menu-item (click)="toggleItem(group); $event.stopPropagation()">
+	<mat-icon color="primary" *ngIf="computeSelected(group, selectedItems)">done</mat-icon>
+	<span>{{group.label}}</span>
+</button>
