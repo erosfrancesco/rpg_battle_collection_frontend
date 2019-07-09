@@ -15,6 +15,12 @@
 
 
 				<mat-optgroup label="battle events">
+					<mat-option (click)="selectEvent(actor.properties.events.load, 'load');">
+						actor load
+					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.create, 'create');">
+						actor create
+					</mat-option>
 					<mat-option (click)="selectEvent(actor.properties.events.attack, 'attack');">
 						attack
 					</mat-option>
