@@ -4,6 +4,25 @@
 			<mat-label>Select event</mat-label>
 			<mat-select>
 
+				<!--
+
+					load:   EncodedFunctionEvent,
+		            create: EncodedFunctionEvent,
+
+		            attack: EncodedFunctionEvent,
+		            damage: EncodedFunctionEvent,
+		            ko:     EncodedFunctionEvent,
+		            revive: EncodedFunctionEvent,
+
+		            turnStart:  EncodedFunctionEvent,
+		            turnEnd:    EncodedFunctionEvent,
+		            turnUpdate: EncodedFunctionEvent,
+
+		            battleStart: EncodedFunctionEvent,
+		            battleEnd:   EncodedFunctionEvent,
+
+				-->
+
 				<mat-optgroup label="turn events">
 					<mat-option (click)="selectEvent(actor.properties.events.turnStart, 'turnStart');">
 						turn start
@@ -11,15 +30,28 @@
 					<mat-option (click)="selectEvent(actor.properties.events.turnEnd, 'turnEnd');">
 						turn end
 					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.turnUpdate, 'turnEnd');">
+						turn update
+					</mat-option>
 				</mat-optgroup>
 
 
 				<mat-optgroup label="battle events">
 					<mat-option (click)="selectEvent(actor.properties.events.load, 'load');">
-						actor load
+						battle load
 					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.battleStart, 'battleStart');">
+						battle start
+					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.battleEnd, 'battleEnd');">
+						battle end
+					</mat-option>
+				</mat-optgroup>
+
+
+				<mat-optgroup label="actor events">
 					<mat-option (click)="selectEvent(actor.properties.events.create, 'create');">
-						actor create
+						create
 					</mat-option>
 					<mat-option (click)="selectEvent(actor.properties.events.attack, 'attack');">
 						attack
@@ -34,7 +66,6 @@
 						revive
 					</mat-option>
 				</mat-optgroup>
-
 
 
 				<mat-optgroup label="custom">
