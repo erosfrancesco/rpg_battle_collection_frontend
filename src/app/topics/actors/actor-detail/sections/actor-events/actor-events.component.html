@@ -4,13 +4,32 @@
 			<mat-label>Select event</mat-label>
 			<mat-select>
 
-				<mat-optgroup label="default">
-					<mat-option *ngFor="let name of computeEventsList()"
-								(click)="selectEvent(actor.properties.events[name], name);" 
-								[value]="actor.properties.events[name]">
-						{{name}}
+				<mat-optgroup label="turn events">
+					<mat-option (click)="selectEvent(actor.properties.events.turnStart, 'turnStart');">
+						turn start
+					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.turnEnd, 'turnEnd');">
+						turn end
 					</mat-option>
 				</mat-optgroup>
+
+
+				<mat-optgroup label="battle events">
+					<mat-option (click)="selectEvent(actor.properties.events.attack, 'attack');">
+						attack
+					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.damage, 'damage');">
+						damage
+					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.ko, 'ko');">
+						ko
+					</mat-option>
+					<mat-option (click)="selectEvent(actor.properties.events.revive, 'revive');">
+						revive
+					</mat-option>
+				</mat-optgroup>
+
+
 
 				<mat-optgroup label="custom">
 					<mat-option *ngFor="let e of actor.properties.events.custom" 
