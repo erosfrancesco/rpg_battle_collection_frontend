@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Battle } from '../../../../services/battle.model'
-import { Actor } from '../../../../services/actor.model'
-import { AppComponent } from '../../../../app.component'
+import { Battle } from '../../../../../services/battle.model'
+import { Actor } from '../../../../../services/actor.model'
+import { AppComponent } from '../../../../../app.component'
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
-  selector: 'app-actors-section',
-  templateUrl: './actors-section.component.html',
-  styleUrls: ['./actors-section.component.css']
+  selector: 'app-battle-actors',
+  templateUrl: './battle-actors.component.html',
+  styleUrls: ['./battle-actors.component.css']
 })
-export class ActorsSectionComponent implements OnInit {
+export class BattleActorsComponent implements OnInit {
 
 	private sub: any;
 	@Input() battle: Battle

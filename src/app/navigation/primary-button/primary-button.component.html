@@ -1,4 +1,6 @@
-<mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
+<button mat-button [matMenuTriggerFor]="menu" color="background">
+	<mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
+</button>
 
 <button mat-button [matMenuTriggerFor]="menu" color="background">
 	<h6> {{updateButtonName(app.navTitle)}} </h6>
@@ -6,7 +8,7 @@
 
 
 <mat-menu #menu="matMenu">
-	<button *ngFor="let topic of app.topicMapList" mat-menu-item [routerLink]="[topic.path]">
+	<button mat-menu-item *ngFor="let topic of app.topicMapList" [routerLink]="[topic.path]">
 		{{topic.name}}
 	</button>
 </mat-menu>

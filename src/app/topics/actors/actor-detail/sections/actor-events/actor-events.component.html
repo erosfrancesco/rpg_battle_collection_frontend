@@ -1,0 +1,36 @@
+<div *ngIf="checkIfHasEvents()">
+
+		<mat-form-field>
+			<mat-label>Select event</mat-label>
+			<mat-select>
+
+				<mat-optgroup label="default">
+					<mat-option *ngFor="let name of computeEventsList()"
+								(click)="selectEvent(actor.properties.events[name], name);" 
+								[value]="actor.properties.events[name]">
+						{{name}}
+					</mat-option>
+				</mat-optgroup>
+
+				<mat-optgroup label="custom">
+					<mat-option *ngFor="let e of actor.properties.events.custom" 
+								(click)="selectEvent(e, false);"
+								[value]="e"> 
+						<mat-icon (click)="removeCustomElement(e);stopPropagation($event);" color="warn">cancel</mat-icon>
+						{{e.name}}
+					</mat-option>
+				</mat-optgroup>
+				
+			</mat-select>
+		</mat-form-field>
+
+		<button mat-raised-button color="primary" (click)="addCustomEvent()">Add Custom Event</button>
+
+		<h2 *ngIf="!selectedEvent">Select a event</h2>
+		<h4 *ngIf="selectedEvent">Event: {{selectedEventName}}</h4>
+
+ 		<app-wrapper-editor *ngIf="selectedEvent" [encodedFunction]="selectedEvent"></app-wrapper-editor>
+
+
+	
+</div>

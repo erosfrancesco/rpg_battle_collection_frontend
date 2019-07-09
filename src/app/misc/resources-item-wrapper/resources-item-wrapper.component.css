@@ -3,63 +3,34 @@
 	margin: 4px;
 }
 
-:host mat-card {
-	max-width: 200px;
-	max-height: 200px;
-	width: 200px; 
-	height: 200px;
-	margin: 4px;
-	text-align: center;
-	background-color: inherit;
-	color: inherit;
-}
-
-:host mat-card-title {
-	background-color: inherit;
-	color: inherit;
-	width: calc(200px + 1em);
-}
-
-:host mat-card-header {
-	width: 200px; 
-	background-color: inherit;
-	color: inherit;
-}
-
-:host mat-card-content {
-	background-color: inherit;
-	color: inherit;
-	height: 100px;
-	width: 200px;
-}
-
-
-:host mat-card-header mat-card-title span {
-	width: 200px; 
-	margin: 0px !important;
-	text-align: center;
-	float: left;
-	background-color: inherit;
-	color: inherit;
-}
-
 :host div {
 	background-size: contain;
 	background-color: inherit;
+	width: 200px; 
+	height: 200px;
 	margin: 0px !important;
+	color: inherit;
+}
+
+
+:host mat-card-header {
+	width: 200px; 
+	margin: 0px !important;
+	text-align: center;
+	background-color: inherit;
 	color: inherit;
 }
 
 :host mat-card-header mat-card-title button {
-	float: right;
 	margin-top:  -10px;
 	background-color: inherit;
 	color: inherit;
 }
 
+
 :host mat-card-actions {
 	position: absolute; 
-	bottom: 20px; 
+	bottom: -16px; 
 	width: 100%;
 }
 

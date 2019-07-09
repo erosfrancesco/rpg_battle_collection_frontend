@@ -1,11 +1,10 @@
-<button mat-raised-button disableRipple class="mat-elevation-z6" color="primary" (click)="stopPropagation($event)">
-	<mat-card class="mat-elevation-z0">
-		
+<app-color-card>
+	<div [routerLink]="['/' + category + '/', resource.id]">
 		<mat-card-header>
 			<mat-card-title>
-				<span [routerLink]="['/' + category + '/', resource.id]"> {{resource.label}} </span> 
+				<span> {{resource.label}} </span> 
 				
-				<button mat-icon-button (click)="editLabel()">
+				<button mat-icon-button (click)="editLabel(); stopPropagation($event);">
 					<mat-icon color="background">edit</mat-icon>
 				</button>
 			</mat-card-title>
@@ -15,11 +14,9 @@
 
 		<mat-card-actions>
  			<app-resources-group-plugin [resource]="resource"></app-resources-group-plugin>
-
-			<button mat-raised-button color="warn" (click)="deleteItem()">
+			<button mat-raised-button color="warn" (click)="deleteItem(); stopPropagation($event)">
 				DELETE
 			</button>
 		</mat-card-actions>
-		
-	</mat-card>
-</button>
+	</div>
+</app-color-card>

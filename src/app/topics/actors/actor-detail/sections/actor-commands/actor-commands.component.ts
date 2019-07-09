@@ -18,7 +18,7 @@ export class ActorCommandsComponent implements OnInit {
 
 	private sub: any;
 	@Input() actor: Actor
-	service: any// = this.appComponent.commandService
+	service: any
 
 	/*
 	*/

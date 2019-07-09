@@ -58,7 +58,8 @@ import { WrapperEditorComponent } from './misc/custom-codeeditor/wrapper/wrapper
 import { BattleListComponent } from './topics/battles/battle-list/battle-list.component';
 import { BattleItemComponent } from './topics/battles/battle-item/battle-item.component';
 import { BattleDetailComponent } from './topics/battles/battle-detail/battle-detail.component';
-import { ActorsSectionComponent } from './topics/battles/battle-detail/actors-section/actors-section.component';
+import { BattleActorsComponent } from './topics/battles/battle-detail/sections/battle-actors/battle-actors.component'
+//actors-section/actors-section.component';
 import { ResourcesItemWrapperComponent } from './misc/resources-item-wrapper/resources-item-wrapper.component';
 import { DialogConfirmComponent } from './dialogs/dialog-confirm/dialog-confirm.component';
 import { PrimaryButtonComponent } from './navigation/primary-button/primary-button.component';
@@ -68,6 +69,9 @@ import { GroupListComponent } from './misc/group-list/group-list.component';
 import { ResourcesGroupPluginComponent } from './misc/resources-group-plugin/resources-group-plugin.component';
 import { GroupListItemsComponent } from './misc/group-list-items/group-list-items.component';
 import { GroupListSelectableComponent } from './misc/group-list-selectable/group-list-selectable.component';
+import { ActorEventsComponent } from './topics/actors/actor-detail/sections/actor-events/actor-events.component';
+import { ColorCardComponent } from './misc/color-card/color-card.component';
+import { BattleEventsComponent } from './topics/battles/battle-detail/sections/battle-events/battle-events.component';
 
 
 @NgModule({
@@ -109,7 +113,7 @@ import { GroupListSelectableComponent } from './misc/group-list-selectable/group
     BattleListComponent,
     BattleItemComponent,
     BattleDetailComponent,
-    ActorsSectionComponent,
+    BattleActorsComponent,
     ResourcesItemWrapperComponent,
     DialogConfirmComponent,
     PrimaryButtonComponent,
@@ -118,7 +122,10 @@ import { GroupListSelectableComponent } from './misc/group-list-selectable/group
     GroupListComponent,
     ResourcesGroupPluginComponent,
     GroupListItemsComponent,
-    GroupListSelectableComponent
+    GroupListSelectableComponent,
+    ActorEventsComponent,
+    ColorCardComponent,
+    BattleEventsComponent
   ],
   imports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatInputModule, 

@@ -66,12 +66,6 @@ export class BattleDetailComponent implements OnInit {
 
 	/*
 	*/
-	checkItemProperties() :boolean {
-		return Boolean(this.battle && this.battle.properties)
-	}
-
-	checkItemProperty(prop) :boolean {
-		return Boolean(this.checkItemProperties() && this.battle.properties[prop])
-	}
+	
 
 }

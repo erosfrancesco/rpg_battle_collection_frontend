@@ -1,5 +1,6 @@
 import { Resource, EncodedFunction } from "./resource.model"
 
+
 export class Actor extends Resource {
   properties: {
     name :string
@@ -8,7 +9,17 @@ export class Actor extends Resource {
     ai :string
     sprite :string
     actorCommands :[string]
-    stats : [Stats]
+    stats : [Stats],
+    events: {
+      attack: EncodedFunction,
+      damage: EncodedFunction,
+      ko: EncodedFunction,
+      revive: EncodedFunction,
+      custom: [{
+          name: string,
+          value: EncodedFunction
+      }]
+    }
   }
 }
 

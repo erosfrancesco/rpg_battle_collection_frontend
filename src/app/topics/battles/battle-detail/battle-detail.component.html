@@ -10,57 +10,39 @@ actors: [{
     onLose : new Function("scene", onLose)
   
 -->
-<mat-accordion>
-	<mat-expansion-panel>
-		<mat-expansion-panel-header>
-		  	<h4> Actors </h4>
-		</mat-expansion-panel-header>
-
-		<app-actors-section [battle]="battle"></app-actors-section>
-
-	</mat-expansion-panel>
-</mat-accordion>
 
 
-<mat-tab-group *ngIf="checkItemProperties()">
-	<mat-tab label="Setup"> 
-		<div *ngIf="checkItemProperty('preload')">
-			<app-wrapper-editor [encodedFunction]="battle.properties.preload" 
-		 						(encodedFunctionChange)="battle.properties.preload = $event">
-		    </app-wrapper-editor>
-		</div>
+
+<h3> Sections </h3>
+<mat-tab-group>
+	<mat-tab>
+		<ng-template mat-tab-label>
+			<mat-icon class="example-tab-icon">select_all</mat-icon> All
+		</ng-template>
+		<mat-divider [inset]="true"></mat-divider>
+		<h3>Actors</h3>
+		<app-battle-actors [battle]="battle"></app-battle-actors>
+
+		<mat-divider [inset]="true"></mat-divider>
+		<h3>Events</h3>
+		<app-battle-events [battle]="battle"></app-battle-events>
 	</mat-tab>
 
-	<mat-tab label="Create"> 
-		<div *ngIf="checkItemProperty('create')">
-			<app-wrapper-editor [encodedFunction]="battle.properties.create" 
-		 						(encodedFunctionChange)="battle.properties.create = $event">
-		    </app-wrapper-editor>
-		</div>
+
+
+	<mat-tab>
+		<ng-template mat-tab-label>
+			<mat-icon class="example-tab-icon">supervised_user_circle</mat-icon> Actors
+		</ng-template>
+		<app-battle-actors [battle]="battle"></app-battle-actors>
 	</mat-tab>
 
-	<mat-tab label="Update"> 
-		<div *ngIf="checkItemProperty('update')">
-			<app-wrapper-editor [encodedFunction]="battle.properties.update" 
-		 						(encodedFunctionChange)="battle.properties.update = $event">
-		    </app-wrapper-editor>
-		</div>
-	</mat-tab>
 
-	<!---->
-	<mat-tab label="On Win"> 
-		<div *ngIf="checkItemProperty('onWin')">
-			<app-wrapper-editor [encodedFunction]="battle.properties.onWin" 
-		 						(encodedFunctionChange)="battle.properties.onWin = $event">
-		    </app-wrapper-editor>
-		</div>
-	</mat-tab>
 
-	<mat-tab label="On Lose"> 
-		<div *ngIf="checkItemProperty('onLose')">
-			<app-wrapper-editor [encodedFunction]="battle.properties.onLose" 
-		 						(encodedFunctionChange)="battle.properties.onLose = $event">
-		    </app-wrapper-editor>
-		</div>
+	<mat-tab>
+		<ng-template mat-tab-label>
+			<mat-icon class="example-tab-icon">schedule</mat-icon> Events
+		</ng-template>
+		<app-battle-events [battle]="battle"></app-battle-events>
 	</mat-tab>
 </mat-tab-group>

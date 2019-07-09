@@ -1,12 +1,3 @@
-:host mat-card {
-	margin: 4px;
-	height: 75px;
-	margin: 4px;
-	text-align: center;
-	background-color: inherit;
-	color: inherit;
-}
-
 :host mat-card-title {
 	background-color: inherit;
 	color: inherit;

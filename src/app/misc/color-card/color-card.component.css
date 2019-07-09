@@ -1,0 +1,11 @@
+:host button {
+	margin: 4px;
+	border-radius: 8px;
+}
+
+:host mat-card {
+	margin: 4px;
+	text-align: center;
+	background-color: inherit;
+	color: inherit;
+}
