@@ -61,7 +61,7 @@ export class ItemBuildComponent implements OnInit {
 		const builderName = this.computeBuilder()
 
 		this.computedLineCode = "// building " + this.selectedTopic.name + " " + label + 
-								"\nconst " + this.resourceName + ' = scene.builders.' + builderName + '.get("' + id + '"); \n'
+								"\nconst " + this.resourceName + " = scene.builders." + builderName + ".get('" + id + "'); \n"
 	}
 
 	computeBuilder() :string {
