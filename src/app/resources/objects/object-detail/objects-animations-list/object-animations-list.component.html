@@ -1,0 +1,27 @@
+<div>
+	<mat-form-field>
+		<span> Add to this object </span>
+		<mat-select>
+			<mat-option *ngFor="let item of service.items" 
+						[value]="item" 
+						[disabled]="computeItemDisabled(item)"
+						(click)="addSelectedItem(item)">
+				{{item.label}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
+
+<app-filtered-resources [service]="service" (delete)="deleteSelectedItem($event)"></app-filtered-resources>
+
+<!-- 
+<app-color-card *ngFor="let item of service.filtered">
+		
+	<mat-card-title>
+		<button mat-icon-button color="warn" (click)="deleteSelectedItem(item)">
+			<mat-icon>close</mat-icon>
+		</button>
+		<span [routerLink]="['/resources', service.category, item.id]"> {{item.label}} </span> 
+	</mat-card-title>
+
+</app-color-card> -->

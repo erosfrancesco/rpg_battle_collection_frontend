@@ -1,6 +1,0 @@
-<app-resources-list-wrapper (serviceFound)="service = $event">
-	<div *ngIf="service">
-		<app-ai-item *ngFor="let item of service.items" [ai]="item">
-		</app-ai-item>
-	</div>
-</app-resources-list-wrapper>

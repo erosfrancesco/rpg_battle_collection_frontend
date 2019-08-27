@@ -1,0 +1,13 @@
+<app-resource-detail-wrapper [service]="service" [item]="command" (itemFetched)="onItemFetched($event)">
+	<mat-form-field *ngIf="checkItemProperties()">
+		<input matInput placeholder="Command Name" 
+						[value]="command.properties.label" 
+						(input)="command.properties.label = $event.target.value;">
+	</mat-form-field>
+
+	<div *ngIf="checkItemProperty('action')">
+		<app-wrapper-editor [encodedFunction]="command.properties.action" 
+				(encodedFunctionChange)="command.properties.action = $event">
+		</app-wrapper-editor>
+	</div>
+<app-resource-detail-wrapper>

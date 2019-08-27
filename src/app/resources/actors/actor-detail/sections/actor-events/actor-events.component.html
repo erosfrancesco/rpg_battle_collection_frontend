@@ -1,0 +1,92 @@
+<div *ngIf="checkIfHasEvents()">
+
+		<mat-form-field>
+			<mat-label>Select event</mat-label>
+			<mat-select>
+
+				<!--
+
+					load:   EncodedFunctionEvent,
+		            create: EncodedFunctionEvent,
+
+		            attack: EncodedFunctionEvent,
+		            damage: EncodedFunctionEvent,
+		            ko:     EncodedFunctionEvent,
+		            revive: EncodedFunctionEvent,
+
+		            turnStart:  EncodedFunctionEvent,
+		            turnEnd:    EncodedFunctionEvent,
+		            turnUpdate: EncodedFunctionEvent,
+
+		            battleStart: EncodedFunctionEvent,
+		            battleEnd:   EncodedFunctionEvent,
+
+				-->
+
+				<mat-optgroup label="turn events">
+					<mat-option (click)="selectEvent(parent.properties.events.turnStart, 'turnStart');">
+						turn start
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.turnEnd, 'turnEnd');">
+						turn end
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.turnUpdate, 'turnEnd');">
+						turn update
+					</mat-option>
+				</mat-optgroup>
+
+
+				<mat-optgroup label="battle events">
+					<mat-option (click)="selectEvent(parent.properties.events.load, 'load');">
+						battle load
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.battleStart, 'battleStart');">
+						battle start
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.battleEnd, 'battleEnd');">
+						battle end
+					</mat-option>
+				</mat-optgroup>
+
+
+				<mat-optgroup label="actor events">
+					<mat-option (click)="selectEvent(parent.properties.events.create, 'create');">
+						create
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.attack, 'attack');">
+						attack
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.damage, 'damage');">
+						damage
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.ko, 'ko');">
+						ko
+					</mat-option>
+					<mat-option (click)="selectEvent(parent.properties.events.revive, 'revive');">
+						revive
+					</mat-option>
+				</mat-optgroup>
+
+
+				<mat-optgroup label="custom">
+					<mat-option *ngFor="let e of parent.properties.events.custom" 
+								(click)="selectEvent(e, false);"
+								[value]="e"> 
+						<mat-icon (click)="removeCustomElement(e);stopPropagation($event);" color="warn">cancel</mat-icon>
+						{{e.name}}
+					</mat-option>
+				</mat-optgroup>
+				
+			</mat-select>
+		</mat-form-field>
+
+		<button mat-raised-button color="primary" (click)="addCustomEvent()">Add Custom Event</button>
+
+		<h2 *ngIf="!selectedEvent">Select a event</h2>
+		<h4 *ngIf="selectedEvent">Event: {{selectedEventName}}</h4>
+
+ 		<app-wrapper-editor *ngIf="selectedEvent" [encodedFunction]="selectedEvent"></app-wrapper-editor>
+
+
+	
+</div>

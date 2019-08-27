@@ -1,0 +1,20 @@
+<div>
+	<mat-form-field>
+		<span>Add new command</span>
+		<mat-select>
+			<mat-option *ngFor="let item of service.items" 
+						[value]="item" 
+						[disabled]="computeItemDisabled(item)"
+						(click)="addSelectedItem(item)">
+				{{item.label}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
+
+
+<app-filtered-resources *ngIf="checkIfParentHasProperties()" 
+						[service]="service" 
+						(delete)="deleteSelectedItem($event)">
+</app-filtered-resources>
+<br>

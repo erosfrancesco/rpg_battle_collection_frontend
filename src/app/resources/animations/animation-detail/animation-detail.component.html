@@ -1,0 +1,7 @@
+<app-resource-detail-wrapper [service]="service" [item]="animation" (itemFetched)="onItemFetched($event)">
+	<div *ngIf="checkItemProperties()">
+		<app-wrapper-editor [encodedFunction]="animation.properties" 
+				(encodedFunctionChange)="animation.properties = $event">
+		</app-wrapper-editor>
+	</div>
+<app-resource-detail-wrapper>

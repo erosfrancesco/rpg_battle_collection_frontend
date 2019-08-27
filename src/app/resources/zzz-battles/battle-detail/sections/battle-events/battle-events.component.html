@@ -1,0 +1,46 @@
+
+<mat-tab-group *ngIf="checkItemProperties()">
+	<mat-tab label="Setup"> 
+		<div *ngIf="checkItemProperty('preload')">
+			<app-wrapper-editor [encodedFunction]="parent.properties.preload" 
+		 						(encodedFunctionChange)="parent.properties.preload = $event">
+		    </app-wrapper-editor>
+		</div>
+	</mat-tab>
+
+	<mat-tab label="Create"> 
+		<div *ngIf="checkItemProperty('create')">
+			<app-wrapper-editor [encodedFunction]="parent.properties.create" 
+		 						(encodedFunctionChange)="parent.properties.create = $event">
+		    </app-wrapper-editor>
+		</div>
+	</mat-tab>
+
+	<mat-tab label="Update"> 
+		<div *ngIf="checkItemProperty('update')">
+			<app-wrapper-editor [encodedFunction]="parent.properties.update" 
+		 						(encodedFunctionChange)="parent.properties.update = $event">
+		    </app-wrapper-editor>
+		</div>
+	</mat-tab>
+
+
+
+
+
+	<mat-tab label="On Win"> 
+		<div *ngIf="checkItemProperty('onWin')">
+			<app-wrapper-editor [encodedFunction]="parent.properties.onWin" 
+		 						(encodedFunctionChange)="parent.properties.onWin = $event">
+		    </app-wrapper-editor>
+		</div>
+	</mat-tab>
+
+	<mat-tab label="On Lose"> 
+		<div *ngIf="checkItemProperty('onLose')">
+			<app-wrapper-editor [encodedFunction]="parent.properties.onLose" 
+		 						(encodedFunctionChange)="parent.properties.onLose = $event">
+		    </app-wrapper-editor>
+		</div>
+	</mat-tab>
+</mat-tab-group>

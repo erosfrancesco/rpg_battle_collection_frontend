@@ -1,0 +1,5 @@
+<app-resources-item-wrapper [resource]="sprite" [service]="service">
+	<div *ngIf="spriteHasSource()" class="frameWrapper"
+	     [ngStyle]="{'background': backgroundExp, 'width.px': widthExp, 'height.px': heightExp, 'margin-left': leftExp, 'margin-top': topExp, 'transform': transformExp}">
+	</div>
+</app-resources-item-wrapper>

@@ -1,0 +1,14 @@
+:host ace {
+	height: 500px;
+	width: 100%;
+}
+
+:host mat-tab-group {
+	background-color: inherit;
+	color: inherit;
+}
+
+:host mat-tab {
+	background-color: inherit;
+	color: inherit;
+}

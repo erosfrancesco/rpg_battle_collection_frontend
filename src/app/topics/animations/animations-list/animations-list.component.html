@@ -1,6 +1,0 @@
-<app-resources-list-wrapper (serviceFound)="service = $event">
-	<div *ngIf="service">
-		<app-animations-item *ngFor="let item of service.items" [animation]="item">
-		</app-animations-item>
-	</div>
-</app-resources-list-wrapper>

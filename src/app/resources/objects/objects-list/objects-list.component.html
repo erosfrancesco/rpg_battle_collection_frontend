@@ -1,0 +1,15 @@
+<!-- <app-resources-list-wrapper (serviceFound)="service = $event">
+	<div *ngIf="service">
+		<app-battleobjects-item *ngFor="let item of service.items" [battleobject]="item">
+		</app-battleobjects-item>
+	</div>
+</app-resources-list-wrapper> -->
+
+<app-resources-list-wrapper [service]="service">
+	<app-object-item 	*ngFor="let item of service.items let i = index" 
+						[attr.data-index]="i" 
+						[battleobject]="item"
+						(deleted)="deleteItem()"
+						(updated)="updateItem()">
+	</app-object-item>
+</app-resources-list-wrapper>

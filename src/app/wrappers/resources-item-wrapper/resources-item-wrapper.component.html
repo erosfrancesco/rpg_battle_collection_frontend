@@ -1,0 +1,22 @@
+<app-color-card>
+	<div [routerLink]="[computeItemUrl()]">
+		<mat-card-header>
+			<mat-card-title>
+				<span> {{resource.label}} </span> 
+				
+				<button mat-icon-button (click)="editLabel(); stopPropagation($event);">
+					<mat-icon color="background">edit</mat-icon>
+				</button>
+			</mat-card-title>
+		</mat-card-header>
+
+		<ng-content></ng-content>
+
+		<mat-card-actions>
+ 			<app-resources-group-plugin [resource]="resource"></app-resources-group-plugin>
+			<button mat-raised-button color="warn" (click)="deleteItem(); stopPropagation($event)">
+				DELETE
+			</button>
+		</mat-card-actions>
+	</div>
+</app-color-card>

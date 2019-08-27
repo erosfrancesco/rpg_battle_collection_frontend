@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component'
 
+
+// import { AuthService } from '../services/utils/auth/auth.service'
+// import { User } from '../user.model'
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -8,52 +12,79 @@ import { AppComponent } from '../app.component'
 })
 export class HomePageComponent implements OnInit {
 
+  // standard user
+  // private username :string = "jason"
+  // private password :string = "darthvent"
 
-  constructor(private appComponent: AppComponent) {
-    appComponent.navTitle = "RPG Battle Framework"
-    appComponent.fabButtonIcon = ""
+  // dataSource: [User]
+
+
+  constructor(public app: AppComponent) {
+    // app.navTitle = "RPG Battle Framework"
+    // app.fabButtonIcon = ""
+    // app.showSpinner = false
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    // this.app.showSpinner = true
+
+    // this.authService.getUsers().subscribe( users => {
+    //     this.app.showSpinner = false
+    //     this.dataSource = users;
+    //   }
+    // );
   }
 
-  saveSprites() {
-    this.appComponent.getTopicService("Sprites").spriteService.getItems((err, items) => {
-      if (err) {
-        console.error(err)
-        return
-      }
-      this.saveData(items, "sprites");
-    })
-  }
+  // loginAs(user: User) {
+  //   // this.authService.authorize(user.username, this.password)
+    
+  // }
 
-  // Function to download data to a file
-  saveData(data, filename) :void {
+  // login() {
+  //   //this.app.resources.AuthService.authorize(this.username, this.password, token => this.app.initializeServices(token, new User(this.username)) );
+  // }
 
-    filename = filename + ".json";
-    data = JSON.stringify(data)
+  // isNotAuthenticated() :boolean {
+  //   return !Boolean(this.authService.isAuthenticated())
+  // }
 
-    const file = new Blob([data], {type: "json"});
+  // // saveSprites() {
+  // //   this.app.getTopicService("Sprites").spriteService.getItems((err, items) => {
+  // //     if (err) {
+  // //       console.error(err)
+  // //       return
+  // //     }
+  // //     this.saveData(items, "sprites");
+  // //   })
+  // // }
 
-    // IE10+
-    if (window.navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveOrOpenBlob(file, filename);
-      return;
-    }
+  // // // Function to download data to a file
+  // // saveData(data, filename) :void {
 
-    // Others
-    const a = document.createElement("a");
-    const url = URL.createObjectURL(file);
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
+  // //   filename = filename + ".json";
+  // //   data = JSON.stringify(data)
 
-    setTimeout(() => {
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);  
-    }, 0); 
-  }
+  // //   const file = new Blob([data], {type: "json"});
+
+  // //   // IE10+
+  // //   if (window.navigator.msSaveOrOpenBlob) {
+  // //     window.navigator.msSaveOrOpenBlob(file, filename);
+  // //     return;
+  // //   }
+
+  // //   // Others
+  // //   const a = document.createElement("a");
+  // //   const url = URL.createObjectURL(file);
+  // //   a.href = url;
+  // //   a.download = filename;
+  // //   document.body.appendChild(a);
+  // //   a.click();
+
+  // //   setTimeout(() => {
+  // //       document.body.removeChild(a);
+  // //       window.URL.revokeObjectURL(url);  
+  // //   }, 0); 
+  // // }
   
 
 }

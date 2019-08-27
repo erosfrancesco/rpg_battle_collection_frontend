@@ -1,8 +1,0 @@
-<div *ngIf="checkIfIsEnemy()">
-	<mat-form-field>
-		<mat-label> Actor AI </mat-label>
-		<mat-select [(value)]="actor.properties.ai">
-			<mat-option *ngFor="let item of service.items" [value]="item.id">{{item.label}}</mat-option>
-		</mat-select>
-	</mat-form-field>
-</div>

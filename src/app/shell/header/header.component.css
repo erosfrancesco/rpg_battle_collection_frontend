@@ -1,0 +1,16 @@
+:host mat-toolbar {
+	width: 100% !important;
+}
+
+:host .leftSide {
+	position: absolute;
+	left: 10px;
+	display: inline;
+}
+
+:host .rightSide {
+	position: absolute;
+	right: 25px;
+	display: inline;
+	align-items: right;
+}

@@ -1,0 +1,8 @@
+<app-resources-list-wrapper [service]="service">
+	<app-actor-item	*ngFor="let item of service.items let i = index" 
+					[attr.data-index]="i" 
+					[actor]="item"
+					(deleted)="deleteItem()"
+					(updated)="updateItem()">
+	</app-actor-item>
+</app-resources-list-wrapper>

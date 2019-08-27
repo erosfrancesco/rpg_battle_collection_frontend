@@ -1,0 +1,87 @@
+<!-- 
+actors: [{
+	id: "5cf7dda1b5be12001770ee7d",
+	options: {x: 200, y: 200, isEnemy: true, isAlly: true}
+}], 
+    preload: new Function("scene", preload),
+    create : new Function("scene", create),
+    update : new Function("scene", update), 
+    onWin  : new Function("scene", onWin),
+    onLose : new Function("scene", onLose)
+  
+-->
+
+
+
+<div *ngIf="checkIfParentHasActors()">
+	
+	<mat-form-field>
+		<span>Add actor</span>
+		<mat-select>
+			<mat-option *ngFor="let item of service.items" 
+						[value]="item" 
+						[disabled]="computeItemDisabled(item)"
+						(click)="addSelectedItem(item)">
+				{{item.label}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+<!-- -->
+	<br>
+
+
+	<div style="display: inline">
+		<button mat-raised-button disableRipple color="primary" class="mat-elevation-z6" *ngFor="let actor of parent.properties.actors">
+			<mat-card class="mat-elevation-z0">
+				
+				<mat-card-header>
+					<mat-card-title>
+						{{computeActorLabel(actor.id)}}
+					</mat-card-title>
+				</mat-card-header>
+
+				<div>
+
+					<span>Role: </span>
+					<mat-checkbox 	[checked]="actor.options.isAlly" 
+									(change)="actor.options.isAlly = $event.checked;"> Is ally 
+					</mat-checkbox>
+					<mat-checkbox 	[checked]="actor.options.isEnemy" 
+									(change)="actor.options.isEnemy = $event.checked;"> Is Enemy
+					</mat-checkbox>
+
+					<br>
+					<span>Position: </span>
+
+					<mat-form-field>
+						<input placeholder="X" 
+							type="number"
+							[value]="actor.options.x" 
+							(input)="actor.options.x = $event.target.value;"
+							matInput>
+					</mat-form-field>
+					<mat-form-field>
+						<input placeholder="Y" 
+							type="number"
+							[value]="actor.options.y" 
+							(input)="actor.options.y = $event.target.value;"
+							matInput>
+					</mat-form-field>
+
+				</div>
+
+
+				<mat-card-actions>
+
+					<app-button-link [category]="service.category" [itemid]="actor.id"></app-button-link>
+					
+					<button mat-raised-button color="warn" (click)="removeElement(actor, battle)">
+						REMOVE
+					</button>
+				</mat-card-actions>
+				
+			</mat-card>
+		</button>
+	</div>
+</div>

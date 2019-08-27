@@ -1,0 +1,29 @@
+<app-resource-detail-wrapper [service]="service" [item]="action" (itemFetched)="onItemFetched($event)">
+
+	<mat-tab-group>
+	<mat-tab label="Setup" color="primary"> 
+		<div *ngIf="checkItemProperty('setup')">
+			<app-wrapper-editor [encodedFunction]="action.properties.setup" 
+								(encodedFunctionChange)="action.properties.setup = $event">
+			</app-wrapper-editor>
+		</div>
+	</mat-tab>
+
+	<mat-tab label="Create"> 
+		<div *ngIf="checkItemProperty('create')">
+			<app-wrapper-editor [encodedFunction]="action.properties.create" 
+								(encodedFunctionChange)="action.properties.create = $event">
+			</app-wrapper-editor>
+		</div>
+	</mat-tab>
+
+	<mat-tab label="Resolve">
+		<div *ngIf="checkItemProperty('resolve')">
+			<app-wrapper-editor [encodedFunction]="action.properties.resolve" 
+								(encodedFunctionChange)="action.properties.resolve = $event">
+			</app-wrapper-editor>
+		</div>
+	</mat-tab>
+	</mat-tab-group>
+
+<app-resource-detail-wrapper>

@@ -1,0 +1,46 @@
+<app-resource-detail-wrapper [service]="service" [item]="battleobject" (itemFetched)="onItemFetched($event)">
+
+	<!-- <div class="props" *ngIf="checkItemProperty('type')">
+		<mat-form-field>
+			<mat-label> Object type </mat-label>
+			<mat-select [(value)]="battleobject.properties.type">
+				<mat-option *ngFor="let type of availableTypes" [value]="type">{{type}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div> -->
+
+
+	<mat-tab-group>
+		<mat-tab label="Setup"> 
+			<div *ngIf="checkItemProperty('setup')">
+				<app-wrapper-editor [encodedFunction]="battleobject.properties.setup" 
+									(encodedFunctionChange)="battleobject.properties.setup = $event">
+				</app-wrapper-editor>
+			</div>
+		</mat-tab>
+
+		<mat-tab label="Create"> 
+			<div *ngIf="checkItemProperty('create')">
+				<app-wrapper-editor [encodedFunction]="battleobject.properties.create" 
+									(encodedFunctionChange)="battleobject.properties.create = $event">
+				</app-wrapper-editor>
+			</div>
+		</mat-tab>
+
+		<mat-tab label="Destroy" color="primary"> 
+			<div *ngIf="checkItemProperty('destroy')">
+				<app-wrapper-editor [encodedFunction]="battleobject.properties.destroy" 
+									(encodedFunctionChange)="battleobject.properties.destroy = $event">
+				</app-wrapper-editor>
+			</div>
+		</mat-tab>
+
+		<mat-tab label="Animations">
+			<div *ngIf="checkItemProperty('animations')">
+				<app-object-animations-list [parent]="battleobject">
+				</app-object-animations-list>
+			</div>
+		</mat-tab>
+	</mat-tab-group>
+
+</app-resource-detail-wrapper>

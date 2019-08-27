@@ -5,5 +5,41 @@
 <button mat-raised-button color="primary" (click)="importSprites()"> Import Sprites </button>
 <!---->
 
-<h1> RPG Resource Creator </h1>
-<h4> TODO: a proper home page </h4>
+<!-- 
+<div *ngIf="isNotAuthenticated()">
+
+	<mat-divider> </mat-divider>
+	<h4>Login</h4>
+
+	<mat-form-field>
+		<input matInput placeholder="Username"
+						autocomplete="on"
+						[value]="username"
+						(input)="username = $event.target.value;">
+	</mat-form-field>
+	<br>
+
+	<mat-form-field>
+		<input matInput placeholder="Password"
+						[value]="password"
+						(input)="password = $event.target.value;">
+	</mat-form-field>
+	<br>
+
+	<button mat-raised-button color="primary" (click)="login()">Login</button>
+	<mat-divider> </mat-divider>
+</div> -->
+
+<!-- <div *ngIf="!isNotAuthenticated()">
+	<h4> You're authenticated! </h4>
+</div>
+ -->
+<!-- <h4> Users </h4>
+<div *ngFor="let user of dataSource">
+	<div class="user" (click)="loginAs(user)">
+		<mat-divider></mat-divider>
+		<span> User: </span> <b>{{user.username}}</b> 
+	</div>
+</div>
+<mat-divider></mat-divider> -->
+<p> Home page </p>
