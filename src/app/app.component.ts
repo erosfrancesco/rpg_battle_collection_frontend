@@ -8,11 +8,7 @@ import { CommandsService } from './resources/commands/commands.service';
 import { ObjectsService } from './resources/objects/objects.service';
 import { SpritesService } from './resources/sprites/sprites.service';
 import { BattlesService } from './resources/zzz-battles/battles.service';
-// import { ResourceServices } from './services/index.service'
 
-// import { User } from './user.model'
-// import { Topic } from './topic.model'
-// import { HttpClient } from '@angular/common/http';
 
 
 
@@ -43,12 +39,8 @@ export class AppComponent {
 	shellShowSpinner :boolean = false
 	
 	// group and filters
-	group :string | boolean
-	@Output() groupSelected: EventEmitter<any> = new EventEmitter<any>()
-
-	// services
-	// resources = ResourceServices(this.http)
-	// currentUser: User
+	// group :string | boolean
+	// @Output() groupSelected: EventEmitter<any> = new EventEmitter<any>()
 
 	// topic - service map
 	topicMapList :Topic[] = [
@@ -60,34 +52,7 @@ export class AppComponent {
 		new Topic("Objects", this.objectService),
 		new Topic("Sprites", this.spriteService),
 		new Topic("Battles", this.battleService)
-		
-		
-		// new Topic("Actors", "/actors", this.resources.ActorService),
-		// new Topic("A.I.", "/ai", this.resources.AiService),
-		// new Topic("Animations", "/animations", this.resources.AnimationsService),
-		// new Topic("Commands", "/commands", this.resources.CommandService),
-		// new Topic("Battle Objects", "/objects", this.resources.BattleobjectsService),
-		// new Topic("Battle", "/battles", this.resources.BattlesService),
-		// new Topic("Sprites", "/sprites", this.resources.SpriteService)
 	]
-
-	// initializeServices(token: string, user: User) {
-	// 	//this.user = user
-	// 	//this.resources.GroupsService.getItems(() => {})
-	// }
-
-	// getCurrentTopicService() :any {
-	// 	return this.getTopicService(this.navTitle)
-	// }
-
-	// getTopicService(topicName: string) :any {
-	// 	const currentTopic = this.topicMapList.find(item => item.name === topicName)
-	// 	if (!currentTopic) {
-	// 		return null
-	// 	} 
-		
-	// 	return currentTopic.service
-	// }
 
 	toggleSpinner(show: boolean) {
 		setTimeout(() => { this.shellShowSpinner = show })

@@ -1,4 +1,0 @@
-<button *ngFor="let group of groups" mat-menu-item (click)="updateFilters(group)">
-	<mat-icon color="warn" (click)="deleteGroup(group); stopPropagation($event);">cancel</mat-icon>
-	<span>{{group.label}}</span>
-</button>

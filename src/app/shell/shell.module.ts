@@ -6,12 +6,11 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HeaderComponent } from './header/header.component';
 import { PrimaryButtonComponent } from './primary-button/primary-button.component';
-import { SecondaryButtonComponent } from './secondary-button/secondary-button.component';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent, PrimaryButtonComponent, SecondaryButtonComponent
+    HeaderComponent, PrimaryButtonComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +24,7 @@ import { SecondaryButtonComponent } from './secondary-button/secondary-button.co
     SharedModule,
     RouterModule,
 
-    HeaderComponent, PrimaryButtonComponent, SecondaryButtonComponent
+    HeaderComponent, PrimaryButtonComponent
   ]
 })
 export class ShellModule { }
