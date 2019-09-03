@@ -29,6 +29,7 @@
     "@auth0/angular-jwt": "^2.1.1",
     "core-js": "^2.6.9",
     "express": "^4.17.1",
+    "firebase-admin": "^8.4.0",
     "ngx-ace-wrapper": "^7.3.0",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
