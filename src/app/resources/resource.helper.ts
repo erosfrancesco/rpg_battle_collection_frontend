@@ -1,4 +1,4 @@
-import { FetchHelper } from '../shared/fetch.helper'
+import { FetchHelper } from '../shared/resource.fetcher'
 import { Resource } from './resource.model'
 
 import { HttpClient } from '@angular/common/http';
