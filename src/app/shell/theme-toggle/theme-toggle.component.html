@@ -1,0 +1,5 @@
+<mat-slide-toggle   [checked]="isDarkTheme | async" 
+                    (change)="toggleDarkTheme($event.checked)" 
+                    (click)="$event.stopPropagation()">
+Dark theme
+</mat-slide-toggle>

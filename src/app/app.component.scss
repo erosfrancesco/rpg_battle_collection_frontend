@@ -1,3 +1,5 @@
+@import '../theme.scss';
+
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     height: 100%;
     background-color: inherit;
@@ -12,8 +14,6 @@ main {
 	color: inherit;
 }
 
-/* app-header {
-} */
 
 .mat-fab {
 	position: fixed;
@@ -23,7 +23,8 @@ main {
 }
 
 mat-spinner {
-	position: absolute;
+	position: fixed;
 	right: calc( 50% - 100px );
-	width: 200px;
+	top: calc( 50% - 100px );
+	z-index: 1;
 }

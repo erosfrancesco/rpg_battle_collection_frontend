@@ -5,12 +5,15 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
 import { HeaderComponent } from './header/header.component';
-import { PrimaryButtonComponent } from './primary-button/primary-button.component';
+import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
+import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { IconButtonComponent } from './users/icon-button/icon-button.component';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent, PrimaryButtonComponent
+    HeaderComponent, BurgerMenuComponent, ThemeToggleComponent, SidenavComponent, IconButtonComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,7 @@ import { PrimaryButtonComponent } from './primary-button/primary-button.componen
     SharedModule,
     RouterModule,
 
-    HeaderComponent, PrimaryButtonComponent
+    HeaderComponent, BurgerMenuComponent, ThemeToggleComponent, SidenavComponent
   ]
 })
 export class ShellModule { }

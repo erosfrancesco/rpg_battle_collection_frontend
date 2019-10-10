@@ -1,0 +1,13 @@
+<div [ngClass]="{'dark-theme': app.isDarkTheme}">
+	<button mat-icon-button [matMenuTriggerFor]="userMenu">
+		<mat-icon>account_circle</mat-icon>
+	</button>
+</div>
+
+
+<mat-menu #userMenu="matMenu">
+	<mat-list>
+    <h3 mat-subheader>Options</h3>
+    <app-theme-toggle></app-theme-toggle>
+  </mat-list>
+</mat-menu>

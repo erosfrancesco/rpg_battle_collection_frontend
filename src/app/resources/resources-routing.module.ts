@@ -37,7 +37,7 @@ const resourcesRoutes: Routes = [
   },
   {
     path: 'battles',
-    loadChildren: './zzz-battles/battles.module#BattlesModule'
+    loadChildren: './battles/battles.module#BattlesModule'
   },
   // { path: '**', redirectTo: '' }
 ];

@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+
+/* LIGHT THEME */
+$primary: mat-palette($mat-light-blue, 800);
+$accent: mat-palette($mat-deep-purple, 800);
+$warn: mat-palette($mat-red, 500);
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+
+/* DARK THEME */
+.dark-theme {
+  color: $dark-primary-text;
+  $dark-primary: mat-palette($mat-teal, 500);
+  $dark-accent: mat-palette($mat-deep-orange, A400);
+  $dark-warn: mat-palette($mat-pink, A400);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+}
+
+
+/*
+A primary palette: colors most widely used across all screens and components.
+An accent palette: colors used for the floating action button and interactive elements.
+A warn palette: colors used to convey error state.
+A foreground palette: colors for text and icons.
+A background palette: colors used for element backgrounds.
+*/

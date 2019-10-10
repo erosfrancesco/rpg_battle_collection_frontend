@@ -1,12 +1,16 @@
-<mat-toolbar color="primary" class="mat-elevation-z4">
-	
-	<div class="leftSide">
-		<app-primary-button></app-primary-button>
-	</div>
+<div [ngClass]="{'dark-theme': app.isDarkTheme | async}">
 
+	<mat-toolbar color="primary" class="mat-elevation-z4">
+		
+		<div class="leftSide">
+			<app-burger-menu></app-burger-menu>
+		</div>
+		
+		<div class="rightSide">
 
-	
-	<div class="rightSide">	
-	</div>
+			<app-icon-button></app-icon-button>
+			<!-- <app-theme-toggle></app-theme-toggle> -->
+		</div>
 
-</mat-toolbar>
+	</mat-toolbar>
+</div>

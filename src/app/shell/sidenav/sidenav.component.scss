@@ -1,0 +1,9 @@
+@import '../../../theme.scss';
+
+:host {
+    background: mat-color($primary);
+}
+
+.selected {
+    background: mat-color($warn);
+}

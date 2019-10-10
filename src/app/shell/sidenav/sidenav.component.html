@@ -1,0 +1,16 @@
+<mat-list>
+  <mat-option [routerLink]="['']" 
+              [ngClass]="{'selected': checkSelected('Home')}"
+              (click)="setSelected('Home')"> 
+    <strong> Home </strong> 
+  </mat-option>
+
+  <mat-optgroup label="categories">
+    <mat-option *ngFor="let topic of app.topicMapList" 
+      [routerLink]="[topic.path]" 
+      [ngClass]="{'selected': checkSelected(topic.path) | async}"
+      (click)="setSelected(topic.path)">
+      {{topic.name}}
+    </mat-option>
+  </mat-optgroup>
+</mat-list>
