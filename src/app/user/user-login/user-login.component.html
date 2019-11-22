@@ -1,0 +1,20 @@
+<div *ngIf="!user">
+
+  	<mat-form-field>
+		<input placeholder="Username" 
+			[value]="username" 
+			(input)="username = $event.target.value;"
+			matInput>
+	</mat-form-field>
+
+	<mat-form-field>
+		<input placeholder="Password" 
+				[value]="password" 
+				(input)="password = $event.target.value;"
+				matInput>
+	</mat-form-field>
+
+  	<button mat-raised-button color="primary" (click)="login()">
+    	LOG IN
+	</button>
+</div>

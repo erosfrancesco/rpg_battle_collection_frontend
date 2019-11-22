@@ -9,6 +9,7 @@ import { AppComponent } from '../app.component'
 export class HomePageComponent implements OnInit {
 
   constructor(public app: AppComponent) {
+    app.fabButtonIcon = ""
   }
 
   ngOnInit(): void {
