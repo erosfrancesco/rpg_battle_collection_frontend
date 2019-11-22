@@ -36,8 +36,8 @@ export class SpriteDetailComponent implements OnInit {
 
 	/*
 	*/
-	@ViewChild("spriteDisplay") spriteDisplay: ElementRef;
-	@ViewChild("spriteFrame") spriteFrame: ElementRef;
+	@ViewChild("spriteDisplay", { static: true }) spriteDisplay: ElementRef;
+	@ViewChild("spriteFrame", { static: false }) spriteFrame: ElementRef;
 
 
 	frameHeight : string;

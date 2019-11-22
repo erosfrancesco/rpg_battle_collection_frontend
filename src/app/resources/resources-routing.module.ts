@@ -9,35 +9,35 @@ const resourcesRoutes: Routes = [
   },
   {
     path: 'actions',
-    loadChildren: './actions/actions.module#ActionsModule'
+    loadChildren: () => import('./actions/actions.module').then(m => m.ActionsModule)
   },
   {
     path: 'actors',
-    loadChildren: './actors/actors.module#ActorsModule'
+    loadChildren: () => import('./actors/actors.module').then(m => m.ActorsModule)
   },
   {
     path: 'ai',
-    loadChildren: './ai/ais.module#AisModule'
+    loadChildren: () => import('./ai/ais.module').then(m => m.AisModule)
   },
   {
     path: 'animations',
-    loadChildren: './animations/animations.module#AnimationsModule'
+    loadChildren: () => import('./animations/animations.module').then(m => m.AnimationsModule)
   },
   {
     path: 'commands',
-    loadChildren: './commands/commands.module#CommandsModule'
+    loadChildren: () => import('./commands/commands.module').then(m => m.CommandsModule)
   },
   {
     path: 'objects',
-    loadChildren: './objects/objects.module#ObjectsModule'
+    loadChildren: () => import('./objects/objects.module').then(m => m.ObjectsModule)
   },
   {
     path: 'sprites',
-    loadChildren: './sprites/sprites.module#SpritesModule'
+    loadChildren: () => import('./sprites/sprites.module').then(m => m.SpritesModule)
   },
   {
     path: 'battles',
-    loadChildren: './battles/battles.module#BattlesModule'
+    loadChildren: () => import('./battles/battles.module').then(m => m.BattlesModule)
   },
   // { path: '**', redirectTo: '' }
 ];

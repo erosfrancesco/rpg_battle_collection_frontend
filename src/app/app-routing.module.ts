@@ -8,9 +8,9 @@ import { HomePageComponent } from './home-page/home-page.component'
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   
-  { path: 'user', loadChildren: './user/user.module#LoginModule' },
+  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.LoginModule) },
 
-	{ path: 'resources', loadChildren: './resources/resources.module#ResourcesModule' }
+	{ path: 'resources', loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) }
 ];
 
 @NgModule({

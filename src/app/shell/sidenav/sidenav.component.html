@@ -8,7 +8,7 @@
   <mat-optgroup label="categories">
     <mat-option *ngFor="let topic of app.topicMapList" 
       [routerLink]="[topic.path]" 
-      [ngClass]="{'selected': checkSelected(topic.path) | async}"
+      [ngClass]="{'selected': checkSelected(topic.path) }"
       (click)="setSelected(topic.path)">
       {{topic.name}}
     </mat-option>
