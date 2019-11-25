@@ -1,4 +1,4 @@
-<div *ngIf="user.isLogged() | async">
+<div *ngIf="userService.isLogged() | async">
   <h1> Hello {{user && user.username}} </h1>
   <button mat-raised-button color="primary" (click)="logout()">
     LOG OUT

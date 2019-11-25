@@ -13,6 +13,7 @@ export class UserLoginComponent implements OnInit {
 
   username: string = ""
   password: string = ""
+  error: string
   user: User
 
   constructor(public userService: UserService, private href: Router, private app: AppComponent) { 
@@ -20,10 +21,15 @@ export class UserLoginComponent implements OnInit {
   }
 
   login() {
+    this.app.toggleSpinner(true)
     this.userService.login(this.username, this.password).subscribe(user => {
+      this.app.toggleSpinner(false)
       if (user) {
         this.user = user
+        this.error = undefined
         this.href.navigate(['/user'])
+      } else {
+        this.error = "Login failed"
       }
     })
   }
