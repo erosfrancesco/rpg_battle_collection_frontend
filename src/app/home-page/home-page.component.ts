@@ -8,7 +8,7 @@ import { AppComponent } from '../app.component'
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(public app: AppComponent) {
+  constructor(private app: AppComponent) {
     app.fabButtonIcon = ""
   }
 
