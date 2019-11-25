@@ -5,6 +5,12 @@
     <strong> Home </strong> 
   </mat-option>
 
+  <mat-option [routerLink]="['/user']" 
+              [ngClass]="{'selected': checkSelected('User')}"
+              (click)="setSelected('User')"> 
+    <strong> User </strong> 
+  </mat-option>
+
   <mat-optgroup label="categories">
     <mat-option *ngFor="let topic of app.topicMapList" 
       [routerLink]="[topic.path]" 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component'
 import { ThemeService } from 'src/app/shared/theme.service';
-// import { of } from 'rxjs';
+import { UserService } from 'src/app/user/user.service';
 
 
 @Component({
@@ -13,7 +13,8 @@ export class HeaderComponent implements OnInit {
 
 	selectedTopicName: string = ""
 
-	constructor(public app :AppComponent, public theme :ThemeService) { 
+	constructor(public app :AppComponent, public theme :ThemeService, public user :UserService) { 
+
 	}
 
 	updateButtonName(topicName: string): string {

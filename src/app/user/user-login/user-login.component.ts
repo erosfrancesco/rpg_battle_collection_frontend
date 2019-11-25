@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-user-login',
@@ -14,7 +15,8 @@ export class UserLoginComponent implements OnInit {
   password: string = ""
   user: User
 
-  constructor(public userService: UserService, private href: Router) { 
+  constructor(public userService: UserService, private href: Router, private app: AppComponent) { 
+    app.fabButtonIcon = ""
   }
 
   login() {

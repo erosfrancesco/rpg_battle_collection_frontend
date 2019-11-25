@@ -48,4 +48,12 @@ export class UserService {
       this.currentUserSubject.next(null);
   }
 
+  isLogged() :Observable<boolean> {
+    return this.currentUserSubject.pipe(map(user => { 
+      if (user && user.token) {
+        return true
+      }
+      return false
+    }))
+  }
 }

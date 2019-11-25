@@ -1,12 +1,6 @@
-<div *ngIf="user">
-    <h2> Hello {{user.username}} </h2>
-    <button mat-raised-button color="primary" (click)="logout()">
-      LOG OUT
-	  </button>
-</div>
-
-<div *ngIf="!user">
-  <button mat-raised-button color="primary" [routerLink]="['./login']">
-    LOG IN
-	</button>
+<div *ngIf="user.isLogged() | async">
+  <h1> Hello {{user && user.username}} </h1>
+  <button mat-raised-button color="primary" (click)="logout()">
+    LOG OUT
+  </button>
 </div>

@@ -81,7 +81,6 @@ export class AppComponent {
 	}
 
 	closeNavSidebar() {
-		// console.log("ok", this._navIsOpen.value)
 		if (!this._navIsOpen.value) {
 			return
 		}

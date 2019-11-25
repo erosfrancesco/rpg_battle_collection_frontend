@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { HomePageComponent } from './home-page/home-page.component'
+import { AuthGuard } from './user/auth.guard';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', canActivate: [AuthGuard], component: HomePageComponent },
   
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.LoginModule) },
 
-	{ path: 'resources', loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) }
+	{ path: 'resources', canActivate: [AuthGuard], loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) }
 ];
 
 @NgModule({
