@@ -10,13 +10,12 @@ const routes: Routes = [
   
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.LoginModule) },
 
-	{ path: 'resources', canActivate: [AuthGuard], loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) }
+  { path: 'resources', canActivate: [AuthGuard], loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [ 
-  ],
+  providers: [],
 })
 export class AppRoutingModule { }

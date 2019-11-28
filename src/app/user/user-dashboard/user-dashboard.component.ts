@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-import { ShellModule } from 'src/app/shell/shell.module';
+// import { ShellModule } from 'src/app/shell/shell.module';
 import { AppComponent } from 'src/app/app.component';
 import { Router } from '@angular/router';
 

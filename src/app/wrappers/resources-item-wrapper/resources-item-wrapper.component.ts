@@ -9,7 +9,7 @@ import { Resource } from '../../resources/resource.model'
 @Component({
   selector: 'app-resources-item-wrapper',
   templateUrl: './resources-item-wrapper.component.html',
-  styleUrls: ['./resources-item-wrapper.component.css']
+  styleUrls: ['./resources-item-wrapper.component.scss']
 })
 export class ResourcesItemWrapperComponent implements OnInit {
 

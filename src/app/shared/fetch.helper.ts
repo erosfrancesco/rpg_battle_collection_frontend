@@ -1,30 +1,28 @@
-import { Config } from './config'
-
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { environment } from '../../environments/environment'
 
 export class FetchHelper {
 
-	baseUrl = Config.baseUrl
+	baseUrl = environment.apiUrl
 
 	constructor(public http: HttpClient) { }
 	
-	
 	// URL
 	urlPath = {
-		category: name => this.baseUrl + name,
-		categoryItem: (category, itemId) => this.baseUrl + category + "/" + itemId,
+		category: name => this.baseUrl + "/" + name,
+		categoryItem: (category, itemId) => this.urlPath.category(category) + "/" + itemId,
 		categoryList: () => this.baseUrl,
 		findByIds: (category, ids) => {
-			let url = this.baseUrl + category + "/findById?";
+			let url = this.urlPath.category(category) + "/findById?";
 
 			ids.forEach(id => {url += ("id=" + id + "&")})
 			url.trim();
 
 			return url
 		},
-		groupCategory: (group, category) => this.baseUrl + "groups/" + group + "/" + category,
+		groupCategory: (group, category) => this.baseUrl + "/groups/" + group + "/" + category,
 	}
 
 
@@ -35,7 +33,7 @@ export class FetchHelper {
 	}
 	
 	getCategory(category) :Observable<any> {
-		const url = this.baseUrl + category;
+		const url = this.urlPath.category(category);
 		return this.http.get(url)
 	}
 

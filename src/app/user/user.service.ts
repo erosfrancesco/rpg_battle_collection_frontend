@@ -1,52 +1,91 @@
 import { Injectable } from '@angular/core';
-import { Config } from '../shared/config';
+
 import { Observable, BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { User } from './user.model';
-import { map } from 'rxjs/operators';
+import { map, tap} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl = Config.baseUrl
+  baseUrl = environment.apiUrl
 
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  public get localUser() { return JSON.parse(localStorage.getItem('currentUser')) }
+  public set localUser(v) {
+    if (!v) {
+      localStorage.removeItem('currentUser');
+      return
+    }
 
-  constructor(private http: HttpClient, private userService: UserService) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    localStorage.setItem('currentUser', JSON.stringify(v))
+  }
+
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(this.localUser);
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
   loginCall(username: string, password: string) :Observable<any> {
-    return this.http.post(`${this.baseUrl}users/authenticate`, { username, hash: password })
+    return this.http.post(`${this.baseUrl}/users/authenticate`, { username, hash: password })
   }
 
-  login(username: string, password: string) {
+  login(username: string, password: string) :Observable<any> {
     return this.loginCall(username, password)
-        .pipe(map(response => {
-          const user = response.data
-          if (!user) { return }
+    .pipe(map(response => {
+      const user = response.data
+      if (!user) { return }
 
-          const {username, token} = user 
+      const {username, token} = user 
 
-          const currentUser = new User()
-          currentUser.username = username
-          currentUser.token = token
+      const currentUser = new User()
+      currentUser.username = username
+      currentUser.token = token
 
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(currentUser));
-          this.currentUserSubject.next(currentUser);
-          return currentUser;
-        }));
+      // store user details and jwt token in local storage to keep user logged in between page refreshes
+      this.localUser = currentUser
+      this.currentUserSubject.next(currentUser);
+      return currentUser;
+    }));
   }
 
   logout() {
       // remove user from local storage to log user out
-      localStorage.removeItem('currentUser');
+      this.localUser = null
       this.currentUserSubject.next(null);
   }
+
+
+  isRefreshingToken(request: HttpRequest<any>) :boolean {
+    const refreshToken = this.localUser && this.localUser.token
+    const username = this.localUser && this.localUser.username
+
+    if ( !(refreshToken && username) ) {
+      return false
+    }
+
+    return request.url === this.baseUrl + "/users/refreshToken"
+  }
+  
+
+  refreshToken() :Observable<any>  {
+    const refreshToken = this.localUser.token
+    const username = this.localUser.username
+ 
+    return this.http.post(this.baseUrl + "/users/refreshToken", { username, refreshToken })
+    .pipe(tap(res => {
+      console.log("refreshed token:", res.token)
+      const currentUser = new User()
+      currentUser.username = username
+      currentUser.token = res.token
+      this.localUser = currentUser
+    }));
+
+  }
+
 
   isLogged() :Observable<boolean> {
     return this.currentUserSubject.pipe(map(user => { 

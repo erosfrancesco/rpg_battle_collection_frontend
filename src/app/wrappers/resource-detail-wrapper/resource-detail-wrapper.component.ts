@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-resource-detail-wrapper',
   templateUrl: './resource-detail-wrapper.component.html',
-  styleUrls: ['./resource-detail-wrapper.component.css']
+  styleUrls: ['./resource-detail-wrapper.component.scss']
 })
 export class ResourceDetailWrapperComponent implements OnInit {
   

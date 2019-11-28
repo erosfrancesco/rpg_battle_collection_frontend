@@ -1,5 +1,5 @@
 <div *ngIf="userService.isLogged() | async">
-  <h1> Hello {{user && user.username}} </h1>
+  <h1> Hello {{userService.localUser && userService.localUser.username}} </h1>
   <button mat-raised-button color="primary" (click)="logout()">
     LOG OUT
   </button>

@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-resources-list-wrapper',
   templateUrl: './resources-list-wrapper.component.html',
-  styleUrls: ['./resources-list-wrapper.component.css']
+  styleUrls: ['./resources-list-wrapper.component.scss']
 })
 export class ResourcesListWrapperComponent implements OnInit {
 

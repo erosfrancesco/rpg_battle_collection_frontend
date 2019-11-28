@@ -22,7 +22,7 @@ export class LoginModule {
   public currentUser: Observable<User>;
 
   constructor(private userService: UserService) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(this.userService.localUser);
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -30,7 +30,7 @@ export class LoginModule {
     return this.userService.login(username, password)
         .pipe(map(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            this.userService.localUser = user
             this.currentUserSubject.next(user);
             return user;
         }));
@@ -38,7 +38,7 @@ export class LoginModule {
 
   logout() {
       // remove user from local storage to log user out
-      localStorage.removeItem('currentUser');
+      this.userService.localUser = null
       this.currentUserSubject.next(null);
   }
 }

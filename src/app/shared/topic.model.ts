@@ -1,7 +1,5 @@
 import { ResourceHelper } from '../resources/resource.helper';
 
-// import { ResourceHelper } from "./services/utils/resource.helper"
-
 export class Topic {
 	name :string
 	path :string 

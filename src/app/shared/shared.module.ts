@@ -9,9 +9,10 @@ import {
 
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ButtonLinkComponent } from './button-link/button-link.component';
 import { ThemeService } from './theme.service';
+import { JwtInterceptor } from '../user/interceptors/jwt.interceptor';
 
 
 @NgModule({
@@ -30,7 +31,12 @@ import { ThemeService } from './theme.service';
     MatSlideToggleModule
   ],
   providers: [ 
-    ThemeService
+    ThemeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   exports: [
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSnackBarModule,
