@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SidenavRouteService } from './sidenav-route.service';
 import { AppComponent } from 'src/app/app.component';
-import { BehaviorSubject } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,22 +10,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SidenavComponent implements OnInit {
 
-
-  private _selected = new BehaviorSubject<string>("Home");
-	selected = this._selected.asObservable();
-
-
-  setSelected(value :string) {
-    this._selected.next(value)
-  }
-
-  checkSelected(value :string) :Boolean {
-    return this._selected.value === value
-  }
-
-  constructor(public app: AppComponent) { }
+  constructor(public routeOptions: SidenavRouteService, public app: AppComponent) { }
 
   ngOnInit() {
+  }
+
+  isSelected(i) :Observable<boolean> {
+    const _darkTheme = new BehaviorSubject<boolean>(true);
+    return _darkTheme.asObservable();
   }
 
 }

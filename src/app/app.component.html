@@ -1,22 +1,22 @@
 <div id="wrapper" [ngClass]="{'dark-theme': isDarkTheme | async}">
 	<mat-sidenav-container>
 
-		<mat-sidenav mode="side" [opened]="navIsOpen | async">
+		<mat-sidenav mode="side" [opened]="navIsOpen | async" color="primary">
 			<div [ngClass]="{'dark-theme': isDarkTheme | async}">
 				<app-sidenav></app-sidenav>
 			</div>
 		</mat-sidenav>
 
+
 		<mat-sidenav-content>
 
 			<app-header></app-header>
-			
 			<mat-spinner *ngIf="shellShowSpinner"></mat-spinner>
 
-			<main color="primary" mat-app-background (click)="closeNavSidebar()">
+			<main [ngClass]="{'dark-theme': isDarkTheme | async}" mat-app-background (click)="closeNavSidebar()">
 				<router-outlet></router-outlet>
 
-				<button mat-fab [color]="shellThemeColor" 
+				<button mat-fab color="primary" 
 					*ngIf="fabButtonIcon != ''" 
 					(click)="fabButtonAction()"> 
 					<mat-icon>{{fabButtonIcon}}</mat-icon>

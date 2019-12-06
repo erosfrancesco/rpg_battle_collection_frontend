@@ -8,12 +8,14 @@ import { HeaderComponent } from './header/header.component';
 import { BurgerMenuComponent } from './burger-menu/burger-menu.component';
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { IconButtonComponent } from './users/icon-button/icon-button.component';
+import { SettingsButtonComponent } from './settings-button/settings-button.component';
+import { SidenavItemComponent } from './sidenav/sidenav-item/sidenav-item.component';
+import { SidenavRouteService } from './sidenav/sidenav-route.service';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent, BurgerMenuComponent, ThemeToggleComponent, SidenavComponent, IconButtonComponent
+    HeaderComponent, BurgerMenuComponent, ThemeToggleComponent, SidenavComponent, SettingsButtonComponent, SidenavItemComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { IconButtonComponent } from './users/icon-button/icon-button.component';
     SharedModule
   ],
   providers: [ 
+    SidenavRouteService
   ],
   exports: [
     CommonModule,

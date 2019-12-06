@@ -5,9 +5,7 @@ export class Topic {
 	path :string 
 	service :ResourceHelper
 	
-	constructor(name :string, 
-		// path :string, 
-		service :ResourceHelper){
+	constructor(name :string, service :ResourceHelper){
 		this.name = name
 		this.path = "/resources/" + service.category
 		this.service = service

@@ -1,11 +1,10 @@
 <div [ngClass]="{'dark-theme': app.isDarkTheme | async}">
-
 	<mat-toolbar color="primary" class="mat-elevation-z4">
 		<div class="leftSide" *ngIf="user.isLogged() | async">
 			<app-burger-menu></app-burger-menu>
 		</div>
 		<div class="rightSide">
-			<app-icon-button></app-icon-button>
+			<app-settings-button></app-settings-button>
 		</div>
 	</mat-toolbar>
 </div>

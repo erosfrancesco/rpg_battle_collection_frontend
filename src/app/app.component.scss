@@ -2,16 +2,16 @@
 
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     height: 100%;
-    background-color: inherit;
-	color: inherit;
+	background-color: inherit !important;
+	color: inherit !important;
 }
  
 main {
     padding: 1%;
     text-align: center;
 	height: calc(100% - 86px - 2 * 1%) !important;
-	background-color: inherit;
-	color: inherit;
+	background-color: inherit !important;
+	color: inherit !important;
 }
 
 
@@ -20,6 +20,8 @@ main {
 	right: 2%;
 	bottom: 2%;
 	z-index: 1;
+	background-color: inherit; 
+	color: inherit;
 }
 
 mat-spinner {
@@ -27,4 +29,12 @@ mat-spinner {
 	right: calc( 50% - 100px );
 	top: calc( 50% - 100px );
 	z-index: 1;
+	background-color: transparent !important; 
+	color: inherit;
+}
+
+app-icon-sidenav {
+	width: 64px;
+	background-color: inherit; 
+	color: inherit;
 }

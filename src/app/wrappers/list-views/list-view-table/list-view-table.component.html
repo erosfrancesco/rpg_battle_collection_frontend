@@ -1,0 +1,15 @@
+<mat-list>
+    <button mat-raised-button disableRipple color="primary" class="mat-elevation-z2 wrapper" 
+            *ngFor="let item of dataSource; let i = index" [attr.data-index]="i">
+        <mat-card class="mat-elevation-z0" [routerLink]="['/user']">	
+            <mat-checkbox *ngIf="multi"></mat-checkbox>	
+            <div class="detail" [routerLink]="['/user']"> 
+                <h3> {{item.name}} </h3>
+            </div>
+            <div class="actions">
+                <button mat-raised-button color="accent" (click)="renameAction(i)">Rename</button>
+                <button mat-raised-button color="warn"   (click)="deleteAction(i)">Delete</button>
+            </div>
+        </mat-card>
+    </button>
+</mat-list>

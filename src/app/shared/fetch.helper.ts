@@ -6,14 +6,16 @@ import { environment } from '../../environments/environment'
 export class FetchHelper {
 
 	baseUrl = environment.apiUrl
+	resourceUrl = this.baseUrl + "/resources/"
+	organizationUrl = this.baseUrl + "/organization/"
 
 	constructor(public http: HttpClient) { }
 	
 	// URL
 	urlPath = {
-		category: name => this.baseUrl + "/" + name,
-		categoryItem: (category, itemId) => this.urlPath.category(category) + "/" + itemId,
-		categoryList: () => this.baseUrl,
+		category: name => this.resourceUrl + name,
+		categoryItem: (category, itemId) => this.urlPath.category(category) + itemId,
+		categoryList: () => this.resourceUrl,
 		findByIds: (category, ids) => {
 			let url = this.urlPath.category(category) + "/findById?";
 
@@ -22,7 +24,7 @@ export class FetchHelper {
 
 			return url
 		},
-		groupCategory: (group, category) => this.baseUrl + "/groups/" + group + "/" + category,
+		// groupCategory: (group, category) => this.baseUrl + "/groups/" + group + "/" + category,
 	}
 
 
@@ -37,10 +39,10 @@ export class FetchHelper {
 		return this.http.get(url)
 	}
 
-	getCategoryFilteredByGroup(category, group) :Observable<any> {
-		const url = this.urlPath.groupCategory(group, category);
-		return this.http.get(url)
-	}
+	// getCategoryFilteredByGroup(category, group) :Observable<any> {
+	// 	const url = this.urlPath.groupCategory(group, category);
+	// 	return this.http.get(url)
+	// }
 
 	getCategoryItemsWithId(category, ids) :Observable<any> {
 		const url = this.urlPath.findByIds(category, ids)

@@ -1,0 +1,15 @@
+<div [ngClass]="{'dark-theme': app.isDarkTheme | async}">
+
+  <h2> Your Resources </h2>
+
+  <button *ngFor="let topic of app.topicMapList"   
+          mat-raised-button disableRipple color="primary" class="mat-elevation-z2">
+
+    <mat-card class="mat-elevation-z0" [routerLink]="[topic.path]">		
+      <mat-card-content>
+        <h3>{{topic.name}}</h3>
+      </mat-card-content>
+    </mat-card>
+    
+  </button>
+</div>

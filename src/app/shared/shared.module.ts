@@ -13,11 +13,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ButtonLinkComponent } from './button-link/button-link.component';
 import { ThemeService } from './theme.service';
 import { JwtInterceptor } from '../user/interceptors/jwt.interceptor';
+import { ResourcesHomeComponent } from './resources-home/resources-home.component';
+import { SuccessfulMessageComponent } from './snackbars/successful-message/successful-message.component';
+import { ErrorMessageComponent } from './snackbars/error-message/error-message.component';
 
 
 @NgModule({
+  entryComponents: [SuccessfulMessageComponent, ErrorMessageComponent],
   declarations: [
-    ButtonLinkComponent
+    ButtonLinkComponent, ResourcesHomeComponent, SuccessfulMessageComponent, ErrorMessageComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,8 @@ import { JwtInterceptor } from '../user/interceptors/jwt.interceptor';
     MatSelectModule, MatExpansionModule, MatDividerModule, MatChipsModule, MatListModule, MatSlideToggleModule,
     MatSidenavModule, MatDialogModule, HttpClientModule,
     CommonModule, 
-    ButtonLinkComponent
+    ButtonLinkComponent, ResourcesHomeComponent,
+    SuccessfulMessageComponent, ErrorMessageComponent
   ]
 })
 export class SharedModule { }

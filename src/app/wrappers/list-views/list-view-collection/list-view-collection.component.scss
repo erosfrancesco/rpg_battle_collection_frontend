@@ -1,0 +1,42 @@
+:host .mat-elevation-z6 {
+	margin: 4px;
+}
+
+:host mat-card {
+	background-color: inherit;
+	color: inherit;
+
+	background-size: contain;
+	margin: auto;
+	width: 80%; 
+	height: 80%;
+}
+
+:host mat-card-header mat-card-title button {
+	background-color: inherit;
+	color: inherit;
+	margin-top: -1.5%;
+	text-align: center;
+}
+
+
+:host mat-card-actions {
+	position: absolute; 
+	bottom: 10%;
+	width: 100%;
+}
+
+:host .mat-icon-button {
+	position: absolute;
+	right: 0%;
+}
+
+:host .wrapper {
+	margin: 4px;
+	width: 350px; 
+	height: 300px;
+}
+
+::ng-deep .mat-card-header-text {
+	width: 100%;
+}

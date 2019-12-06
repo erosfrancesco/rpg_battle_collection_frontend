@@ -10,22 +10,22 @@ export class ResourceHelper extends FetchHelper {
 
 	// PROPERTIES
 	category: string
-	filtered: [Resource]
-	grouped: [Resource]
-	items: [Resource]
+	filtered: Resource[]
+	// grouped: [Resource]
+	items: Resource[]
 	
 
 	// COSTRUCTOR
 	constructor(category :string, public http: HttpClient) { 
   		super(http);
-  		this.category = category
+		this.category = category
  	}
 
 
 	// READ  
-	// getAvailableCategories() :Observable<any> { 
-	// 	return this.http.get(this.baseUrl)
-	// }
+	getAvailableCategories() :Observable<any> { 
+		return this.http.get(super.resourceUrl)
+	}
 
 	getItems() :Observable<Resource[]> {  
 		return super.getCategory(this.category)
@@ -47,9 +47,9 @@ export class ResourceHelper extends FetchHelper {
 	}))
 	}
 
-	getItemsByGroup(group) :Observable<Resource[]> {
-		return super.getCategoryFilteredByGroup(this.category, group)
-	}
+	// getItemsByGroup(group) :Observable<Resource[]> {
+	// 	return super.getCategoryFilteredByGroup(this.category, group)
+	// }
 
 
 	// CREATE

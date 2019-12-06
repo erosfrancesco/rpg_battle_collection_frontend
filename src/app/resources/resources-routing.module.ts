@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ResourcesHomeComponent } from './resources-home/resources-home.component';
 
 const resourcesRoutes: Routes = [
-  {
-    path: '', 
-    component: ResourcesHomeComponent
-  },
   {
     path: 'actions',
     loadChildren: () => import('./actions/actions.module').then(m => m.ActionsModule)

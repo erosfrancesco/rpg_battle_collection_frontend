@@ -9,6 +9,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 
 import { ShellModule } from './shell/shell.module'
 import { SharedModule } from './shared/shared.module';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { WrappersModule } from './wrappers/wrappers.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,14 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     SharedModule,
     ShellModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    WrappersModule
   ],
   bootstrap: [ AppComponent ],
   entryComponents: []

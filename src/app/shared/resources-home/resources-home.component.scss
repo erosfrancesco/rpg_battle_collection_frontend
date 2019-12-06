@@ -1,0 +1,26 @@
+@import "../theme.scss";
+
+div {
+	margin: 4%;
+}
+
+button {
+	margin: 4px;
+	border-radius: 8px;
+	background: inherit;
+	color: inherit;
+}
+
+mat-card {
+	margin: 4px;
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	background: inherit !important;
+	color: inherit !important;
+}
+
+mat-card-content {
+	background: inherit;
+	color: inherit;
+}

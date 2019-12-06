@@ -1,6 +1,10 @@
-<div *ngIf="userService.isLogged() | async">
-  <h1> Hello {{userService.localUser && userService.localUser.username}} </h1>
-  <button mat-raised-button color="primary" (click)="logout()">
-    LOG OUT
-  </button>
+<div *ngIf="userService.isLogged() | async" [ngClass]="{'dark-theme': app.isDarkTheme | async}">
+  <div>
+    <h3> Hello {{userService.localUser && userService.localUser.username}} </h3>
+    <button mat-raised-button color="primary" (click)="logout()">
+      LOG OUT
+    </button>
+  </div>
 </div>
+
+<app-resources-home></app-resources-home>

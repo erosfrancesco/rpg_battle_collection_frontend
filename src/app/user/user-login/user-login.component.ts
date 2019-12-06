@@ -18,6 +18,7 @@ export class UserLoginComponent implements OnInit {
 
   constructor(public userService: UserService, private href: Router, private app: AppComponent) { 
     app.fabButtonIcon = ""
+    this.app.toggleSpinner(false)
   }
 
   login() {

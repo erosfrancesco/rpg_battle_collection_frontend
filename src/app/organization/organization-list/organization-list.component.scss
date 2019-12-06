@@ -1,0 +1,33 @@
+/* Stub */
+
+:host .mat-elevation-z6 {
+	margin: 4px;
+}
+
+:host div {
+	background-size: contain;
+	background-color: inherit;
+	color: inherit;
+	width: 200px; 
+	height: 100px;
+	margin: 0px !important;
+}
+
+
+:host mat-card-header {
+	width: 200px; 
+	margin: 0px !important;
+	text-align: center;
+	background-color: inherit;
+	color: inherit;
+}
+
+:host mat-card-header mat-card-title button {
+	margin-top:  -10px;
+	// background-color: inherit;
+	// color: inherit;
+}
+
+:host mat-icon {
+	margin-top: -5px;
+}

@@ -13,8 +13,7 @@ import { Resource } from '../../resources/resource.model'
 })
 export class ResourcesItemWrapperComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private snackBar: MatSnackBar) { 
-  }
+  constructor(public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.category = this.service.category
@@ -22,6 +21,7 @@ export class ResourcesItemWrapperComponent implements OnInit {
 
   @Input() resource: Resource
   @Input() service: ResourceHelper
+  @Input() rapresentation :string = "collection"
   category: string
 
   /*

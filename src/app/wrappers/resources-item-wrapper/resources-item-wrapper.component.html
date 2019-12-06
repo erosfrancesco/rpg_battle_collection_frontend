@@ -1,10 +1,33 @@
-<app-color-card>
-	<div [routerLink]="[computeItemUrl()]">
-		<mat-card-header>
-			<mat-card-title>
+<app-color-card class="list" *ngIf="rapresentation === 'list'">
+	<div [routerLink]="[computeItemUrl()]" class="list">
+
+		<mat-card-title class="list">
+			<button mat-icon-button (click)="editLabel(); stopPropagation($event);" class="list">
+				<mat-icon color="background">edit</mat-icon>
+			</button>
+			<span> {{resource.label}} </span> 
+			<button mat-raised-button 
+					color="warn" 
+					(click)="deleteItem(); stopPropagation($event)" 
+					class="list">
+				DELETE
+			</button>
+		</mat-card-title>
+	</div>
+</app-color-card>
+
+
+
+
+
+
+<app-color-card class="collection" *ngIf="rapresentation === 'collection'">
+	<div [routerLink]="[computeItemUrl()]" class="collection">
+		<mat-card-header class="collection">
+			<mat-card-title class="collection">
 				<span> {{resource.label}} </span> 
 				
-				<button mat-icon-button (click)="editLabel(); stopPropagation($event);">
+				<button mat-icon-button (click)="editLabel(); stopPropagation($event);" class="collection">
 					<mat-icon color="background">edit</mat-icon>
 				</button>
 			</mat-card-title>
@@ -12,8 +35,8 @@
 
 		<ng-content></ng-content>
 
-		<mat-card-actions>
-			<button mat-raised-button color="warn" (click)="deleteItem(); stopPropagation($event)">
+		<mat-card-actions class="collection">
+			<button mat-raised-button color="warn" (click)="deleteItem(); stopPropagation($event)" class="collection">
 				DELETE
 			</button>
 		</mat-card-actions>

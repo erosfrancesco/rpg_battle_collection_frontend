@@ -1,0 +1,34 @@
+<mat-option *ngIf="!options.childs"
+            [routerLink]="[options.link]" 
+            [ngClass]="{'selected': isSelected() | async}"
+            (click)="routeService.select(index)"> 
+    <mat-icon>{{options.icon}}</mat-icon>
+    <strong> {{options.name}} </strong> 
+</mat-option>
+
+
+
+
+<mat-accordion *ngIf="options.childs">
+  <mat-expansion-panel>
+
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <strong>{{options.name}}</strong>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+
+    <ul *ngFor="let child of options.childs; let i = index" [attr.data-index]="i">
+        <li> 
+            <mat-option [routerLink]="[child.link]"
+                        [ngClass]="{'selected': isSelected(i + 1) | async}"
+                        (click)="routeService.select(index, i + 1)">
+            {{child.name}}
+            </mat-option>
+        </li>
+    </ul>
+    
+    
+  </mat-expansion-panel>
+</mat-accordion>

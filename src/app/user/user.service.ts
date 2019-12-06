@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { User } from './user.model';
-import { map, tap} from 'rxjs/operators';
+import { map, tap, catchError} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,28 +19,32 @@ export class UserService {
   public set localUser(v) {
     if (!v) {
       localStorage.removeItem('currentUser');
+      this.router.navigate(['user/login'])
       return
     }
 
     localStorage.setItem('currentUser', JSON.stringify(v))
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(this.localUser);
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
   loginCall(username: string, password: string) :Observable<any> {
-    return this.http.post(`${this.baseUrl}/users/authenticate`, { username, hash: password })
+    return this.http.post(`${this.baseUrl}/user/authenticate`, { username, password })
   }
 
-  login(username: string, password: string) :Observable<any> {
+  login(username: string, password: string) :Observable<User> {
     return this.loginCall(username, password)
     .pipe(map(response => {
-      const user = response.data
-      if (!user) { return }
 
-      const {username, token} = user 
+      const {username, token} = response 
+
+      if (!username || !token) {
+        // show error
+        return
+      }
 
       const currentUser = new User()
       currentUser.username = username
@@ -67,7 +72,7 @@ export class UserService {
       return false
     }
 
-    return request.url === this.baseUrl + "/users/refreshToken"
+    return request.url === this.baseUrl + "/user/refreshToken"
   }
   
 
@@ -75,15 +80,13 @@ export class UserService {
     const refreshToken = this.localUser.token
     const username = this.localUser.username
  
-    return this.http.post(this.baseUrl + "/users/refreshToken", { username, refreshToken })
+    return this.http.post(this.baseUrl + "/user/refreshToken", { username, refreshToken })
     .pipe(tap(res => {
-      console.log("refreshed token:", res.token)
       const currentUser = new User()
       currentUser.username = username
       currentUser.token = res.token
       this.localUser = currentUser
-    }));
-
+    }))
   }
 
 

@@ -1,1 +1,13 @@
 @import '../../../theme.scss';
+
+:host app-color-card {
+    width: 50%;
+}
+
+:host mat-form-field {
+    margin: 2%;
+}
+
+:host app-color-card button {
+    width: 98%;
+}

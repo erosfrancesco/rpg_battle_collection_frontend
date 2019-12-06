@@ -1,1 +1,15 @@
 <h2> DASHBOARD (TODO) </h2>
+
+
+<app-list-view-table (delete)="deleteElement($event)" 
+                     (detail)="detailElement($event)"
+                     (modify)="modifyElement($event)"
+                     [dataSource]="dataSource | async">
+</app-list-view-table>
+
+
+<app-list-view-collection (delete)="deleteElement($event)" 
+                          (detail)="detailElement($event)"
+                          (modify)="modifyElement($event)"
+                          [dataSource]="dataSource | async">
+</app-list-view-collection>

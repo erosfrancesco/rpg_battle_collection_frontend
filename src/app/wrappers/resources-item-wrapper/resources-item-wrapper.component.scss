@@ -1,10 +1,11 @@
 @import "../theme.scss";
 
-:host .mat-elevation-z6 {
+/* Collection Rapresentation */
+:host .mat-elevation-z6.collection {
 	margin: 4px;
 }
 
-:host div {
+:host div.collection {
 	background-size: contain;
 	background-color: inherit;
 	width: 200px; 
@@ -14,7 +15,7 @@
 }
 
 
-:host mat-card-header {
+:host mat-card-header.collection {
 	width: 200px; 
 	margin: 0px !important;
 	text-align: center;
@@ -22,20 +23,27 @@
 	color: inherit;
 }
 
-:host mat-card-header mat-card-title button {
+:host mat-card-header mat-card-title button.collection {
 	margin-top:  -10px;
 	background-color: inherit;
 	color: inherit;
 }
 
 
-:host mat-card-actions {
+:host mat-card-actions.collection {
 	position: absolute; 
 	bottom: -16px; 
 	width: 100%;
 }
 
-:host .mat-icon-button {
+:host .mat-icon-button.collection {
 	position: absolute;
 	right: -10px;
+}
+
+
+
+/* List Rapresentation */
+app-color-card.list {
+	width: 100% !important;
 }

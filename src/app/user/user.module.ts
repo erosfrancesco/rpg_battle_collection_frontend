@@ -8,11 +8,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { SharedModule } from '../shared/shared.module';
+import { WrappersModule } from '../wrappers/wrappers.module';
 
 @NgModule({
   declarations: [UserLoginComponent, UserDashboardComponent],
   imports: [
     SharedModule,
+    WrappersModule,
     LoginRoutingModule
   ]
 })

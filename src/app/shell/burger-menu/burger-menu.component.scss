@@ -1,2 +1,5 @@
 @import '../../../theme.scss';
 
+:host button {
+    background-color: transparent !important;
+}

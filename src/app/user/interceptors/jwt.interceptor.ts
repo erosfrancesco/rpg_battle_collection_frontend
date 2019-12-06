@@ -36,22 +36,24 @@ export class JwtInterceptor implements HttpInterceptor {
             this.isRefreshing = true;
             this.refreshTokenSubject.next(null);
 
-            return this.userService.refreshToken().pipe(
-            switchMap((res: any) => {
+            return this.userService.refreshToken()
+            .pipe(switchMap((res: any) => {
                 this.isRefreshing = false;
                 this.refreshTokenSubject.next(res.token);
                 console.log("got refreshed token", res)
                 return next.handle(this.addToken(request, res.token));
+            }))
+            .pipe(catchError(err => {
+                console.log("Not logged, or session expired. Time to log the fuck out")
+                this.userService.logout()
+                return throwError(err)
             }));
         }
 
         return this.refreshTokenSubject.pipe(
-            filter(res => res.token != null),
+            filter(res => res && res.token != null),
             take(1),
-            switchMap(jwt => {
-                console.log("got token while already refreshing", jwt)
-                return next.handle(this.addToken(request, jwt));
-        }));    
+            switchMap(jwt => next.handle(this.addToken(request, jwt))));    
     }
   
     private addToken(request: HttpRequest<any>, token: string) :HttpRequest<any> {

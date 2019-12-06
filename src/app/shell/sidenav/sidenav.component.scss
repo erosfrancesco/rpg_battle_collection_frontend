@@ -1,9 +1,17 @@
 @import '../../../theme.scss';
 
 :host {
-    background: mat-color($primary);
+    background: inherit !important;
+    color: inherit !important;
+    background-color: inherit !important;
+}
+
+mat-option, app-sidenav-item {
+    background: inherit !important;
+    color: inherit !important;
+    background-color: inherit !important;
 }
 
 .selected {
-    background: mat-color($warn);
+    color: mat-color($warn);
 }

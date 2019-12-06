@@ -1,0 +1,17 @@
+@import '../../../../theme.scss';
+
+mat-option {
+    background: inherit !important;
+    background-color: inherit !important;
+    color: inherit !important; 
+}
+
+mat-accordion, mat-expansion-panel, mat-expansion-panel-header, mat-panel-title {
+    background: inherit !important;
+    background-color: inherit !important;
+    color: inherit !important; 
+}
+
+.selected {
+    color: mat-color($warn) !important;
+}

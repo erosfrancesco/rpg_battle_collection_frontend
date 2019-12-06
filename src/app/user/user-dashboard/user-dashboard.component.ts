@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-// import { ShellModule } from 'src/app/shell/shell.module';
 import { AppComponent } from 'src/app/app.component';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,7 @@ export class UserDashboardComponent implements OnInit {
 
   user: User
 
-  constructor(public userService: UserService, private app: AppComponent, private router: Router) {  
+  constructor(public userService: UserService, public app: AppComponent, private router: Router) {  
     app.fabButtonIcon = ""
   }
 

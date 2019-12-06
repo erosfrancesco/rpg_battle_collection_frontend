@@ -10,6 +10,8 @@ import { SpritesService } from './resources/sprites/sprites.service';
 import { BattlesService } from './resources/battles/battles.service';
 import { ThemeService } from './shared/theme.service';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -31,11 +33,25 @@ export class AppComponent {
 		public objectService: ObjectsService,
 		public spriteService: SpritesService,
 		public battleService: BattlesService,
-		public theme: ThemeService
+		public theme: ThemeService,
+
+		public overlayContainer: OverlayContainer
 	) {
+		
 	}
 
-	ngOnInit() { }
+	ngOnInit() {
+		this.isDarkTheme.subscribe(value => {
+			if (value) {
+				this.overlayContainer.getContainerElement().classList.add('dark-theme');
+			} else {
+				this.overlayContainer.getContainerElement().classList.remove('dark-theme');
+				this.overlayContainer.getContainerElement().style.background = "transparent"
+			}
+		})
+
+		console.log(this)
+	}
 	
 	/* Shell Props */
 	navTitle :string
@@ -51,10 +67,6 @@ export class AppComponent {
 	shellThemeColor :String = "primary"
 	isDarkTheme: Observable<boolean>;
 	
-
-	// group and filters
-	// group :string | boolean
-	// @Output() groupSelected: EventEmitter<any> = new EventEmitter<any>()
 
 	// topic - service map
 	topicMapList :Topic[] = [

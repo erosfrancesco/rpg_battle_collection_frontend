@@ -3,11 +3,11 @@ import { AppComponent } from 'src/app/app.component';
 import { ThemeService } from 'src/app/shared/theme.service';
 
 @Component({
-  selector: 'app-icon-button',
-  templateUrl: './icon-button.component.html',
-  styleUrls: ['./icon-button.component.scss']
+  selector: 'app-settings-button',
+  templateUrl: './settings-button.component.html',
+  styleUrls: ['./settings-button.component.scss']
 })
-export class IconButtonComponent implements OnInit {
+export class SettingsButtonComponent implements OnInit {
 
   constructor(public app :AppComponent, public theme: ThemeService) {
 	}

@@ -1,0 +1,22 @@
+<h2>Your organization</h2>
+
+
+<app-color-card color="primary" *ngFor="let organization of organizations | async">    
+    <div [routerLink]="[computeItemUrl(organization)]">
+		<mat-card-header>
+			<mat-card-title>
+				<span> {{organization.name}} </span> 
+				
+				<button mat-icon-button (click)="editLabel(organization); stopPropagation($event);">
+					<mat-icon color="foreground">edit</mat-icon>
+				</button>
+			</mat-card-title>
+		</mat-card-header>
+
+		<mat-card-actions>
+			<button mat-raised-button color="warn" (click)="deleteItem(organization); stopPropagation($event)">
+				DELETE
+			</button>
+		</mat-card-actions>
+	</div>
+</app-color-card>

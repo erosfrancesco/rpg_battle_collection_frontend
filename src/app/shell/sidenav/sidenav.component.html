@@ -1,22 +1,16 @@
-<mat-list>
-  <mat-option [routerLink]="['']" 
-              [ngClass]="{'selected': checkSelected('Home')}"
-              (click)="setSelected('Home')"> 
-    <strong> Home </strong> 
-  </mat-option>
+<mat-list id="container">
+  <app-sidenav-item 
+    *ngFor="let option of routeOptions.routeItemsOptions; let i = index" 
+    [attr.data-index]="i" [index]="i">
+  </app-sidenav-item>
 
-  <mat-option [routerLink]="['/user']" 
-              [ngClass]="{'selected': checkSelected('User')}"
-              (click)="setSelected('User')"> 
-    <strong> User </strong> 
-  </mat-option>
-
-  <mat-optgroup label="categories">
+  <!-- <mat-optgroup label="Resources">
     <mat-option *ngFor="let topic of app.topicMapList" 
-      [routerLink]="[topic.path]" 
-      [ngClass]="{'selected': checkSelected(topic.path) }"
-      (click)="setSelected(topic.path)">
+      [ngClass]="{'selected': routeOptions.ifIsSelected(i) | async}"
+      [routerLink]="[topic.path]">
       {{topic.name}}
     </mat-option>
-  </mat-optgroup>
+  </mat-optgroup> -->
+
 </mat-list>
+

@@ -1,0 +1,30 @@
+<mat-list>
+    <button mat-raised-button disableRipple color="primary" class="mat-elevation-z2 wrapper" 
+            *ngFor="let item of dataSource; let i = index" [attr.data-index]="i">
+        <mat-card class="mat-elevation-z0" (click)="detailAction(i)">	
+
+
+
+			<mat-card-header>
+				<mat-card-title>
+					<span> {{item.name}} </span> 
+					
+					<button mat-icon-button (click)="modifyAction(i); stopPropagation($event);">
+						<mat-icon>edit</mat-icon>
+					</button>
+				</mat-card-title>
+			</mat-card-header>
+
+			<ng-content></ng-content>
+
+			<mat-card-actions>
+				<button mat-raised-button color="warn" (click)="deleteAction(i); stopPropagation($event)">
+					DELETE
+				</button>
+			</mat-card-actions>
+
+
+		
+		</mat-card>
+	</button>
+</mat-list>

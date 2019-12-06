@@ -9,6 +9,8 @@ const routes: Routes = [
   { path: '', canActivate: [AuthGuard], component: HomePageComponent },
   
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.LoginModule) },
+  
+  { path: 'organization', canActivate: [AuthGuard], loadChildren: () => import('./organization/organization.module').then(m => m.OrganizationModule) },
 
   { path: 'resources', canActivate: [AuthGuard], loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) }
 ];

@@ -29,65 +29,20 @@ export class ResourcesListWrapperComponent implements OnInit {
 		private snackBar: MatSnackBar, 
 		public router: Router
 	) { 
-		// this.app.fabButtonAction = () => this.addNewItem()
-
-
 		
-		/* Service */
-
-
-		/* Init */
-		// this.fetchItemsByGroup(this.app.group, () => {
-		// 	this.app.showSpinner = false
-		//  	this.app.fabButtonIcon = "add"
-		// })
-
-		// this.groupFilter = this.app.groupSelected.subscribe(group => {
-		// 	this.app.fabButtonIcon = ""
-		// 	this.app.showSpinner = true
-			
-		// 	this.fetchItemsByGroup(group, items => {
-		// 		this.app.showSpinner = false
-		// 		this.app.fabButtonIcon = "add"
-		// 		this.itemFetch.emit(items)
-		// 	})
-		// })
 	}
 
 	/*
 		Get those items!
 	*/
 	ngOnInit() {
-		this.fetchItems(() => {
-			// console.log("got items", this.service.items)
-		})
+		this.fetchItems(() => {})
 	}
 
 	ngOnDestroy() {
 		this.serviceSubscription.unsubscribe()
-		//this.groupFilter.unsubscribe();
 	}
 
-
-	/*
-	*/
-	// fetchItemsByGroup(group :string | boolean, callback: (items: Resource[]) => void) {
-	// 	if (!group) {
-	// 		this.fetchItems(callback)
-	// 		return
-	// 	}
-
-	// 	this.service.getItemsByGroup(group).subscribe(items => {
-	// 	//, (err: any, items: Resource[]) => {
-	// 		// if (err) {
-	// 		// 	this.app.showSpinner = false
-	// 		// 	this.router.navigate([""])
-	// 		// 	return
-	// 		// }
-			
-	// 		callback( items.map((item: Resource) => new Resource().deserialize(item)) );
-	// 	});
-	// }
 
 	fetchItems(callback: () => void) {
 
