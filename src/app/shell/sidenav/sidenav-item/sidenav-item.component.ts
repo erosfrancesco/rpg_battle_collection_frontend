@@ -15,6 +15,11 @@ export class SidenavItemComponent implements OnInit {
     name: string;
     link: string;
     icon: string;
+    childs?: {
+      name: string;
+      link: string;
+      icon: string;
+    }[]
   }
 
   constructor(public routeService: SidenavRouteService) { }
@@ -25,7 +30,6 @@ export class SidenavItemComponent implements OnInit {
 
   isSelected(childIndex? :number) :Observable<boolean> {
     return this.routeService.ifIsSelected(this.index, childIndex)
-    // .selected.pipe(flatMap(v => of(v === this.index) ))
   }
 
 }
